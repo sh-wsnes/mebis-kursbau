@@ -280,7 +280,7 @@ class Kurs:
             name = i["name"]
             showdesc = 1 if i.get("beschreibung") else 0
             fileids = self.dateien_zu(ctx, "mod_resource", "content", [i["datei"]])
-            anzeige = {"neues_fenster": 6, "einbetten": 1, "erzwingen": 4}.get(i.get("anzeige", "automatisch"), 0)
+            anzeige = {"neues_fenster": 3, "einbetten": 1, "erzwingen": 4, "automatisch": 0}.get(i.get("anzeige", "neues_fenster"), 3)
             kern = (f"    <name>{x(name)}</name>\n    <intro>{x(i.get('beschreibung', ''))}</intro>\n    <introformat>1</introformat>\n"
                     f"    <tobemigrated>0</tobemigrated>\n    <legacyfiles>0</legacyfiles>\n    <legacyfileslast>{NULL}</legacyfileslast>\n"
                     f"    <display>{anzeige}</display>\n"
