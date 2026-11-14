@@ -1,0 +1,19 @@
+{
+  "titel": "Beispiel aufgabe",
+  "kurzname": "beispiel-aufgabe",
+  "abschnitte": [
+    {
+      "name": "Beispiel",
+      "inhalte": [
+        {
+          "typ": "aufgabe",
+          "name": "Zusammenfassung",
+          "aufgabenstellung": "<p>Fasse den Text in drei Sätzen zusammen.</p>",
+          "abgabehinweis": "<p>Schreibe direkt in das Textfeld.</p>",
+          "abgabe": "text",
+          "punkte": 10
+        }
+      ]
+    }
+  ]
+}

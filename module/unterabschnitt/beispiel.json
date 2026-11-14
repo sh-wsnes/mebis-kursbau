@@ -1,0 +1,21 @@
+{
+  "titel": "Beispiel unterabschnitt",
+  "kurzname": "beispiel-unterabschnitt",
+  "abschnitte": [
+    {
+      "name": "Beispiel",
+      "inhalte": [
+        {
+          "typ": "unterabschnitt",
+          "name": "Zusatzmaterial",
+          "inhalte": [
+            {
+              "typ": "textfeld",
+              "html": "<p>Dieses Textfeld liegt im Unterabschnitt.</p>"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
