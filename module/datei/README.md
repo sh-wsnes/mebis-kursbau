@@ -10,7 +10,7 @@ Eine einzelne Datei zum Herunterladen oder Ansehen, zum Beispiel ein Arbeitsblat
 
 - jede Dateiart (PDF, Bild, Word, Audio …)
 - eine Beschreibung unter dem Namen
-- Anzeige automatisch, eingebettet, in neuem Fenster oder nur als Download
+- Anzeige in neuem Fenster (Standard), eingebettet in die Kursseite oder nur als Download
 
 ## Das geht noch nicht
 
@@ -18,7 +18,7 @@ Eine einzelne Datei zum Herunterladen oder Ansehen, zum Beispiel ein Arbeitsblat
 
 ## Getestet
 
-Noch nicht in der Lernplattform getestet.
+Am 14.11.2026 in der ByCS-Lernplattform (Moodle 5.2.4) wiederhergestellt; die Datei wurde angezeigt. Mit der Anzeige „automatisch“ öffnete sich das PDF ohne Navigation, deshalb ist „neues Fenster“ jetzt Standard; dieser Standard ist noch ungetestet.
 
 ## Für die KI
 
@@ -29,6 +29,6 @@ Noch nicht in der Lernplattform getestet.
 | `name` | Pflicht | Name auf der Kursseite |
 | `datei` | Pflicht | Pfad zur Datei, bezogen auf den Ordner der Kursbeschreibung |
 | `beschreibung` | Wahl | HTML |
-| `anzeige` | Wahl | `automatisch` (Standard), `einbetten`, `neues_fenster` oder `erzwingen` (Download) |
+| `anzeige` | Wahl | `neues_fenster` (Standard), `einbetten` (in der Kursseite mit Navigation), `erzwingen` (Download) oder `automatisch` |
 
 Ein Kurs, der nur dieses Element enthält: [`beispiel.json`](beispiel.json).
