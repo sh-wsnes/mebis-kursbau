@@ -26,6 +26,30 @@
         {
           "typ": "textfeld",
           "html": "<div class=\"elements-boxes elements-boxes-tip elements-justboxes1-flavor \" data-box-name=\"TIP\">\n<p>Das ist ein mebis-eigener Tipp-Kasten.</p>\n</div>"
+        },
+        {
+          "typ": "buch",
+          "name": "Buch: Infotext",
+          "beschreibung": "<p>Ein Buch mit drei Kapiteln.</p>",
+          "kapitel": [
+            {
+              "titel": "Einleitung",
+              "html": "<p>Worum es geht.</p>"
+            },
+            {
+              "titel": "Hauptteil",
+              "html": "<p>Der eigentliche Inhalt.</p>"
+            },
+            {
+              "titel": "Ein Detail",
+              "unterkapitel": true,
+              "html": "<p>Gehört zum Hauptteil.</p>"
+            },
+            {
+              "titel": "Schluss",
+              "html": "<p>Zusammenfassung.</p>"
+            }
+          ]
         }
       ]
     },
