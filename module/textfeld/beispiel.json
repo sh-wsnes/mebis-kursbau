@@ -1,0 +1,15 @@
+{
+  "titel": "Beispiel textfeld",
+  "kurzname": "beispiel-textfeld",
+  "abschnitte": [
+    {
+      "name": "Beispiel",
+      "inhalte": [
+        {
+          "typ": "textfeld",
+          "html": "<div class=\"elements-boxes elements-boxes-tip elements-justboxes1-flavor \" data-box-name=\"TIP\">\n<p>Lest zuerst die Einführung.</p>\n</div>"
+        }
+      ]
+    }
+  ]
+}

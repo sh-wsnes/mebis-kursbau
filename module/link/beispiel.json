@@ -1,0 +1,16 @@
+{
+  "titel": "Beispiel link",
+  "kurzname": "beispiel-link",
+  "abschnitte": [
+    {
+      "name": "Beispiel",
+      "inhalte": [
+        {
+          "typ": "link",
+          "name": "Schulhomepage",
+          "url": "https://www.wsnes.de"
+        }
+      ]
+    }
+  ]
+}

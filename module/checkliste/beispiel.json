@@ -1,0 +1,28 @@
+{
+  "titel": "Beispiel checkliste",
+  "kurzname": "beispiel-checkliste",
+  "abschnitte": [
+    {
+      "name": "Beispiel",
+      "inhalte": [
+        {
+          "typ": "checkliste",
+          "name": "Bin ich fertig?",
+          "beschreibung": "<p>Hake ab, was du erledigt hast.</p>",
+          "eintraege": [
+            "Text gelesen",
+            "Zusammenfassung abgegeben",
+            {
+              "text": "Schulhomepage angesehen",
+              "link": "https://www.wsnes.de"
+            },
+            {
+              "text": "Zusatzmaterial bearbeitet",
+              "optional": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
