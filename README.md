@@ -40,9 +40,7 @@ Jede Seite beschreibt, was geht, was noch nicht geht und wann das Element zuletz
 
 ## Stand
 
-Datei, Verzeichnis und hochgeladene Bilder in Textfeld, Textseite und Aufgabe: eingebaut, aber noch nicht in der Lernplattform getestet.
-
-Alle übrigen Elemente wurden am 14.11.2026 mit einem Testkurs erzeugt, in der ByCS-Lernplattform (Moodle 5.2.4) wiederhergestellt und geprüft. Nicht jede einzelne Einstellung war Teil des Tests; die Modulseiten nennen die Grenzen. Nach einem Update der Lernplattform kann sich das ändern. Deshalb: neue Kurse immer zuerst in einen leeren Kurs einspielen.
+Alle Elemente wurden am 14.11.2026 mit einem Testkurs erzeugt, in der ByCS-Lernplattform (Moodle 5.2.4) wiederhergestellt und geprüft. Nicht jede einzelne Einstellung war Teil des Tests; die Modulseiten nennen die Grenzen. Nach einem Update der Lernplattform kann sich das ändern. Deshalb: neue Kurse immer zuerst in einen leeren Kurs einspielen.
 
 ## Für Technikinteressierte
 

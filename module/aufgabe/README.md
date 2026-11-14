@@ -22,7 +22,7 @@ Schülerinnen und Schüler geben eine Arbeit ab, als Datei oder als Text direkt 
 
 ## Getestet
 
-Hochgeladene Dateien: noch nicht in der Lernplattform getestet. Alles andere: am 14.11.2026 mit dem Testkurs (`beispiele/testkurs.json`) erzeugt, in der ByCS-Lernplattform (Moodle 5.2.4) wiederhergestellt und geprüft. Einstellungen, die der Testkurs nicht verwendet, sind ungeprüft.
+Am 14.11.2026, einschließlich hochgeladener Dateien, mit dem Testkurs (`beispiele/testkurs.json`) erzeugt, in der ByCS-Lernplattform (Moodle 5.2.4) wiederhergestellt und geprüft. Einstellungen, die der Testkurs nicht verwendet, sind ungeprüft.
 
 ## Für die KI
 
