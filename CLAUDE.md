@@ -36,7 +36,10 @@ Jeder Inhalt hat ein Feld `typ`. Felder mit HTML enthalten den Code so, wie er i
 | `link` | `name`, `url` (nur `https://`) | `beschreibung`, `neues_fenster` (Standard `true`) | Link/URL |
 | `aufgabe` | `name`, `aufgabenstellung` (HTML, steht sichtbar auf der Aufgabenseite) | `abgabehinweis` (HTML, erscheint erst beim Abgeben), `abgabe` (`datei`, `text` oder `beides`; Standard `datei`), `punkte` (Standard 100) | Aufgabe |
 | `abstimmung` | `name`, `frage` (HTML), `optionen` (Liste, mindestens zwei) | `mehrfachauswahl` (Standard `false`) | Abstimmung |
+| `checkliste` | `name`, `eintraege` (Liste) | `beschreibung`, `eigene_eintraege` (Schüler dürfen eigene Punkte ergänzen; Standard `true`) | Checkliste |
 | `unterabschnitt` | `name` | `inhalte` (wie oben, aber keine weiteren Unterabschnitte) | Unterabschnitt |
+
+Ein Eintrag der Checkliste ist entweder ein Text (`"Einführung gelesen"`) oder ein Objekt mit `text` und den Wahlfeldern `link` (nur `https://`), `optional` (`true` für freiwillige Punkte) und `einrueckung` (0 oder höher).
 
 ## HTML in Textfeldern und Textseiten
 

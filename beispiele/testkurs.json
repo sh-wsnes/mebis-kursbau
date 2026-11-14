@@ -47,6 +47,17 @@
           "optionen": ["leicht", "mittel", "schwer"]
         },
         {
+          "typ": "checkliste",
+          "name": "Bin ich fertig?",
+          "beschreibung": "<p>Hake ab, was du erledigt hast.</p>",
+          "eintraege": [
+            "Einführung gelesen",
+            "Zusammenfassung abgegeben",
+            { "text": "Schulhomepage angesehen", "link": "https://www.wsnes.de" },
+            { "text": "Zusatzmaterial bearbeitet", "optional": true }
+          ]
+        },
+        {
           "typ": "unterabschnitt",
           "name": "Zusatzmaterial",
           "inhalte": [

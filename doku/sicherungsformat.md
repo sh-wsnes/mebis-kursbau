@@ -30,6 +30,6 @@ Eine `.mbz`-Datei ist ein gzip-komprimiertes tar-Archiv. Es beginnt mit der Date
 
 ## In der Mustersicherung enthalten, vom Skript noch nicht erzeugt
 
-`aichat`, `board`, `book`, `checklist`, `data`, `feedback`, `folder`, `glossary`, `journal`, `kanban`, `learningmap`, `lightboxgallery`, `quiz`, `ratingallocate`, `resource`, `unilabel`, `wiki`, `workshop`.
+`aichat`, `board`, `book`, `data`, `feedback`, `folder`, `glossary`, `journal`, `kanban`, `learningmap`, `lightboxgallery`, `quiz`, `ratingallocate`, `resource`, `unilabel`, `wiki`, `workshop`.
 
 Die Mustersicherung selbst liegt nicht im Repo, weil sie Angaben zur Schule und zum Nutzerkonto enthält.
