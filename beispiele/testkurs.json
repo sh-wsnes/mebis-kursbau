@@ -29,7 +29,7 @@
         },
         {
           "typ": "buch",
-          "name": "Infotext",
+          "name": "Buch: Infotext",
           "beschreibung": "<p>Ein Buch mit drei Kapiteln.</p>",
           "kapitel": [
             {

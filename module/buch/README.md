@@ -19,7 +19,7 @@ Mehrere Seiten mit Inhaltsverzeichnis und Blättern-Funktion, gegliedert in Kapi
 
 ## Getestet
 
-Noch nicht in der Lernplattform getestet.
+Am 14.11.2026 in der ByCS-Lernplattform (Moodle 5.2.4) wiederhergestellt und geprüft, einschließlich Unterkapitel.
 
 ## Für die KI
 
