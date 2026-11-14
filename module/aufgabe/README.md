@@ -12,17 +12,17 @@ Schülerinnen und Schüler geben eine Arbeit ab, als Datei oder als Text direkt 
 - ein zusätzlicher Hinweis, der erst beim Abgeben erscheint
 - Abgabe als Datei, als Text oder beides
 - Höchstpunktzahl
+- Dateien als Anhang zur Aufgabenstellung, z. B. ein Arbeitsblatt
 
 ## Das geht noch nicht
 
 - Abgabetermine und Fristen
 - Gruppenabgaben
 - Bewertungsraster (Rubrics)
-- Dateien als Anhang zur Aufgabenstellung
 
 ## Getestet
 
-Am 14.11.2026 mit dem Testkurs (`beispiele/testkurs.json`) erzeugt, in der ByCS-Lernplattform (Moodle 5.2.4) wiederhergestellt und geprüft. Einstellungen, die der Testkurs nicht verwendet, sind ungeprüft.
+Am 14.11.2026, einschließlich hochgeladener Dateien, mit dem Testkurs (`beispiele/testkurs.json`) erzeugt, in der ByCS-Lernplattform (Moodle 5.2.4) wiederhergestellt und geprüft. Einstellungen, die der Testkurs nicht verwendet, sind ungeprüft.
 
 ## Für die KI
 
@@ -37,5 +37,6 @@ Am 14.11.2026 mit dem Testkurs (`beispiele/testkurs.json`) erzeugt, in der ByCS-
 | `punkte` | Wahl | Höchstpunktzahl, Standard 100 |
 
 Termine stellt die Lehrkraft nach dem Wiederherstellen in den Einstellungen der Aufgabe ein.
+| `dateien` | Wahl | Liste von Dateipfaden, die als Anhang unter der Aufgabenstellung erscheinen |
 
 Ein Kurs, der nur dieses Element enthält: [`beispiel.json`](beispiel.json).

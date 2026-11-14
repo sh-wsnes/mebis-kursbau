@@ -12,6 +12,14 @@
           "abgabehinweis": "<p>Schreibe direkt in das Textfeld.</p>",
           "abgabe": "text",
           "punkte": 10
+        },
+        {
+          "typ": "aufgabe",
+          "name": "Aufgabe mit Arbeitsblatt",
+          "dateien": [
+            "dateien/arbeitsblatt.pdf"
+          ],
+          "aufgabenstellung": "<p>Öffne das Arbeitsblatt und bearbeite Aufgabe 1.</p>"
         }
       ]
     }

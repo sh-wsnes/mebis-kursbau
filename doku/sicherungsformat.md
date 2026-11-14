@@ -25,11 +25,12 @@ Eine `.mbz`-Datei ist ein gzip-komprimiertes tar-Archiv. Es beginnt mit der Date
 - HTML steht maskiert im XML (`&lt;p&gt;`).
 - Abschnitt 0 ist der oberste Abschnitt ohne Namen.
 - Ein Unterabschnitt besteht aus zwei Teilen: einer Aktivität `subsection` im Elternabschnitt und einem eigenen Abschnitt mit `component` = `mod_subsection` und `itemid` = ID der Aktivität. Diese Abschnitte tragen die Nummern nach den Hauptabschnitten. In `moodle_backup.xml` verweist `parentcmid` auf die Aktivität.
+- Hochgeladene Dateien liegen unter `files/XX/PRÜFSUMME` (SHA1, XX = die ersten zwei Zeichen) und werden in `files.xml` beschrieben: Kontext der Aktivität, `component` (z. B. `mod_label`), `filearea` (`intro`, `content`, `introattachment`), Ordnerpfad und Name. Jeder Ordner bekommt zusätzlich einen Eintrag mit Dateiname `.` und der Prüfsumme der leeren Datei; diese liegt nicht im Archiv. Die Aktivität verweist in `inforef.xml` unter `fileref` auf ihre Dateien. Im HTML steht `@@PLUGINFILE@@/NAME` statt der Adresse.
 - Eine Aufgabe braucht zusätzlich `grading.xml`, einen Bewertungsaspekt in `grades.xml` und den Verweis darauf in `inforef.xml`.
 - Die Herkunft der Sicherung (`original_wwwroot`) ist absichtlich eine fremde Adresse. Die Lernplattform behandelt die Datei dann wie eine Sicherung von einer anderen Moodle-Instanz und übernimmt keine IDs.
 
 ## In der Mustersicherung enthalten, vom Skript noch nicht erzeugt
 
-`aichat`, `board`, `book`, `data`, `feedback`, `folder`, `glossary`, `journal`, `kanban`, `learningmap`, `lightboxgallery`, `quiz`, `ratingallocate`, `resource`, `unilabel`, `wiki`, `workshop`.
+`aichat`, `board`, `book`, `data`, `feedback`, `glossary`, `journal`, `kanban`, `learningmap`, `lightboxgallery`, `quiz`, `ratingallocate`, `unilabel`, `wiki`, `workshop`.
 
 Die Mustersicherung selbst liegt nicht im Repo, weil sie Angaben zur Schule und zum Nutzerkonto enthält.
