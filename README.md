@@ -5,7 +5,7 @@ Weil kein MCP besteht, sollen zum Kursbau auf der Lernplattform bycs hier die ei
 
 `kursbau.py` erzeugt aus einer Kursbeschreibung eine Kurssicherung (`.mbz`), die in der Lernplattform über „Wiederherstellen“ eingespielt wird. Unterstützt sind bisher Abschnitte, Unterabschnitte, Text- und Medienfeld, Textseite, Link, Aufgabe und Abstimmung.
 
-Die Wiederherstellung in der Lernplattform ist noch nicht bestätigt. Bis dahin gilt das Ganze als Versuch.
+Die Wiederherstellung eines erzeugten Testkurses in der Lernplattform hat am 14.11.2026 funktioniert, einschließlich Inhalten in Unterabschnitten.
 
 ## Benutzung
 
