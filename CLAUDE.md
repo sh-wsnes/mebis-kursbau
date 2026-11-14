@@ -37,6 +37,8 @@ Jeder Inhalt hat ein Feld `typ`. Die Felder jedes Typs stehen in der Beschreibun
 | `aufgabe` | Aufgabe | [`module/aufgabe/README.md`](module/aufgabe/README.md) |
 | `abstimmung` | Abstimmung | [`module/abstimmung/README.md`](module/abstimmung/README.md) |
 | `checkliste` | Checkliste | [`module/checkliste/README.md`](module/checkliste/README.md) |
+| `datei` | Datei | [`module/datei/README.md`](module/datei/README.md) |
+| `verzeichnis` | Verzeichnis | [`module/verzeichnis/README.md`](module/verzeichnis/README.md) |
 | `unterabschnitt` | Unterabschnitt | [`module/unterabschnitt/README.md`](module/unterabschnitt/README.md) |
 
 Felder mit HTML enthalten den Code so, wie er im Editor der Lernplattform unter „Quellcode“ stünde.
@@ -45,11 +47,15 @@ Felder mit HTML enthalten den Code so, wie er im Editor der Lernplattform unter 
 
 - Die mebis-eigenen Kästen funktionieren, z. B. `<div class="elements-boxes elements-boxes-tip elements-justboxes1-flavor " data-box-name="TIP"><p>Text</p></div>`.
 - Bausteine mit Inline-Styles (Infokasten, Button usw.) aus dem Repo `sh-wsnes/test-mebis` können unverändert als `html` eingesetzt werden.
-- Bilder nur über eine `https://`-Adresse einbinden. Dateien in die Sicherung zu packen, kann das Skript noch nicht.
+- Hochgeladene Bilder: Datei im Feld `dateien` nennen und im HTML mit `<img src="@@PLUGINFILE@@/DATEINAME">` einbinden. Bilder aus dem Internet gehen weiterhin über ihre `https://`-Adresse.
+
+## Dateien
+
+Dateipfade in der Kursbeschreibung sind relativ zum Ordner, in dem die JSON-Datei liegt. Lege die Dateien, die die Lehrkraft hochgeladen hat, neben die JSON-Datei (z. B. in einen Unterordner `dateien/`) und nenne sie mit diesem Pfad. Das Skript packt sie in die Sicherung. Fehlt eine Datei, bricht es mit einer Fehlermeldung ab.
 
 ## Grenzen
 
-- Nicht unterstützt: Dateien und Bilder als Upload, Test, H5P, Buch, Glossar, Forum und alle übrigen Aktivitäten. Sag das der Lehrkraft, statt etwas Ähnliches zu erfinden.
+- Nicht unterstützt: Test, H5P, Buch, Glossar, Forum und alle übrigen Aktivitäten. Sag das der Lehrkraft, statt etwas Ähnliches zu erfinden.
 - Termine, Gruppen, Abschlussbedingungen und Voraussetzungen setzt das Skript nicht. Die Lehrkraft stellt sie nach dem Wiederherstellen ein.
 
 ## Neue Aktivitätstypen ergänzen

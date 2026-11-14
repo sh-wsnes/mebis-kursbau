@@ -10,6 +10,7 @@ Sicherung der ByCS-Lernplattform (Stand 14.11.2026) abgeleitet.
 """
 import hashlib
 import io
+import mimetypes
 import json
 import re
 import sys
@@ -38,7 +39,8 @@ ROOT_SETTINGS = [
 
 TYPEN = {
     "textfeld": "label", "textseite": "page", "link": "url", "aufgabe": "assign",
-    "abstimmung": "choice", "checkliste": "checklist", "unterabschnitt": "subsection",
+    "abstimmung": "choice", "checkliste": "checklist", "datei": "resource",
+    "verzeichnis": "folder", "unterabschnitt": "subsection",
 }
 
 
@@ -65,8 +67,11 @@ class Zaehler:
 
 
 class Kurs:
-    def __init__(self, spec):
+    def __init__(self, spec, basis=Path(".")):
         self.spec = spec
+        self.basis = Path(basis)      # Ordner, auf den sich Dateipfade in der Beschreibung beziehen
+        self.binaer = {}              # Prüfsumme -> Bytes
+        self.fileeintraege = []       # XML-Blöcke für files.xml
         self.jetzt = int(time.time())
         self.id = Zaehler(1000)
         self.dateien = {}          # Pfad im Archiv -> Inhalt (str)
@@ -98,7 +103,8 @@ class Kurs:
         pflicht = {
             "textfeld": ["html"], "textseite": ["name", "html"], "link": ["name", "url"],
             "aufgabe": ["name", "aufgabenstellung"], "abstimmung": ["name", "frage", "optionen"],
-            "checkliste": ["name", "eintraege"], "unterabschnitt": ["name"],
+            "checkliste": ["name", "eintraege"], "datei": ["name", "datei"],
+            "verzeichnis": ["name", "dateien"], "unterabschnitt": ["name"],
         }
         for nr, i in enumerate(inhalte, 1):
             wo = f"{ort}, Inhalt {nr}"
@@ -123,10 +129,67 @@ class Kurs:
                         raise Fehler(f"{wo}: Ein Eintrag der Checkliste hat keinen Text.")
                     if e.get("link") and not str(e["link"]).startswith("https://"):
                         raise Fehler(f"{wo}: Links in der Checkliste müssen mit https:// beginnen.")
+            if typ == "datei":
+                self.datei_pruefen(i["datei"], wo)
+            if typ == "verzeichnis":
+                if not isinstance(i["dateien"], list) or not i["dateien"]:
+                    raise Fehler(f'{wo}: "dateien" muss eine Liste mit mindestens einer Datei sein.')
+                for d in i["dateien"]:
+                    self.datei_pruefen(d["pfad"] if isinstance(d, dict) else d, wo)
+            if typ in ("textfeld", "textseite", "aufgabe"):
+                for d in i.get("dateien", []):
+                    self.datei_pruefen(d, wo)
             if typ == "unterabschnitt":
                 if in_unterabschnitt:
                     raise Fehler(f"{wo}: Unterabschnitte dürfen nicht verschachtelt werden.")
                 self.inhalte_pruefen(i.get("inhalte", []), f"{wo} (Unterabschnitt)", True)
+
+    def datei_pruefen(self, pfad, wo):
+        if not isinstance(pfad, str) or not pfad.strip():
+            raise Fehler(f"{wo}: Ein Dateipfad fehlt.")
+        if not (self.basis / pfad).is_file():
+            raise Fehler(f"{wo}: Datei nicht gefunden: {pfad} (gesucht ab {self.basis.resolve()})")
+
+    # ---------- Dateien ----------
+    def datei_aufnehmen(self, ctx, component, filearea, pfad, zielordner="/"):
+        """Nimmt eine Datei in die Sicherung auf und gibt die ID des files.xml-Eintrags zurück."""
+        quelle = self.basis / pfad
+        inhalt = quelle.read_bytes()
+        pruefsumme = hashlib.sha1(inhalt).hexdigest()
+        self.binaer[pruefsumme] = inhalt
+        mime = mimetypes.guess_type(quelle.name)[0] or "application/octet-stream"
+        return self.file_eintrag(ctx, component, filearea, zielordner, quelle.name, pruefsumme, len(inhalt), mime)
+
+    def ordner_aufnehmen(self, ctx, component, filearea, zielordner):
+        leer = hashlib.sha1(b"").hexdigest()   # Ordnereintrag, ohne Datei im Archiv (wie im Original)
+        return self.file_eintrag(ctx, component, filearea, zielordner, ".", leer, 0, None)
+
+    def file_eintrag(self, ctx, component, filearea, zielordner, name, pruefsumme, groesse, mime):
+        fid = self.id.neu()
+        n = NULL
+        self.fileeintraege.append(
+            f'  <file id="{fid}">\n    <contenthash>{pruefsumme}</contenthash>\n    <contextid>{ctx}</contextid>\n'
+            f"    <component>{component}</component>\n    <filearea>{filearea}</filearea>\n    <itemid>0</itemid>\n"
+            f"    <filepath>{x(zielordner)}</filepath>\n    <filename>{x(name)}</filename>\n    <userid>2</userid>\n"
+            f"    <filesize>{groesse}</filesize>\n    <mimetype>{mime or n}</mimetype>\n    <status>0</status>\n"
+            f"    <timecreated>{self.jetzt}</timecreated>\n    <timemodified>{self.jetzt}</timemodified>\n"
+            f"    <source>{x(name) if name != '.' else n}</source>\n    <author>{n}</author>\n"
+            f"    <license>{'U' if name != '.' else n}</license>\n    <sortorder>0</sortorder>\n"
+            f"    <repositorytype>{n}</repositorytype>\n    <repositoryid>{n}</repositoryid>\n    <reference>{n}</reference>\n"
+            "  </file>\n")
+        return fid
+
+    def dateien_zu(self, ctx, component, filearea, pfade, zielordner="/"):
+        """Alle Dateien einer Liste plus den Ordnereintrag aufnehmen; gibt die IDs zurück."""
+        ids = [self.datei_aufnehmen(ctx, component, filearea, p, zielordner) for p in pfade]
+        ids.append(self.ordner_aufnehmen(ctx, component, filearea, zielordner))
+        return ids
+
+    @staticmethod
+    def fileref(ids):
+        if not ids:
+            return ""
+        return "  <fileref>\n" + "".join(f"    <file>\n      <id>{i}</id>\n    </file>\n" for i in ids) + "  </fileref>\n"
 
     # ---------- Aufbau ----------
     def bauen(self):
@@ -162,7 +225,9 @@ class Kurs:
         grades = "  <grade_items>\n  </grade_items>\n"
         showdesc = 1
 
+        fileids = []
         if mod == "label":
+            fileids = self.dateien_zu(ctx, "mod_label", "intro", i.get("dateien", [])) if i.get("dateien") else []
             text = klartext(i["html"])
             name = text if len(text) <= 50 else text[:50] + "..."
             name = name or "Text- und Medienfeld"
@@ -170,6 +235,7 @@ class Kurs:
                     f"    <introformat>1</introformat>\n    <timemodified>{self.jetzt}</timemodified>\n")
         elif mod == "page":
             name = i["name"]
+            fileids = self.dateien_zu(ctx, "mod_page", "content", i.get("dateien", [])) if i.get("dateien") else []
             kern = (f"    <name>{x(name)}</name>\n    <intro>{x(i.get('beschreibung', ''))}</intro>\n"
                     f"    <introformat>1</introformat>\n    <content>{x(i['html'])}</content>\n"
                     "    <contentformat>1</contentformat>\n    <legacyfiles>0</legacyfiles>\n"
@@ -201,13 +267,44 @@ class Kurs:
                     f"    <options>\n{optionen}    </options>\n    <answers>\n    </answers>\n")
         elif mod == "assign":
             name = i["name"]
+            fileids = self.dateien_zu(ctx, "mod_assign", "introattachment", i.get("dateien", [])) if i.get("dateien") else []
             kern, grades, inforef = self.aufgabe(i, inst)
+            inforef = inforef.replace("<inforef>\n", "<inforef>\n" + self.fileref(fileids), 1)
             self.dateien[f"{ordner}/grading.xml"] = (
                 f'{XML}<areas>\n  <area id="{self.id.neu()}">\n    <areaname>submissions</areaname>\n'
                 f"    <activemethod>{NULL}</activemethod>\n    <definitions>\n    </definitions>\n  </area>\n</areas>")
         elif mod == "checklist":
             name = i["name"]
             kern, grades, inforef = self.checkliste(i, inst)
+        elif mod == "resource":
+            name = i["name"]
+            showdesc = 1 if i.get("beschreibung") else 0
+            fileids = self.dateien_zu(ctx, "mod_resource", "content", [i["datei"]])
+            anzeige = {"neues_fenster": 3, "einbetten": 1, "erzwingen": 4, "automatisch": 0}.get(i.get("anzeige", "neues_fenster"), 3)
+            kern = (f"    <name>{x(name)}</name>\n    <intro>{x(i.get('beschreibung', ''))}</intro>\n    <introformat>1</introformat>\n"
+                    f"    <tobemigrated>0</tobemigrated>\n    <legacyfiles>0</legacyfiles>\n    <legacyfileslast>{NULL}</legacyfileslast>\n"
+                    f"    <display>{anzeige}</display>\n"
+                    '    <displayoptions>a:2:{s:10:"printintro";i:1;s:8:"showtype";i:1;}</displayoptions>\n'
+                    f"    <filterfiles>0</filterfiles>\n    <revision>1</revision>\n    <timemodified>{self.jetzt}</timemodified>\n")
+        elif mod == "folder":
+            name = i["name"]
+            showdesc = 1 if i.get("beschreibung") else 0
+            ordner_gesehen = set()
+            for d in i["dateien"]:
+                pfad, ziel = (d["pfad"], d.get("ordner", "")) if isinstance(d, dict) else (d, "")
+                ziel = "/" + "/".join(t for t in ziel.replace("\\", "/").split("/") if t)
+                ziel = ziel if ziel == "/" else ziel + "/"
+                fileids.append(self.datei_aufnehmen(ctx, "mod_folder", "content", pfad, ziel))
+                teile = [t for t in ziel.split("/") if t]
+                for k in range(len(teile) + 1):
+                    o = "/" + "/".join(teile[:k]) + ("/" if k else "")
+                    if o not in ordner_gesehen:
+                        ordner_gesehen.add(o)
+                        fileids.append(self.ordner_aufnehmen(ctx, "mod_folder", "content", o))
+            kern = (f"    <name>{x(name)}</name>\n    <intro>{x(i.get('beschreibung', ''))}</intro>\n    <introformat>1</introformat>\n"
+                    f"    <revision>1</revision>\n    <timemodified>{self.jetzt}</timemodified>\n    <display>0</display>\n"
+                    f"    <showexpanded>{1 if i.get('aufgeklappt', True) else 0}</showexpanded>\n"
+                    f"    <forcedownload>1</forcedownload>\n    <studentedit>0</studentedit>\n")
         else:  # subsection
             name = i["name"]
             showdesc = 0
@@ -234,6 +331,8 @@ class Kurs:
             f"  <availability>{NULL}</availability>\n  <showdescription>{showdesc}</showdescription>\n"
             f"  <downloadcontent>1</downloadcontent>\n  <lang>{leer}</lang>\n  <enableaitools>{NULL}</enableaitools>\n"
             f"  <enabledaiactions>{NULL}</enabledaiactions>\n  <tags>\n  </tags>\n</module>")
+        if fileids and mod != "assign":
+            inforef = inforef.replace("<inforef>\n", "<inforef>\n" + self.fileref(fileids), 1)
         self.dateien[f"{ordner}/inforef.xml"] = XML + inforef
         self.dateien[f"{ordner}/grades.xml"] = (
             f"{XML}<activity_gradebook>\n{grades}  <grade_letters>\n  </grade_letters>\n</activity_gradebook>")
@@ -403,7 +502,7 @@ class Kurs:
         n, d = NULL, self.dateien
         d["badges.xml"] = f"{XML}<badges>\n</badges>"
         d["completion.xml"] = f"{XML}<course_completion>\n</course_completion>"
-        d["files.xml"] = f"{XML}<files>\n</files>"
+        d["files.xml"] = f"{XML}<files>\n" + "".join(self.fileeintraege) + "</files>"
         d["grade_history.xml"] = f"{XML}<grade_history>\n  <grade_grades>\n  </grade_grades>\n</grade_history>"
         d["groups.xml"] = (f"{XML}<groups>\n  <groupcustomfields>\n  </groupcustomfields>\n  <groupings>\n"
                            "    <groupingcustomfields>\n    </groupingcustomfields>\n  </groupings>\n</groups>")
@@ -492,8 +591,13 @@ class Kurs:
     # ---------- Archiv ----------
     def packen(self, ziel):
         pfade = sorted(self.dateien)
-        ordner = sorted({str(p) + "/" for pfad in pfade for p in Path(pfad).parents if str(p) != "."})
         daten = {p: self.dateien[p].encode("utf-8") for p in pfade}
+        for h, inhalt in sorted(self.binaer.items()):
+            pfad = f"files/{h[:2]}/{h}"
+            daten[pfad] = inhalt
+            pfade.append(pfad)
+        pfade.sort()
+        ordner = sorted({str(p) + "/" for pfad in pfade for p in Path(pfad).parents if str(p) != "."})
         zeilen = [f"{o}\td\t0\t?" for o in ordner] + [f"{p}\tf\t{len(daten[p])}\t{self.jetzt}" for p in pfade]
         index = (f"Moodle archive file index. Count: {len(zeilen)}\n" + "\n".join(zeilen) + "\n").encode("utf-8")
         with tarfile.open(ziel, "w:gz", format=tarfile.USTAR_FORMAT) as tar:
@@ -523,7 +627,7 @@ def main(argv):
         return 2
     try:
         spec = json.loads(Path(argv[1]).read_text(encoding="utf-8"))
-        kurs = Kurs(spec)
+        kurs = Kurs(spec, Path(argv[1]).parent)
     except (Fehler, json.JSONDecodeError, OSError) as f:
         print(f"Fehler: {f}")
         return 1
