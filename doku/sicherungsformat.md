@@ -29,8 +29,10 @@ Eine `.mbz`-Datei ist ein gzip-komprimiertes tar-Archiv. Es beginnt mit der Date
 - Eine Aufgabe braucht zusätzlich `grading.xml`, einen Bewertungsaspekt in `grades.xml` und den Verweis darauf in `inforef.xml`.
 - Die Herkunft der Sicherung (`original_wwwroot`) ist absichtlich eine fremde Adresse. Die Lernplattform behandelt die Datei dann wie eine Sicherung von einer anderen Moodle-Instanz und übernimmt keine IDs.
 
+- Glossareinträge gehören in Moodle zu den Nutzerdaten (`userinfo`). Eine Sicherung ohne Nutzerdaten enthält sie nicht, und eine Wiederherstellung überspringt sie. Das Glossar ist deshalb nicht umsetzbar.
+
 ## In der Mustersicherung enthalten, vom Skript noch nicht erzeugt
 
-`aichat`, `board`, `book`, `data`, `feedback`, `glossary`, `journal`, `kanban`, `learningmap`, `lightboxgallery`, `quiz`, `ratingallocate`, `unilabel`, `wiki`, `workshop`.
+`aichat`, `board`, `data`, `feedback`, `glossary`, `journal`, `kanban`, `learningmap`, `lightboxgallery`, `quiz`, `ratingallocate`, `unilabel`, `wiki`, `workshop`.
 
 Die Mustersicherung selbst liegt nicht im Repo, weil sie Angaben zur Schule und zum Nutzerkonto enthält.
