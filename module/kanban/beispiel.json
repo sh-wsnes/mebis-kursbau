@@ -1,0 +1,16 @@
+{
+  "titel": "Beispiel Kanban-Board",
+  "kurzname": "beispiel-kanban",
+  "abschnitte": [
+    {
+      "name": "Beispiel",
+      "inhalte": [
+        {
+          "typ": "kanban",
+          "name": "Projekt Zeitung",
+          "beschreibung": "<p>Unsere Aufgaben für die Klassenzeitung.</p>"
+        }
+      ]
+    }
+  ]
+}

@@ -38,6 +38,8 @@ Jeder Inhalt hat ein Feld `typ`. Die Felder jedes Typs stehen in der Beschreibun
 | `abstimmung` | Abstimmung | [`module/abstimmung/README.md`](module/abstimmung/README.md) |
 | `checkliste` | Checkliste | [`module/checkliste/README.md`](module/checkliste/README.md) |
 | `buch` | Buch | [`module/buch/README.md`](module/buch/README.md) |
+| `board` | Board (Pinnwand) | [`module/board/README.md`](module/board/README.md) |
+| `kanban` | Kanban-Board | [`module/kanban/README.md`](module/kanban/README.md) |
 | `datei` | Datei | [`module/datei/README.md`](module/datei/README.md) |
 | `verzeichnis` | Verzeichnis | [`module/verzeichnis/README.md`](module/verzeichnis/README.md) |
 | `unterabschnitt` | Unterabschnitt | [`module/unterabschnitt/README.md`](module/unterabschnitt/README.md) |
