@@ -1,0 +1,17 @@
+{
+  "titel": "Beispiel Tagebuch",
+  "kurzname": "beispiel-tagebuch",
+  "abschnitte": [
+    {
+      "name": "Beispiel",
+      "inhalte": [
+        {
+          "typ": "tagebuch",
+          "name": "Lerntagebuch",
+          "schreibauftrag": "<p>Schreibe nach jeder Stunde drei Sätze: Was habe ich gelernt? Was war schwierig? Was nehme ich mir vor?</p>",
+          "punkte": 10
+        }
+      ]
+    }
+  ]
+}
