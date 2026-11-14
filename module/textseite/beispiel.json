@@ -9,6 +9,14 @@
           "typ": "textseite",
           "name": "Einführung",
           "html": "<h3>Worum geht es?</h3><p>Hier steht der Infotext.</p>"
+        },
+        {
+          "typ": "textseite",
+          "name": "Seite mit Bild",
+          "dateien": [
+            "dateien/bild.png"
+          ],
+          "html": "<p><img src=\"@@PLUGINFILE@@/bild.png\" alt=\"Grünes Rechteck\" width=\"200\" height=\"120\"></p>"
         }
       ]
     }

@@ -8,6 +8,13 @@
         {
           "typ": "textfeld",
           "html": "<div class=\"elements-boxes elements-boxes-tip elements-justboxes1-flavor \" data-box-name=\"TIP\">\n<p>Lest zuerst die Einführung.</p>\n</div>"
+        },
+        {
+          "typ": "textfeld",
+          "dateien": [
+            "dateien/bild.png"
+          ],
+          "html": "<p>Mit hochgeladenem Bild:</p><p><img src=\"@@PLUGINFILE@@/bild.png\" alt=\"Grünes Rechteck\" width=\"200\" height=\"120\"></p>"
         }
       ]
     }

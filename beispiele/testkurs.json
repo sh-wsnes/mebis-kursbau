@@ -44,7 +44,11 @@
           "typ": "abstimmung",
           "name": "Wie war es?",
           "frage": "<p>Wie schwer fandest du die Aufgabe?</p>",
-          "optionen": ["leicht", "mittel", "schwer"]
+          "optionen": [
+            "leicht",
+            "mittel",
+            "schwer"
+          ]
         },
         {
           "typ": "checkliste",
@@ -53,8 +57,14 @@
           "eintraege": [
             "Einführung gelesen",
             "Zusammenfassung abgegeben",
-            { "text": "Schulhomepage angesehen", "link": "https://www.wsnes.de" },
-            { "text": "Zusatzmaterial bearbeitet", "optional": true }
+            {
+              "text": "Schulhomepage angesehen",
+              "link": "https://www.wsnes.de"
+            },
+            {
+              "text": "Zusatzmaterial bearbeitet",
+              "optional": true
+            }
           ]
         },
         {
@@ -66,6 +76,55 @@
               "html": "<p>Dieses Textfeld liegt in einem Unterabschnitt.</p>"
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "Bilder und Dateien",
+      "inhalte": [
+        {
+          "typ": "textfeld",
+          "dateien": [
+            "dateien/bild.png"
+          ],
+          "html": "<p>Ein hochgeladenes Bild im Textfeld:</p><p><img src=\"@@PLUGINFILE@@/bild.png\" alt=\"Grünes Rechteck\" width=\"200\" height=\"120\"></p>"
+        },
+        {
+          "typ": "textseite",
+          "name": "Seite mit Bild",
+          "dateien": [
+            "dateien/bild2.png"
+          ],
+          "html": "<p>Ein hochgeladenes Bild in einer Textseite:</p><p><img src=\"@@PLUGINFILE@@/bild2.png\" alt=\"Blaues Rechteck\" width=\"200\" height=\"120\"></p>"
+        },
+        {
+          "typ": "datei",
+          "name": "Arbeitsblatt (PDF)",
+          "datei": "dateien/arbeitsblatt.pdf"
+        },
+        {
+          "typ": "verzeichnis",
+          "name": "Materialordner",
+          "dateien": [
+            "dateien/arbeitsblatt.pdf",
+            {
+              "pfad": "dateien/bild.png",
+              "ordner": "Bilder"
+            },
+            {
+              "pfad": "dateien/bild2.png",
+              "ordner": "Bilder/Weitere"
+            }
+          ]
+        },
+        {
+          "typ": "aufgabe",
+          "name": "Aufgabe mit Arbeitsblatt",
+          "dateien": [
+            "dateien/arbeitsblatt.pdf"
+          ],
+          "aufgabenstellung": "<p>Öffne das angehängte Arbeitsblatt und bearbeite Aufgabe 1.</p>",
+          "abgabe": "datei"
         }
       ]
     }
