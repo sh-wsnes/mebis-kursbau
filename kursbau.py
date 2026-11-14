@@ -38,7 +38,7 @@ ROOT_SETTINGS = [
 
 TYPEN = {
     "textfeld": "label", "textseite": "page", "link": "url", "aufgabe": "assign",
-    "abstimmung": "choice", "unterabschnitt": "subsection",
+    "abstimmung": "choice", "checkliste": "checklist", "unterabschnitt": "subsection",
 }
 
 
@@ -98,7 +98,7 @@ class Kurs:
         pflicht = {
             "textfeld": ["html"], "textseite": ["name", "html"], "link": ["name", "url"],
             "aufgabe": ["name", "aufgabenstellung"], "abstimmung": ["name", "frage", "optionen"],
-            "unterabschnitt": ["name"],
+            "checkliste": ["name", "eintraege"], "unterabschnitt": ["name"],
         }
         for nr, i in enumerate(inhalte, 1):
             wo = f"{ort}, Inhalt {nr}"
@@ -114,6 +114,15 @@ class Kurs:
                 raise Fehler(f"{wo}: Eine Abstimmung braucht mindestens zwei Optionen.")
             if typ == "aufgabe" and i.get("abgabe", "datei") not in ("datei", "text", "beides"):
                 raise Fehler(f'{wo}: "abgabe" muss datei, text oder beides sein.')
+            if typ == "checkliste":
+                if not isinstance(i["eintraege"], list):
+                    raise Fehler(f'{wo}: "eintraege" muss eine Liste sein.')
+                for e in i["eintraege"]:
+                    e = {"text": e} if isinstance(e, str) else e
+                    if not str(e.get("text", "")).strip():
+                        raise Fehler(f"{wo}: Ein Eintrag der Checkliste hat keinen Text.")
+                    if e.get("link") and not str(e["link"]).startswith("https://"):
+                        raise Fehler(f"{wo}: Links in der Checkliste müssen mit https:// beginnen.")
             if typ == "unterabschnitt":
                 if in_unterabschnitt:
                     raise Fehler(f"{wo}: Unterabschnitte dürfen nicht verschachtelt werden.")
@@ -196,6 +205,9 @@ class Kurs:
             self.dateien[f"{ordner}/grading.xml"] = (
                 f'{XML}<areas>\n  <area id="{self.id.neu()}">\n    <areaname>submissions</areaname>\n'
                 f"    <activemethod>{NULL}</activemethod>\n    <definitions>\n    </definitions>\n  </area>\n</areas>")
+        elif mod == "checklist":
+            name = i["name"]
+            kern, grades, inforef = self.checkliste(i, inst)
         else:  # subsection
             name = i["name"]
             showdesc = 0
@@ -279,14 +291,18 @@ class Kurs:
             + nullen("timelimit", "submissionattachments", "gradepenalty")
             + "".join(f"    <{n}>\n    </{n}>\n" for n in ("userflags", "allocatedmarkers", "submissions", "grades", "marks"))
             + f"    <plugin_configs>\n{cfg}    </plugin_configs>\n    <overrides>\n    </overrides>\n")
+        grades, inforef = self.bewertung("assign", i["name"], inst, punkte, "")
+        return kern, grades, inforef
+
+    def bewertung(self, mod, name, inst, punkte, idnumber):
         gid = self.id.neu()
         self.gradesort += 1
         n = NULL
         grades = (
             f'  <grade_items>\n    <grade_item id="{gid}">\n      <categoryid>{self.gradecat}</categoryid>\n'
-            f"      <itemname>{x(i['name'])}</itemname>\n      <itemtype>mod</itemtype>\n      <itemmodule>assign</itemmodule>\n"
+            f"      <itemname>{x(name)}</itemname>\n      <itemtype>mod</itemtype>\n      <itemmodule>{mod}</itemmodule>\n"
             f"      <iteminstance>{inst}</iteminstance>\n      <itemnumber>0</itemnumber>\n      <iteminfo>{n}</iteminfo>\n"
-            f"      <idnumber></idnumber>\n      <calculation>{n}</calculation>\n      <gradetype>1</gradetype>\n"
+            f"      <idnumber>{idnumber}</idnumber>\n      <calculation>{n}</calculation>\n      <gradetype>1</gradetype>\n"
             f"      <grademax>{punkte}.00000</grademax>\n      <grademin>0.00000</grademin>\n      <scaleid>{n}</scaleid>\n"
             f"      <outcomeid>{n}</outcomeid>\n      <gradepass>0.00000</gradepass>\n      <multfactor>1.00000</multfactor>\n"
             "      <plusfactor>0.00000</plusfactor>\n      <aggregationcoef>0.00000</aggregationcoef>\n"
@@ -297,6 +313,33 @@ class Kurs:
             "      <grade_grades>\n      </grade_grades>\n    </grade_item>\n  </grade_items>\n")
         inforef = (f"<inforef>\n  <grade_itemref>\n    <grade_item>\n      <id>{gid}</id>\n    </grade_item>\n"
                    "  </grade_itemref>\n</inforef>")
+        return grades, inforef
+
+    def checkliste(self, i, inst):
+        eintraege = ""
+        for pos, e in enumerate(i["eintraege"], 1):
+            e = {"text": e} if isinstance(e, str) else e
+            eintraege += (
+                f'      <item id="{self.id.neu()}">\n        <userid>0</userid>\n'
+                f"        <displaytext>{x(e['text'])}</displaytext>\n        <position>{pos}</position>\n"
+                f"        <indent>{int(e.get('einrueckung', 0))}</indent>\n"
+                f"        <itemoptional>{1 if e.get('optional') else 0}</itemoptional>\n        <duetime>0</duetime>\n"
+                "        <colour>black</colour>\n        <moduleid>0</moduleid>\n        <hidden>0</hidden>\n"
+                f"        <linkcourseid>{NULL}</linkcourseid>\n        <linkurl>{x(e.get('link', ''))}</linkurl>\n"
+                f"        <openlinkinnewwindow>{1 if e.get('link') else 0}</openlinkinnewwindow>\n"
+                "        <checks>\n        </checks>\n        <comments>\n        </comments>\n"
+                "        <studentcomments>\n        </studentcomments>\n      </item>\n")
+        eigene = 1 if i.get("eigene_eintraege", True) else 0
+        kern = (
+            f"    <name>{x(i['name'])}</name>\n    <intro>{x(i.get('beschreibung', ''))}</intro>\n    <introformat>1</introformat>\n"
+            f"    <timecreated>{self.jetzt}</timecreated>\n    <timemodified>{self.jetzt}</timemodified>\n"
+            f"    <useritemsallowed>{eigene}</useritemsallowed>\n    <studentcomments>0</studentcomments>\n"
+            "    <teacheredit>0</teacheredit>\n    <theme>default</theme>\n    <duedatesoncalendar>0</duedatesoncalendar>\n"
+            "    <teachercomments>1</teachercomments>\n    <maxgrade>100</maxgrade>\n    <autopopulate>0</autopopulate>\n"
+            "    <autoupdate>1</autoupdate>\n    <completionpercent>0</completionpercent>\n"
+            "    <completionpercenttype>percent</completionpercenttype>\n    <emailoncomplete>0</emailoncomplete>\n"
+            f"    <lockteachermarks>0</lockteachermarks>\n    <items>\n{eintraege}    </items>\n")
+        grades, inforef = self.bewertung("checklist", i["name"], inst, 100, NULL)
         return kern, grades, inforef
 
     def section_schreiben(self, sec):
