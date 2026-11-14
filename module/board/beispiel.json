@@ -1,0 +1,21 @@
+{
+  "titel": "Beispiel Board",
+  "kurzname": "beispiel-board",
+  "abschnitte": [
+    {
+      "name": "Beispiel",
+      "inhalte": [
+        {
+          "typ": "board",
+          "name": "Was wir schon wissen",
+          "beschreibung": "<p>Heftet an, was euch einfällt.</p>",
+          "spalten": [
+            "Personen",
+            "Ereignisse",
+            "Begriffe"
+          ]
+        }
+      ]
+    }
+  ]
+}

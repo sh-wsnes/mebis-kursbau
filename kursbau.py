@@ -39,7 +39,7 @@ ROOT_SETTINGS = [
 
 TYPEN = {
     "textfeld": "label", "textseite": "page", "link": "url", "aufgabe": "assign",
-    "abstimmung": "choice", "checkliste": "checklist", "datei": "resource", "buch": "book",
+    "abstimmung": "choice", "checkliste": "checklist", "datei": "resource", "buch": "book", "board": "board", "kanban": "kanban",
     "verzeichnis": "folder", "unterabschnitt": "subsection",
 }
 
@@ -104,7 +104,7 @@ class Kurs:
             "textfeld": ["html"], "textseite": ["name", "html"], "link": ["name", "url"],
             "aufgabe": ["name", "aufgabenstellung"], "abstimmung": ["name", "frage", "optionen"],
             "checkliste": ["name", "eintraege"], "datei": ["name", "datei"],
-            "verzeichnis": ["name", "dateien"], "buch": ["name", "kapitel"], "unterabschnitt": ["name"],
+            "verzeichnis": ["name", "dateien"], "buch": ["name", "kapitel"], "board": ["name", "spalten"], "kanban": ["name"], "unterabschnitt": ["name"],
         }
         for nr, i in enumerate(inhalte, 1):
             wo = f"{ort}, Inhalt {nr}"
@@ -129,6 +129,9 @@ class Kurs:
                         raise Fehler(f"{wo}: Ein Eintrag der Checkliste hat keinen Text.")
                     if e.get("link") and not str(e["link"]).startswith("https://"):
                         raise Fehler(f"{wo}: Links in der Checkliste müssen mit https:// beginnen.")
+            if typ == "board":
+                if not isinstance(i["spalten"], list) or not all(str(c).strip() for c in i["spalten"]) or not i["spalten"]:
+                    raise Fehler(f'{wo}: "spalten" muss eine Liste von Spaltennamen sein.')
             if typ == "buch":
                 if not isinstance(i["kapitel"], list) or not i["kapitel"]:
                     raise Fehler(f'{wo}: "kapitel" muss eine Liste mit mindestens einem Kapitel sein.')
@@ -300,6 +303,27 @@ class Kurs:
                     f"    <numbering>{nummerierung}</numbering>\n    <navstyle>1</navstyle>\n    <customtitles>0</customtitles>\n"
                     f"    <timecreated>{self.jetzt}</timecreated>\n    <timemodified>{self.jetzt}</timemodified>\n"
                     f"    <chapters>\n{kapitel}    </chapters>\n    <chaptertags>\n    </chaptertags>\n")
+        elif mod == "board":
+            name = i["name"]
+            showdesc = 1 if i.get("beschreibung") else 0
+            spalten = "".join(
+                f'      <column id="{self.id.neu()}">\n        <boardid>{inst}</boardid>\n        <name>{x(c)}</name>\n'
+                f"        <sortorder>{nr}</sortorder>\n        <notes>\n        </notes>\n      </column>\n"
+                for nr, c in enumerate(i["spalten"], 1))
+            kern = (f"    <course>{self.courseid}</course>\n    <name>{x(name)}</name>\n    <timemodified>{self.jetzt}</timemodified>\n"
+                    f"    <intro>{x(i.get('beschreibung', ''))}</intro>\n    <introformat>1</introformat>\n    <historyid>0</historyid>\n"
+                    f"    <background_color>{x(i.get('farbe', 'gelb'))}</background_color>\n"
+                    f"    <addrating>{1 if i.get('bewertung') else 0}</addrating>\n    <hideheaders>0</hideheaders>\n"
+                    "    <sortby>3</sortby>\n    <postby>0</postby>\n"
+                    f"    <userscanedit>{1 if i.get('bearbeiten_erlaubt') else 0}</userscanedit>\n    <singleusermode>0</singleusermode>\n"
+                    f"    <completionnotes>0</completionnotes>\n    <embed>0</embed>\n    <columns>\n{spalten}    </columns>\n")
+        elif mod == "kanban":
+            name = i["name"]
+            showdesc = 1 if i.get("beschreibung") else 0
+            kern = (f"    <course>{self.courseid}</course>\n    <name>{x(name)}</name>\n    <intro>{x(i.get('beschreibung', ''))}</intro>\n"
+                    f"    <introformat>1</introformat>\n    <userboards>{ {'keine': 0, 'zusaetzlich': 1, 'nur': 2}.get(i.get('eigene_tafeln', 'keine'), 0) }</userboards>\n"
+                    "    <history>0</history>\n    <completioncreate>0</completioncreate>\n    <completioncomplete>0</completioncomplete>\n"
+                    "    <boards>\n    </boards>\n")
         elif mod == "resource":
             name = i["name"]
             showdesc = 1 if i.get("beschreibung") else 0
