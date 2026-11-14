@@ -18,7 +18,7 @@ Eine einzelne Datei zum Herunterladen oder Ansehen, zum Beispiel ein Arbeitsblat
 
 ## Getestet
 
-Am 14.11.2026 in der ByCS-Lernplattform (Moodle 5.2.4) wiederhergestellt; die Datei wurde angezeigt. Mit der Anzeige „automatisch“ öffnete sich das PDF ohne Navigation, deshalb ist „neues Fenster“ jetzt Standard; dieser Standard ist noch ungetestet.
+Am 14.11.2026 in der ByCS-Lernplattform (Moodle 5.2.4) wiederhergestellt und geprüft.
 
 ## Für die KI
 
