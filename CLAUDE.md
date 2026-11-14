@@ -5,7 +5,7 @@ Dieses Repo erzeugt Kurssicherungen (`.mbz`) für die ByCS-Lernplattform (mebis,
 ## Arbeitsweise
 
 1. Kläre Titel, Kurzname und die Abschnitte mit ihren Inhalten. Frage nur nach, wenn eine Pflichtangabe fehlt.
-2. Schreibe die Kursbeschreibung als JSON-Datei (Aufbau siehe unten, Muster in `beispiele/testkurs.json`).
+2. Schreibe die Kursbeschreibung als JSON-Datei (Aufbau siehe unten, Muster mit allen Elementen in `beispiele/testkurs.json`, Einzelbeispiele in `module/`).
 3. Führe aus: `python3 kursbau.py kurs.json`. Das Skript braucht nur Python 3. Bei einer Fehlermeldung die JSON-Datei korrigieren, nicht das Skript.
 4. Gib der Lehrkraft die erzeugte `.mbz`-Datei und nenne den Einspielweg: in der Lernplattform einen leeren Kurs öffnen → **Mehr > Kurs wiederverwenden > Wiederherstellen** → Datei hochladen → den Schritten folgen.
 5. Die Lehrkraft programmiert nicht. Erkläre nichts über JSON oder XML, wenn sie nicht danach fragt.
@@ -27,19 +27,19 @@ Dieses Repo erzeugt Kurssicherungen (`.mbz`) für die ByCS-Lernplattform (mebis,
 
 ## Inhalte
 
-Jeder Inhalt hat ein Feld `typ`. Felder mit HTML enthalten den Code so, wie er im Editor der Lernplattform unter „Quellcode“ stünde.
+Jeder Inhalt hat ein Feld `typ`. Die Felder jedes Typs stehen in der Beschreibung des Moduls. Lies vor dem Schreiben der Kursbeschreibung die Seiten der Module, die der Kurs braucht.
 
-| `typ` | Pflichtfelder | Wahlfelder | Ergebnis in der Lernplattform |
-|---|---|---|---|
-| `textfeld` | `html` | – | Text- und Medienfeld |
-| `textseite` | `name`, `html` | `beschreibung` | Textseite |
-| `link` | `name`, `url` (nur `https://`) | `beschreibung`, `neues_fenster` (Standard `true`) | Link/URL |
-| `aufgabe` | `name`, `aufgabenstellung` (HTML, steht sichtbar auf der Aufgabenseite) | `abgabehinweis` (HTML, erscheint erst beim Abgeben), `abgabe` (`datei`, `text` oder `beides`; Standard `datei`), `punkte` (Standard 100) | Aufgabe |
-| `abstimmung` | `name`, `frage` (HTML), `optionen` (Liste, mindestens zwei) | `mehrfachauswahl` (Standard `false`) | Abstimmung |
-| `checkliste` | `name`, `eintraege` (Liste) | `beschreibung`, `eigene_eintraege` (Schüler dürfen eigene Punkte ergänzen; Standard `true`) | Checkliste |
-| `unterabschnitt` | `name` | `inhalte` (wie oben, aber keine weiteren Unterabschnitte) | Unterabschnitt |
+| `typ` | Element in der Lernplattform | Felder und Grenzen |
+|---|---|---|
+| `textfeld` | Text- und Medienfeld | [`module/textfeld/README.md`](module/textfeld/README.md) |
+| `textseite` | Textseite | [`module/textseite/README.md`](module/textseite/README.md) |
+| `link` | Link | [`module/link/README.md`](module/link/README.md) |
+| `aufgabe` | Aufgabe | [`module/aufgabe/README.md`](module/aufgabe/README.md) |
+| `abstimmung` | Abstimmung | [`module/abstimmung/README.md`](module/abstimmung/README.md) |
+| `checkliste` | Checkliste | [`module/checkliste/README.md`](module/checkliste/README.md) |
+| `unterabschnitt` | Unterabschnitt | [`module/unterabschnitt/README.md`](module/unterabschnitt/README.md) |
 
-Ein Eintrag der Checkliste ist entweder ein Text (`"Einführung gelesen"`) oder ein Objekt mit `text` und den Wahlfeldern `link` (nur `https://`), `optional` (`true` für freiwillige Punkte) und `einrueckung` (0 oder höher).
+Felder mit HTML enthalten den Code so, wie er im Editor der Lernplattform unter „Quellcode“ stünde.
 
 ## HTML in Textfeldern und Textseiten
 
@@ -54,4 +54,4 @@ Ein Eintrag der Checkliste ist entweder ein Text (`"Einführung gelesen"`) oder 
 
 ## Neue Aktivitätstypen ergänzen
 
-Grundlage ist immer eine echte Sicherung aus der Lernplattform, die die Aktivität mit Inhalt enthält. Die XML-Struktur daraus in `kursbau.py` als weiteren Typ nachbauen, dann einen Testkurs erzeugen und die Struktur der erzeugten Dateien mit dem Original vergleichen. Erst nach einer erfolgreichen Wiederherstellung in der Lernplattform in die Tabelle oben aufnehmen. Details zum Dateiformat stehen in `doku/sicherungsformat.md`.
+Grundlage ist immer eine echte Sicherung aus der Lernplattform, die die Aktivität mit Inhalt enthält. Die XML-Struktur daraus in `kursbau.py` als weiteren Typ nachbauen, dann einen Testkurs erzeugen und die Struktur der erzeugten Dateien mit dem Original vergleichen. Lege für den Typ ein Verzeichnis `module/NAME/` mit `README.md` (Aufbau wie bei den vorhandenen Modulen) und `beispiel.json` an. Erst nach einer erfolgreichen Wiederherstellung in der Lernplattform das Testdatum eintragen und den Typ in die Tabelle oben sowie in die `README.md` des Repos aufnehmen. Details zum Dateiformat stehen in `doku/sicherungsformat.md`.

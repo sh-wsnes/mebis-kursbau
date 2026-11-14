@@ -1,25 +1,52 @@
 # mebis-kursbau
-Weil kein MCP besteht, sollen zum Kursbau auf der Lernplattform bycs hier die einzelnen Module so gesichert werden, dass eine KI darauf zugreifen kann. Die Module h5p sind noch nicht bearbeitet.
+
+Kurse für die ByCS-Lernplattform (mebis) mit Hilfe einer KI bauen: Du beschreibst den Kurs in normalen Worten, die KI erzeugt eine Sicherungsdatei, und du spielst sie in der Lernplattform ein.
+
+Hintergrund: Für die Lernplattform gibt es keine Schnittstelle (MCP), über die eine KI direkt Kurse anlegen könnte. Dieses Repo geht deshalb den Weg über die Kurssicherung. H5P-Inhalte sind noch nicht bearbeitet.
+
+## So geht es
+
+1. **Kurs beschreiben.** Öffne eine KI, die auf dieses Repo zugreifen und Programme ausführen kann (z. B. Claude), nenne ihr dieses Repo und beschreibe deinen Kurs: Titel, Abschnitte und was in jedem Abschnitt stehen soll.
+2. **Datei erhalten.** Die KI gibt dir eine Datei mit der Endung `.mbz`.
+3. **Leeren Kurs anlegen.** Lege in der Lernplattform einen neuen, leeren Kurs an. So bleibt ein bestehender Kurs unberührt.
+4. **Wiederherstellen.** Öffne im neuen Kurs die Funktion „Wiederherstellen“ (im Kursmenü unter „Mehr“ → „Kurs wiederverwenden“), lade die Datei hoch und folge den Schritten.
+5. **Nacharbeiten.** Termine, Gruppen und Abschlussbedingungen stellst du danach wie gewohnt in der Lernplattform ein.
+
+Ein Beispiel für eine Beschreibung:
+
+> Bau mir einen Kurs „Weimarer Republik“ mit zwei Abschnitten. Im ersten eine Textseite mit einer Einführung und ein Link zur Schulhomepage. Im zweiten eine Aufgabe „Fasse die Einführung in drei Sätzen zusammen“ mit Textabgabe und eine Checkliste mit drei Punkten.
+
+## Was die KI bauen kann
+
+Abschnitte mit Namen und Beschreibung, dazu diese Elemente:
+
+| Element | Wofür |
+|---|---|
+| [Text- und Medienfeld](module/textfeld/README.md) | Ein Text, der direkt auf der Kursseite steht, ohne dass man etwas anklicken muss. |
+| [Textseite](module/textseite/README.md) | Eine eigene Seite mit Text, die über einen Eintrag auf der Kursseite geöffnet wird. |
+| [Link](module/link/README.md) | Ein Eintrag auf der Kursseite, der eine Internetseite öffnet. |
+| [Aufgabe](module/aufgabe/README.md) | Schülerinnen und Schüler geben eine Arbeit ab, als Datei oder als Text direkt in der Lernplattform. |
+| [Abstimmung](module/abstimmung/README.md) | Eine einzelne Frage mit vorgegebenen Antworten, aus denen die Klasse auswählt. |
+| [Checkliste](module/checkliste/README.md) | Eine Liste von Punkten zum Abhaken. |
+| [Unterabschnitt](module/unterabschnitt/README.md) | Ein aufklappbarer Bereich innerhalb eines Abschnitts, der eigene Inhalte bündelt. |
+
+Jede Seite beschreibt, was geht, was noch nicht geht und wann das Element zuletzt getestet wurde.
+
+## Was noch fehlt
+
+- hochgeladene Bilder und Dateien (Bilder gehen bisher nur über eine Internetadresse)
+- Test, Buch, Glossar, Feedback, Board, H5P und die übrigen Aktivitäten der Lernplattform
 
 ## Stand
 
-`kursbau.py` erzeugt aus einer Kursbeschreibung eine Kurssicherung (`.mbz`), die in der Lernplattform über „Wiederherstellen“ eingespielt wird. Unterstützt sind bisher Abschnitte, Unterabschnitte, Text- und Medienfeld, Textseite, Link, Aufgabe, Abstimmung und Checkliste.
+Alle oben genannten Elemente wurden am 14.11.2026 mit einem Testkurs erzeugt, in der ByCS-Lernplattform (Moodle 5.2.4) wiederhergestellt und geprüft. Nicht jede einzelne Einstellung war Teil des Tests; die Modulseiten nennen die Grenzen. Nach einem Update der Lernplattform kann sich das ändern. Deshalb: neue Kurse immer zuerst in einen leeren Kurs einspielen.
 
-Die Wiederherstellung eines erzeugten Testkurses in der Lernplattform hat am 14.11.2026 mit allen genannten Typen funktioniert, einschließlich Inhalten in Unterabschnitten.
+## Für Technikinteressierte
 
-## Benutzung
-
-Die Arbeit übernimmt eine KI mit Zugriff auf dieses Repo. Ihre Anleitung steht in `CLAUDE.md`. Von Hand:
-
-```
-python3 kursbau.py beispiele/testkurs.json
-```
-
-## Inhalt
-
-- `kursbau.py` – das Skript, braucht nur Python 3
-- `beispiele/testkurs.json` – Muster einer Kursbeschreibung
+- `kursbau.py` – das Skript, braucht nur Python 3: `python3 kursbau.py beispiele/testkurs.json`
 - `CLAUDE.md` – Anleitung für die KI
+- `module/` – Beschreibung und Einzelbeispiel je Element
+- `beispiele/testkurs.json` – ein Kurs mit allen Elementen
 - `doku/sicherungsformat.md` – Aufbau einer Kurssicherung
 
-Vor dem Einsatz in echten Kursen in einem leeren Testkurs ausprobieren.
+Lizenz: MIT, siehe `LICENSE`. Nutzung ohne Gewähr.
