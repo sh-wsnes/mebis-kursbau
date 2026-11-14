@@ -1,0 +1,61 @@
+{
+  "titel": "Kursbau-Test",
+  "kurzname": "kursbau-test",
+  "beschreibung": "",
+  "allgemein": [
+    {
+      "typ": "textfeld",
+      "html": "<p>Dieser Kurs wurde mit <strong>mebis-kursbau</strong> erzeugt. Er prüft, ob die Lernplattform eine erzeugte Sicherung annimmt.</p>"
+    }
+  ],
+  "abschnitte": [
+    {
+      "name": "Material",
+      "beschreibung": "<p>Texte und Links zum Thema.</p>",
+      "inhalte": [
+        {
+          "typ": "textseite",
+          "name": "Einführung",
+          "html": "<h3>Worum geht es?</h3><p>Das ist eine Textseite mit Umlauten (ä, ö, ü, ß), einem Emoji 📌 und den Zeichen &amp; und &lt;.</p>"
+        },
+        {
+          "typ": "link",
+          "name": "Schulhomepage",
+          "url": "https://www.wsnes.de"
+        },
+        {
+          "typ": "textfeld",
+          "html": "<div class=\"elements-boxes elements-boxes-tip elements-justboxes1-flavor \" data-box-name=\"TIP\">\n<p>Das ist ein mebis-eigener Tipp-Kasten.</p>\n</div>"
+        }
+      ]
+    },
+    {
+      "name": "Aufgaben",
+      "inhalte": [
+        {
+          "typ": "aufgabe",
+          "name": "Erste Aufgabe",
+          "anweisungen": "<p>Lies die Einführung und fasse sie in drei Sätzen zusammen.</p>",
+          "abgabe": "text",
+          "punkte": 10
+        },
+        {
+          "typ": "abstimmung",
+          "name": "Wie war es?",
+          "frage": "<p>Wie schwer fandest du die Aufgabe?</p>",
+          "optionen": ["leicht", "mittel", "schwer"]
+        },
+        {
+          "typ": "unterabschnitt",
+          "name": "Zusatzmaterial",
+          "inhalte": [
+            {
+              "typ": "textfeld",
+              "html": "<p>Dieses Textfeld liegt in einem Unterabschnitt.</p>"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
