@@ -1,0 +1,16 @@
+{
+  "titel": "Beispiel Datei",
+  "kurzname": "beispiel-datei",
+  "abschnitte": [
+    {
+      "name": "Beispiel",
+      "inhalte": [
+        {
+          "typ": "datei",
+          "name": "Arbeitsblatt",
+          "datei": "dateien/arbeitsblatt.pdf"
+        }
+      ]
+    }
+  ]
+}

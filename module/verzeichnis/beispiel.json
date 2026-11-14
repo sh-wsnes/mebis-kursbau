@@ -1,0 +1,26 @@
+{
+  "titel": "Beispiel Verzeichnis",
+  "kurzname": "beispiel-verzeichnis",
+  "abschnitte": [
+    {
+      "name": "Beispiel",
+      "inhalte": [
+        {
+          "typ": "verzeichnis",
+          "name": "Material",
+          "dateien": [
+            "dateien/arbeitsblatt.pdf",
+            {
+              "pfad": "dateien/bild.png",
+              "ordner": "Bilder"
+            },
+            {
+              "pfad": "dateien/bild2.png",
+              "ordner": "Bilder/Weitere"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
