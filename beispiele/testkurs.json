@@ -57,6 +57,21 @@
       "name": "Aufgaben",
       "inhalte": [
         {
+          "typ": "board",
+          "name": "Was wir schon wissen",
+          "beschreibung": "<p>Heftet an, was euch einfällt.</p>",
+          "spalten": [
+            "Personen",
+            "Ereignisse",
+            "Begriffe"
+          ]
+        },
+        {
+          "typ": "kanban",
+          "name": "Projekt Zeitung",
+          "beschreibung": "<p>Unsere Aufgaben für die Klassenzeitung.</p>"
+        },
+        {
           "typ": "aufgabe",
           "name": "Erste Aufgabe",
           "aufgabenstellung": "<p>Lies die Einführung und fasse sie in drei Sätzen zusammen.</p>",

@@ -29,6 +29,8 @@ Abschnitte mit Namen und Beschreibung, dazu diese Elemente:
 | [Abstimmung](module/abstimmung/README.md) | Eine einzelne Frage mit vorgegebenen Antworten, aus denen die Klasse auswählt. |
 | [Checkliste](module/checkliste/README.md) | Eine Liste von Punkten zum Abhaken. |
 | [Buch](module/buch/README.md) | Mehrere Seiten mit Kapiteln und Inhaltsverzeichnis. |
+| [Board](module/board/README.md) | Pinnwand mit Spalten für Beiträge der Klasse. |
+| [Kanban-Board](module/kanban/README.md) | Aufgabentafel für Projektarbeit. |
 | [Datei](module/datei/README.md) | Eine einzelne Datei zum Herunterladen, z. B. ein Arbeitsblatt. |
 | [Verzeichnis](module/verzeichnis/README.md) | Ein Ordner mit mehreren Dateien, auf Wunsch mit Unterordnern. |
 | [Unterabschnitt](module/unterabschnitt/README.md) | Ein aufklappbarer Bereich innerhalb eines Abschnitts, der eigene Inhalte bündelt. |
@@ -37,12 +39,14 @@ Jede Seite beschreibt, was geht, was noch nicht geht und wann das Element zuletz
 
 ## Was noch fehlt
 
-- Test, Feedback, Board, H5P und die übrigen Aktivitäten der Lernplattform
+- Test, Feedback, H5P und die übrigen Aktivitäten der Lernplattform
 - Glossar mit Einträgen: Moodle behandelt Einträge als Nutzerdaten, die auf diesem Weg nicht mitkommen
 
 ## Stand
 
-Alle Elemente wurden am 14.11.2026 mit einem Testkurs erzeugt, in der ByCS-Lernplattform (Moodle 5.2.4) wiederhergestellt und geprüft. Nicht jede einzelne Einstellung war Teil des Tests; die Modulseiten nennen die Grenzen. Nach einem Update der Lernplattform kann sich das ändern. Deshalb: neue Kurse immer zuerst in einen leeren Kurs einspielen.
+Board und Kanban-Board: eingebaut, noch nicht in der Lernplattform getestet.
+
+Alle übrigen Elemente wurden am 14.11.2026 mit einem Testkurs erzeugt, in der ByCS-Lernplattform (Moodle 5.2.4) wiederhergestellt und geprüft. Nicht jede einzelne Einstellung war Teil des Tests; die Modulseiten nennen die Grenzen. Nach einem Update der Lernplattform kann sich das ändern. Deshalb: neue Kurse immer zuerst in einen leeren Kurs einspielen.
 
 ## Für Technikinteressierte
 
