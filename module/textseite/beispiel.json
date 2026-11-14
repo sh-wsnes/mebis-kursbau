@@ -1,0 +1,16 @@
+{
+  "titel": "Beispiel textseite",
+  "kurzname": "beispiel-textseite",
+  "abschnitte": [
+    {
+      "name": "Beispiel",
+      "inhalte": [
+        {
+          "typ": "textseite",
+          "name": "Einführung",
+          "html": "<h3>Worum geht es?</h3><p>Hier steht der Infotext.</p>"
+        }
+      ]
+    }
+  ]
+}

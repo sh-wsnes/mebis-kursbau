@@ -1,0 +1,21 @@
+{
+  "titel": "Beispiel abstimmung",
+  "kurzname": "beispiel-abstimmung",
+  "abschnitte": [
+    {
+      "name": "Beispiel",
+      "inhalte": [
+        {
+          "typ": "abstimmung",
+          "name": "Wie war es?",
+          "frage": "<p>Wie schwer fandest du die Aufgabe?</p>",
+          "optionen": [
+            "leicht",
+            "mittel",
+            "schwer"
+          ]
+        }
+      ]
+    }
+  ]
+}
