@@ -7,7 +7,7 @@
       "inhalte": [
         {
           "typ": "buch",
-          "name": "Infotext",
+          "name": "Buch",
           "beschreibung": "<p>Ein Buch mit drei Kapiteln.</p>",
           "kapitel": [
             {
