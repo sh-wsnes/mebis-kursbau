@@ -1,0 +1,35 @@
+{
+  "titel": "Beispiel Buch",
+  "kurzname": "beispiel-buch",
+  "abschnitte": [
+    {
+      "name": "Beispiel",
+      "inhalte": [
+        {
+          "typ": "buch",
+          "name": "Infotext",
+          "beschreibung": "<p>Ein Buch mit drei Kapiteln.</p>",
+          "kapitel": [
+            {
+              "titel": "Einleitung",
+              "html": "<p>Worum es geht.</p>"
+            },
+            {
+              "titel": "Hauptteil",
+              "html": "<p>Der eigentliche Inhalt.</p>"
+            },
+            {
+              "titel": "Ein Detail",
+              "unterkapitel": true,
+              "html": "<p>Gehört zum Hauptteil.</p>"
+            },
+            {
+              "titel": "Schluss",
+              "html": "<p>Zusammenfassung.</p>"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

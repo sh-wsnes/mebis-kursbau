@@ -39,7 +39,7 @@ ROOT_SETTINGS = [
 
 TYPEN = {
     "textfeld": "label", "textseite": "page", "link": "url", "aufgabe": "assign",
-    "abstimmung": "choice", "checkliste": "checklist", "datei": "resource",
+    "abstimmung": "choice", "checkliste": "checklist", "datei": "resource", "buch": "book",
     "verzeichnis": "folder", "unterabschnitt": "subsection",
 }
 
@@ -104,7 +104,7 @@ class Kurs:
             "textfeld": ["html"], "textseite": ["name", "html"], "link": ["name", "url"],
             "aufgabe": ["name", "aufgabenstellung"], "abstimmung": ["name", "frage", "optionen"],
             "checkliste": ["name", "eintraege"], "datei": ["name", "datei"],
-            "verzeichnis": ["name", "dateien"], "unterabschnitt": ["name"],
+            "verzeichnis": ["name", "dateien"], "buch": ["name", "kapitel"], "unterabschnitt": ["name"],
         }
         for nr, i in enumerate(inhalte, 1):
             wo = f"{ort}, Inhalt {nr}"
@@ -129,6 +129,16 @@ class Kurs:
                         raise Fehler(f"{wo}: Ein Eintrag der Checkliste hat keinen Text.")
                     if e.get("link") and not str(e["link"]).startswith("https://"):
                         raise Fehler(f"{wo}: Links in der Checkliste müssen mit https:// beginnen.")
+            if typ == "buch":
+                if not isinstance(i["kapitel"], list) or not i["kapitel"]:
+                    raise Fehler(f'{wo}: "kapitel" muss eine Liste mit mindestens einem Kapitel sein.')
+                for k in i["kapitel"]:
+                    if not isinstance(k, dict) or not k.get("titel") or not k.get("html"):
+                        raise Fehler(f'{wo}: Jedes Kapitel braucht "titel" und "html".')
+                if i["kapitel"][0].get("unterkapitel"):
+                    raise Fehler(f"{wo}: Das erste Kapitel kann kein Unterkapitel sein.")
+                for d in i.get("dateien", []):
+                    self.datei_pruefen(d, wo)
             if typ == "datei":
                 self.datei_pruefen(i["datei"], wo)
             if typ == "verzeichnis":
@@ -276,6 +286,20 @@ class Kurs:
         elif mod == "checklist":
             name = i["name"]
             kern, grades, inforef = self.checkliste(i, inst)
+        elif mod == "book":
+            name = i["name"]
+            showdesc = 1 if i.get("beschreibung") else 0
+            kapitel = "".join(
+                f'      <chapter id="{self.id.neu()}">\n        <pagenum>{nr}</pagenum>\n'
+                f"        <subchapter>{1 if k.get('unterkapitel') else 0}</subchapter>\n        <title>{x(k['titel'])}</title>\n"
+                f"        <content>{x(k['html'])}</content>\n        <contentformat>1</contentformat>\n        <hidden>0</hidden>\n"
+                f"        <timemodified>{self.jetzt}</timemodified>\n        <importsrc></importsrc>\n      </chapter>\n"
+                for nr, k in enumerate(i["kapitel"], 1))
+            nummerierung = {"keine": 0, "zahlen": 1, "punkte": 2, "einrueckung": 3}.get(i.get("nummerierung", "zahlen"), 1)
+            kern = (f"    <name>{x(name)}</name>\n    <intro>{x(i.get('beschreibung', ''))}</intro>\n    <introformat>1</introformat>\n"
+                    f"    <numbering>{nummerierung}</numbering>\n    <navstyle>1</navstyle>\n    <customtitles>0</customtitles>\n"
+                    f"    <timecreated>{self.jetzt}</timecreated>\n    <timemodified>{self.jetzt}</timemodified>\n"
+                    f"    <chapters>\n{kapitel}    </chapters>\n    <chaptertags>\n    </chaptertags>\n")
         elif mod == "resource":
             name = i["name"]
             showdesc = 1 if i.get("beschreibung") else 0
