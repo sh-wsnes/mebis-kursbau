@@ -35,7 +35,8 @@
         {
           "typ": "aufgabe",
           "name": "Erste Aufgabe",
-          "anweisungen": "<p>Lies die Einführung und fasse sie in drei Sätzen zusammen.</p>",
+          "aufgabenstellung": "<p>Lies die Einführung und fasse sie in drei Sätzen zusammen.</p>",
+          "abgabehinweis": "<p>Schreibe deine Zusammenfassung direkt in das Textfeld.</p>",
           "abgabe": "text",
           "punkte": 10
         },

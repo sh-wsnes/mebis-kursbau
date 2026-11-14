@@ -97,7 +97,7 @@ class Kurs:
     def inhalte_pruefen(self, inhalte, ort, in_unterabschnitt):
         pflicht = {
             "textfeld": ["html"], "textseite": ["name", "html"], "link": ["name", "url"],
-            "aufgabe": ["name", "anweisungen"], "abstimmung": ["name", "frage", "optionen"],
+            "aufgabe": ["name", "aufgabenstellung"], "abstimmung": ["name", "frage", "optionen"],
             "unterabschnitt": ["name"],
         }
         for nr, i in enumerate(inhalte, 1):
@@ -264,7 +264,7 @@ class Kurs:
             for p, st, n, v in configs)
         nullen = lambda *namen: "".join(f"    <{n}>0</{n}>\n" for n in namen)
         kern = (
-            f"    <name>{x(i['name'])}</name>\n    <intro>{x(i.get('beschreibung', ''))}</intro>\n    <introformat>1</introformat>\n"
+            f"    <name>{x(i['name'])}</name>\n    <intro>{x(i['aufgabenstellung'])}</intro>\n    <introformat>1</introformat>\n"
             + nullen("alwaysshowdescription", "submissiondrafts", "sendnotifications", "sendlatenotifications")
             + "    <sendstudentnotifications>1</sendstudentnotifications>\n"
             + nullen("duedate", "cutoffdate", "gradingduedate", "allowsubmissionsfromdate")
@@ -275,7 +275,7 @@ class Kurs:
             + nullen("markingworkflow", "markingallocation")
             + f"    <markercount>1</markercount>\n    <multimarkmethod>{NULL}</multimarkmethod>\n"
             + nullen("markinganonymous", "preventsubmissionnotingroup")
-            + f"    <activity>{x(i['anweisungen'])}</activity>\n    <activityformat>1</activityformat>\n"
+            + f"    <activity>{x(i.get('abgabehinweis', ''))}</activity>\n    <activityformat>1</activityformat>\n"
             + nullen("timelimit", "submissionattachments", "gradepenalty")
             + "".join(f"    <{n}>\n    </{n}>\n" for n in ("userflags", "allocatedmarkers", "submissions", "grades", "marks"))
             + f"    <plugin_configs>\n{cfg}    </plugin_configs>\n    <overrides>\n    </overrides>\n")
