@@ -39,7 +39,7 @@ ROOT_SETTINGS = [
 
 TYPEN = {
     "textfeld": "label", "textseite": "page", "link": "url", "aufgabe": "assign",
-    "abstimmung": "choice", "checkliste": "checklist", "datei": "resource", "buch": "book", "board": "board", "kanban": "kanban",
+    "abstimmung": "choice", "checkliste": "checklist", "datei": "resource", "buch": "book", "board": "board", "kanban": "kanban", "tagebuch": "journal",
     "verzeichnis": "folder", "unterabschnitt": "subsection",
 }
 
@@ -104,7 +104,7 @@ class Kurs:
             "textfeld": ["html"], "textseite": ["name", "html"], "link": ["name", "url"],
             "aufgabe": ["name", "aufgabenstellung"], "abstimmung": ["name", "frage", "optionen"],
             "checkliste": ["name", "eintraege"], "datei": ["name", "datei"],
-            "verzeichnis": ["name", "dateien"], "buch": ["name", "kapitel"], "board": ["name", "spalten"], "kanban": ["name"], "unterabschnitt": ["name"],
+            "verzeichnis": ["name", "dateien"], "buch": ["name", "kapitel"], "board": ["name", "spalten"], "kanban": ["name"], "tagebuch": ["name", "schreibauftrag"], "unterabschnitt": ["name"],
         }
         for nr, i in enumerate(inhalte, 1):
             wo = f"{ort}, Inhalt {nr}"
@@ -324,6 +324,14 @@ class Kurs:
                     f"    <introformat>1</introformat>\n    <userboards>{ {'keine': 0, 'zusaetzlich': 1, 'nur': 2}.get(i.get('eigene_tafeln', 'keine'), 0) }</userboards>\n"
                     "    <history>0</history>\n    <completioncreate>0</completioncreate>\n    <completioncomplete>0</completioncomplete>\n"
                     "    <boards>\n    </boards>\n")
+        elif mod == "journal":
+            name = i["name"]
+            punkte = int(i.get("punkte", 100))
+            kern = (f"    <name>{x(name)}</name>\n    <intro>{x(i['schreibauftrag'])}</intro>\n    <introformat>1</introformat>\n"
+                    f"    <days>{int(i.get('tage', 0))}</days>\n    <grade>{punkte}</grade>\n    <timemodified>{self.jetzt}</timemodified>\n"
+                    "    <completion_create_entry>0</completion_create_entry>\n    <notifyteachers>1</notifyteachers>\n"
+                    "    <notifystudents>1</notifystudents>\n    <entries>\n    </entries>\n")
+            grades, inforef = self.bewertung("journal", name, inst, punkte, "")
         elif mod == "resource":
             name = i["name"]
             showdesc = 1 if i.get("beschreibung") else 0
