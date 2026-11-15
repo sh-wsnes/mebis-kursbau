@@ -1,0 +1,82 @@
+{
+ "name": "Image Sequencing: Farben",
+ "bibliothek": "H5P.ImageSequencing 1.1",
+ "dateien": [
+  "dateien/farbe-rot.png",
+  "dateien/farbe-blau.png",
+  "dateien/farbe-gruen.png",
+  "dateien/farbe-gelb.png"
+ ],
+ "inhalt": {
+  "taskDescription": "Bringe die Farben in die Reihenfolge Rot, Blau, Grün, Gelb.",
+  "sequenceImages": [
+   {
+    "image": {
+     "path": "images/farbe-rot.png",
+     "mime": "image/png",
+     "width": 200,
+     "height": 200,
+     "copyright": {
+      "license": "U"
+     }
+    },
+    "imageDescription": "Rot"
+   },
+   {
+    "image": {
+     "path": "images/farbe-blau.png",
+     "mime": "image/png",
+     "width": 200,
+     "height": 200,
+     "copyright": {
+      "license": "U"
+     }
+    },
+    "imageDescription": "Blau"
+   },
+   {
+    "image": {
+     "path": "images/farbe-gruen.png",
+     "mime": "image/png",
+     "width": 200,
+     "height": 200,
+     "copyright": {
+      "license": "U"
+     }
+    },
+    "imageDescription": "Grün"
+   },
+   {
+    "image": {
+     "path": "images/farbe-gelb.png",
+     "mime": "image/png",
+     "width": 200,
+     "height": 200,
+     "copyright": {
+      "license": "U"
+     }
+    },
+    "imageDescription": "Gelb"
+   }
+  ],
+  "l10n": {
+   "totalMoves": "Züge",
+   "timeSpent": "Benötigte Zeit",
+   "score": "Du hast @score von @total Punkten",
+   "checkAnswer": "Prüfen",
+   "tryAgain": "Nochmal",
+   "showSolution": "Lösung anzeigen",
+   "resume": "Weiter",
+   "audioNotSupported": "Audio nicht unterstützt",
+   "ariaPlay": "Ton abspielen",
+   "ariaMoveDescription": "@cardDesc von Position @posSrc nach @posDes verschoben",
+   "ariaCardDesc": "Element"
+  },
+  "behaviour": {
+   "enableSolution": true,
+   "enableRetry": true,
+   "enableResume": true
+  },
+  "altTaskDescription": "Bringe die Liste in die richtige Reihenfolge. Mit den Pfeiltasten navigieren, mit der Leertaste ein Element aufnehmen oder ablegen."
+ }
+}

@@ -1,0 +1,92 @@
+{
+ "name": "Memory: Farben",
+ "bibliothek": "H5P.MemoryGame 1.3",
+ "dateien": [
+  "dateien/farbe-rot.png",
+  "dateien/farbe-blau.png",
+  "dateien/farbe-gruen.png",
+  "dateien/farbe-gelb.png"
+ ],
+ "inhalt": {
+  "cards": [
+   {
+    "image": {
+     "path": "images/farbe-rot.png",
+     "mime": "image/png",
+     "width": 200,
+     "height": 200,
+     "copyright": {
+      "license": "U"
+     }
+    },
+    "description": "Rot",
+    "imageAlt": "Farbfläche Rot",
+    "matchAlt": "Farbfläche Rot"
+   },
+   {
+    "image": {
+     "path": "images/farbe-blau.png",
+     "mime": "image/png",
+     "width": 200,
+     "height": 200,
+     "copyright": {
+      "license": "U"
+     }
+    },
+    "description": "Blau",
+    "imageAlt": "Farbfläche Blau",
+    "matchAlt": "Farbfläche Blau"
+   },
+   {
+    "image": {
+     "path": "images/farbe-gruen.png",
+     "mime": "image/png",
+     "width": 200,
+     "height": 200,
+     "copyright": {
+      "license": "U"
+     }
+    },
+    "description": "Grün",
+    "imageAlt": "Farbfläche Grün",
+    "matchAlt": "Farbfläche Grün"
+   },
+   {
+    "image": {
+     "path": "images/farbe-gelb.png",
+     "mime": "image/png",
+     "width": 200,
+     "height": 200,
+     "copyright": {
+      "license": "U"
+     }
+    },
+    "description": "Gelb",
+    "imageAlt": "Farbfläche Gelb",
+    "matchAlt": "Farbfläche Gelb"
+   }
+  ],
+  "l10n": {
+   "cardTurns": "Umgedrehte Karten",
+   "timeSpent": "Benötigte Zeit",
+   "feedback": "Gut gemacht!",
+   "tryAgain": "Neu starten",
+   "closeLabel": "Schließen",
+   "label": "Memory Game. Find the matching cards.",
+   "done": "Alle Karten wurden gefunden.",
+   "cardPrefix": "Karte %num:",
+   "cardUnturned": "Verdeckt.",
+   "cardMatched": "Paar gefunden.",
+   "cardTurned": "Aufgedeckt.",
+   "cardMatchedA11y": "Die Karten passen zusammen!",
+   "cardNotMatchedA11y": "Die Karten passen nicht zusammen. Decke andere Karten auf."
+  },
+  "behaviour": {
+   "useGrid": true,
+   "allowRetry": true
+  },
+  "lookNFeel": {
+   "themeColor": "#909090"
+  }
+ }
+}
