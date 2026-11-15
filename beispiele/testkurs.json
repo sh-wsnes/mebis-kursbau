@@ -172,6 +172,139 @@
           "abgabe": "datei"
         }
       ]
+    },
+    {
+      "name": "Feedback und H5P",
+      "inhalte": [
+        {
+          "typ": "feedback",
+          "name": "Rückmeldung zur Stunde",
+          "beschreibung": "<p>Anonym, dauert eine Minute.</p>",
+          "fragen": [
+            {
+              "art": "ueberschrift",
+              "text": "<p><strong>Zur heutigen Stunde</strong></p>"
+            },
+            {
+              "art": "skala",
+              "text": "Wie gut hast du das Thema verstanden?",
+              "optionen": [
+                "gar nicht",
+                "wenig",
+                "teilweise",
+                "gut",
+                "sehr gut"
+              ],
+              "pflicht": true
+            },
+            {
+              "art": "einfachauswahl",
+              "text": "Welche Phase war am hilfreichsten?",
+              "optionen": [
+                "Einstieg",
+                "Gruppenarbeit",
+                "Besprechung"
+              ]
+            },
+            {
+              "art": "mehrfachauswahl",
+              "text": "Was hat dir geholfen?",
+              "optionen": [
+                "Arbeitsblatt",
+                "Erklärung",
+                "Partnerarbeit",
+                "Video"
+              ]
+            },
+            {
+              "art": "auswahlliste",
+              "text": "Wie viel Zeit hattest du?",
+              "optionen": [
+                "zu wenig",
+                "genau richtig",
+                "zu viel"
+              ]
+            },
+            {
+              "art": "zahl",
+              "text": "Wie viele Minuten hast du für die Aufgabe gebraucht?",
+              "von": 0,
+              "bis": 45
+            },
+            {
+              "art": "kurztext",
+              "text": "Ein Wort, das die Stunde beschreibt"
+            },
+            {
+              "art": "langtext",
+              "text": "Was sollte beim nächsten Mal anders sein?"
+            }
+          ],
+          "danke": "<p>Danke für deine Rückmeldung!</p>"
+        },
+        {
+          "typ": "h5p",
+          "name": "Lückentext: Weimarer Republik",
+          "bibliothek": "H5P.Blanks 1.14",
+          "inhalt": {
+            "text": "<p>Fülle die Lücken aus.</p>",
+            "questions": [
+              "<p>Die Weimarer Republik wurde im Jahr *1918/1919* ausgerufen.</p>",
+              "<p>Erster Reichspräsident war Friedrich *Ebert:Nachname*.</p>",
+              "<p>Die Verfassung wurde in der Stadt *Weimar* beschlossen.</p>"
+            ],
+            "overallFeedback": [
+              {
+                "from": 0,
+                "to": 100,
+                "feedback": "Du hast @score von @total Lücken richtig."
+              }
+            ],
+            "showSolutions": "Lösung anzeigen",
+            "tryAgain": "Nochmal",
+            "checkAnswer": "Prüfen",
+            "submitAnswer": "Abgeben",
+            "notFilledOut": "Bitte alle Lücken ausfüllen",
+            "answerIsCorrect": "':ans' ist richtig",
+            "answerIsWrong": "':ans' ist falsch",
+            "answeredCorrectly": "Richtig beantwortet",
+            "answeredIncorrectly": "Falsch beantwortet",
+            "solutionLabel": "Richtige Antwort:",
+            "inputLabel": "Lücke @num von @total",
+            "inputHasTipLabel": "Tipp vorhanden",
+            "tipLabel": "Tipp",
+            "scoreBarLabel": "Du hast :num von :total Punkten",
+            "behaviour": {
+              "enableRetry": true,
+              "enableSolutionsButton": true,
+              "enableCheckButton": true,
+              "autoCheck": false,
+              "caseSensitive": false,
+              "showSolutionsRequiresInput": true,
+              "separateLines": false,
+              "confirmCheckDialog": false,
+              "confirmRetryDialog": false,
+              "acceptSpellingErrors": false
+            },
+            "confirmCheck": {
+              "header": "Beenden?",
+              "body": "Willst du wirklich beenden?",
+              "cancelLabel": "Abbrechen",
+              "confirmLabel": "Beenden"
+            },
+            "confirmRetry": {
+              "header": "Nochmal?",
+              "body": "Willst du wirklich von vorn beginnen?",
+              "cancelLabel": "Abbrechen",
+              "confirmLabel": "Ja"
+            },
+            "a11yCheck": "Antworten prüfen.",
+            "a11yShowSolution": "Lösung anzeigen.",
+            "a11yRetry": "Aufgabe wiederholen.",
+            "a11yCheckingModeHeader": "Prüfmodus"
+          }
+        }
+      ]
     }
   ]
 }

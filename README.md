@@ -2,7 +2,7 @@
 
 Kurse für die ByCS-Lernplattform (mebis) mit Hilfe einer KI bauen: Du beschreibst den Kurs in normalen Worten, die KI erzeugt eine Sicherungsdatei, und du spielst sie in der Lernplattform ein.
 
-Hintergrund: Für die Lernplattform gibt es keine Schnittstelle (MCP), über die eine KI direkt Kurse anlegen könnte. Dieses Repo geht deshalb den Weg über die Kurssicherung. H5P-Inhalte sind noch nicht bearbeitet.
+Hintergrund: Für die Lernplattform gibt es keine Schnittstelle (MCP), über die eine KI direkt Kurse anlegen könnte. Dieses Repo geht deshalb den Weg über die Kurssicherung.
 
 ## So geht es
 
@@ -32,6 +32,8 @@ Abschnitte mit Namen und Beschreibung, dazu diese Elemente:
 | [Board](module/board/README.md) | Pinnwand mit Spalten für Beiträge der Klasse. |
 | [Kanban-Board](module/kanban/README.md) | Aufgabentafel für Projektarbeit. |
 | [Tagebuch](module/tagebuch/README.md) | Persönlicher Text je Schüler, nur für die Lehrkraft sichtbar. |
+| [Feedback](module/feedback/README.md) | Umfrage mit mehreren Fragen, auf Wunsch anonym. |
+| [H5P](module/h5p/README.md) | Interaktive Übungen, bisher Lückentext. |
 | [Datei](module/datei/README.md) | Eine einzelne Datei zum Herunterladen, z. B. ein Arbeitsblatt. |
 | [Verzeichnis](module/verzeichnis/README.md) | Ein Ordner mit mehreren Dateien, auf Wunsch mit Unterordnern. |
 | [Unterabschnitt](module/unterabschnitt/README.md) | Ein aufklappbarer Bereich innerhalb eines Abschnitts, der eigene Inhalte bündelt. |
@@ -40,12 +42,13 @@ Jede Seite beschreibt, was geht, was noch nicht geht und wann das Element zuletz
 
 ## Was noch fehlt
 
-- Test, Feedback, H5P und die übrigen Aktivitäten der Lernplattform
+- Test und die übrigen Aktivitäten der Lernplattform
+- weitere H5P-Inhaltstypen (je ein Muster aus der Lernplattform nötig)
 - Glossar mit Einträgen: Moodle behandelt Einträge als Nutzerdaten, die auf diesem Weg nicht mitkommen
 
 ## Stand
 
-Tagebuch: eingebaut, noch nicht in der Lernplattform getestet.
+Tagebuch, Feedback und H5P: eingebaut, noch nicht in der Lernplattform getestet.
 
 Alle übrigen Elemente wurden am 14.11.2026 mit einem Testkurs erzeugt, in der ByCS-Lernplattform (Moodle 5.2.4) wiederhergestellt und geprüft. Nicht jede einzelne Einstellung war Teil des Tests; die Modulseiten nennen die Grenzen. Nach einem Update der Lernplattform kann sich das ändern. Deshalb: neue Kurse immer zuerst in einen leeren Kurs einspielen.
 

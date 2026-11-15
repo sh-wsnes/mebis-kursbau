@@ -31,8 +31,10 @@ Eine `.mbz`-Datei ist ein gzip-komprimiertes tar-Archiv. Es beginnt mit der Date
 
 - Glossareinträge gehören in Moodle zu den Nutzerdaten (`userinfo`). Eine Sicherung ohne Nutzerdaten enthält sie nicht, und eine Wiederherstellung überspringt sie. Das Glossar ist deshalb nicht umsetzbar.
 
+- H5P liegt in mebis als Aktivität `hvp` vor (Plugin mod_hvp). Der Inhalt steht als JSON in `json_content`, der Inhaltstyp in `machine_name`, `major_version`, `minor_version`. Bilder des Inhalts liegen in `files.xml` mit `component` = `mod_hvp`, `filearea` = `content` und `itemid` = ID der Aktivität (nicht 0 wie sonst).
+
 ## In der Mustersicherung enthalten, vom Skript noch nicht erzeugt
 
-`aichat`, `data`, `feedback`, `glossary`, `learningmap`, `lightboxgallery`, `quiz`, `ratingallocate`, `unilabel`, `wiki`, `workshop`.
+`aichat`, `data`, `glossary`, `learningmap`, `lightboxgallery`, `quiz`, `ratingallocate`, `unilabel`, `wiki`, `workshop`.
 
 Die Mustersicherung selbst liegt nicht im Repo, weil sie Angaben zur Schule und zum Nutzerkonto enthält.
