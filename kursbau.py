@@ -39,7 +39,7 @@ ROOT_SETTINGS = [
 
 TYPEN = {
     "textfeld": "label", "textseite": "page", "link": "url", "aufgabe": "assign",
-    "abstimmung": "choice", "checkliste": "checklist", "datei": "resource", "buch": "book", "board": "board", "kanban": "kanban", "tagebuch": "journal",
+    "abstimmung": "choice", "checkliste": "checklist", "datei": "resource", "buch": "book", "board": "board", "kanban": "kanban", "tagebuch": "journal", "feedback": "feedback", "h5p": "hvp",
     "verzeichnis": "folder", "unterabschnitt": "subsection",
 }
 
@@ -104,7 +104,7 @@ class Kurs:
             "textfeld": ["html"], "textseite": ["name", "html"], "link": ["name", "url"],
             "aufgabe": ["name", "aufgabenstellung"], "abstimmung": ["name", "frage", "optionen"],
             "checkliste": ["name", "eintraege"], "datei": ["name", "datei"],
-            "verzeichnis": ["name", "dateien"], "buch": ["name", "kapitel"], "board": ["name", "spalten"], "kanban": ["name"], "tagebuch": ["name", "schreibauftrag"], "unterabschnitt": ["name"],
+            "verzeichnis": ["name", "dateien"], "buch": ["name", "kapitel"], "board": ["name", "spalten"], "kanban": ["name"], "tagebuch": ["name", "schreibauftrag"], "feedback": ["name", "fragen"], "h5p": ["name", "bibliothek", "inhalt"], "unterabschnitt": ["name"],
         }
         for nr, i in enumerate(inhalte, 1):
             wo = f"{ort}, Inhalt {nr}"
@@ -129,6 +129,15 @@ class Kurs:
                         raise Fehler(f"{wo}: Ein Eintrag der Checkliste hat keinen Text.")
                     if e.get("link") and not str(e["link"]).startswith("https://"):
                         raise Fehler(f"{wo}: Links in der Checkliste müssen mit https:// beginnen.")
+            if typ == "feedback":
+                self.feedback_pruefen(i["fragen"], wo)
+            if typ == "h5p":
+                if not re.fullmatch(r"H5P\.\w+ \d+\.\d+", str(i["bibliothek"])):
+                    raise Fehler(f'{wo}: "bibliothek" muss die Form "H5P.Name Major.Minor" haben, z. B. "H5P.Blanks 1.14".')
+                if not isinstance(i["inhalt"], dict):
+                    raise Fehler(f'{wo}: "inhalt" muss ein Objekt (die H5P-Parameter) sein.')
+                for d in i.get("dateien", []):
+                    self.datei_pruefen(d, wo)
             if typ == "board":
                 if not isinstance(i["spalten"], list) or not all(str(c).strip() for c in i["spalten"]) or not i["spalten"]:
                     raise Fehler(f'{wo}: "spalten" muss eine Liste von Spaltennamen sein.')
@@ -157,6 +166,23 @@ class Kurs:
                     raise Fehler(f"{wo}: Unterabschnitte dürfen nicht verschachtelt werden.")
                 self.inhalte_pruefen(i.get("inhalte", []), f"{wo} (Unterabschnitt)", True)
 
+    FEEDBACK_TYPEN = {"ueberschrift", "einfachauswahl", "mehrfachauswahl", "auswahlliste", "skala", "zahl", "kurztext", "langtext"}
+
+    def feedback_pruefen(self, fragen, wo):
+        if not isinstance(fragen, list) or not fragen:
+            raise Fehler(f'{wo}: "fragen" muss eine Liste mit mindestens einer Frage sein.')
+        for nr, f in enumerate(fragen, 1):
+            art = f.get("art") if isinstance(f, dict) else None
+            if art not in self.FEEDBACK_TYPEN:
+                raise Fehler(f'{wo}, Frage {nr}: unbekannte "art" {art!r}. Erlaubt: {", ".join(sorted(self.FEEDBACK_TYPEN))}.')
+            if not f.get("text"):
+                raise Fehler(f'{wo}, Frage {nr}: "text" fehlt.')
+            if art in ("einfachauswahl", "mehrfachauswahl", "auswahlliste", "skala"):
+                if not isinstance(f.get("optionen"), list) or len(f["optionen"]) < 2:
+                    raise Fehler(f'{wo}, Frage {nr}: "optionen" braucht mindestens zwei Einträge.')
+            if art == "zahl" and not (isinstance(f.get("von"), (int, float)) and isinstance(f.get("bis"), (int, float))):
+                raise Fehler(f'{wo}, Frage {nr}: "von" und "bis" müssen Zahlen sein.')
+
     def datei_pruefen(self, pfad, wo):
         if not isinstance(pfad, str) or not pfad.strip():
             raise Fehler(f"{wo}: Ein Dateipfad fehlt.")
@@ -164,25 +190,25 @@ class Kurs:
             raise Fehler(f"{wo}: Datei nicht gefunden: {pfad} (gesucht ab {self.basis.resolve()})")
 
     # ---------- Dateien ----------
-    def datei_aufnehmen(self, ctx, component, filearea, pfad, zielordner="/"):
+    def datei_aufnehmen(self, ctx, component, filearea, pfad, zielordner="/", itemid=0):
         """Nimmt eine Datei in die Sicherung auf und gibt die ID des files.xml-Eintrags zurück."""
         quelle = self.basis / pfad
         inhalt = quelle.read_bytes()
         pruefsumme = hashlib.sha1(inhalt).hexdigest()
         self.binaer[pruefsumme] = inhalt
         mime = mimetypes.guess_type(quelle.name)[0] or "application/octet-stream"
-        return self.file_eintrag(ctx, component, filearea, zielordner, quelle.name, pruefsumme, len(inhalt), mime)
+        return self.file_eintrag(ctx, component, filearea, zielordner, quelle.name, pruefsumme, len(inhalt), mime, itemid)
 
-    def ordner_aufnehmen(self, ctx, component, filearea, zielordner):
+    def ordner_aufnehmen(self, ctx, component, filearea, zielordner, itemid=0):
         leer = hashlib.sha1(b"").hexdigest()   # Ordnereintrag, ohne Datei im Archiv (wie im Original)
-        return self.file_eintrag(ctx, component, filearea, zielordner, ".", leer, 0, None)
+        return self.file_eintrag(ctx, component, filearea, zielordner, ".", leer, 0, None, itemid)
 
-    def file_eintrag(self, ctx, component, filearea, zielordner, name, pruefsumme, groesse, mime):
+    def file_eintrag(self, ctx, component, filearea, zielordner, name, pruefsumme, groesse, mime, itemid=0):
         fid = self.id.neu()
         n = NULL
         self.fileeintraege.append(
             f'  <file id="{fid}">\n    <contenthash>{pruefsumme}</contenthash>\n    <contextid>{ctx}</contextid>\n'
-            f"    <component>{component}</component>\n    <filearea>{filearea}</filearea>\n    <itemid>0</itemid>\n"
+            f"    <component>{component}</component>\n    <filearea>{filearea}</filearea>\n    <itemid>{itemid}</itemid>\n"
             f"    <filepath>{x(zielordner)}</filepath>\n    <filename>{x(name)}</filename>\n    <userid>2</userid>\n"
             f"    <filesize>{groesse}</filesize>\n    <mimetype>{mime or n}</mimetype>\n    <status>0</status>\n"
             f"    <timecreated>{self.jetzt}</timecreated>\n    <timemodified>{self.jetzt}</timemodified>\n"
@@ -324,6 +350,36 @@ class Kurs:
                     f"    <introformat>1</introformat>\n    <userboards>{ {'keine': 0, 'zusaetzlich': 1, 'nur': 2}.get(i.get('eigene_tafeln', 'keine'), 0) }</userboards>\n"
                     "    <history>0</history>\n    <completioncreate>0</completioncreate>\n    <completioncomplete>0</completioncomplete>\n"
                     "    <boards>\n    </boards>\n")
+        elif mod == "feedback":
+            name = i["name"]
+            showdesc = 1 if i.get("beschreibung") else 0
+            kern = self.feedback(i)
+        elif mod == "hvp":
+            name = i["name"]
+            lib, version = i["bibliothek"].split(" ")
+            major, minor = version.split(".")
+            fileids = []
+            if i.get("dateien"):
+                ordner_gesehen = set()
+                for d in i["dateien"]:
+                    pfad, ziel = (d["pfad"], d.get("ordner", "images")) if isinstance(d, dict) else (d, "images")
+                    ziel = "/" + ziel.strip("/") + "/" if ziel.strip("/") else "/"
+                    fileids.append(self.datei_aufnehmen(ctx, "mod_hvp", "content", pfad, ziel, inst))
+                    ordner_gesehen.add(ziel)
+                for o in sorted(ordner_gesehen | {"/"}):
+                    fileids.append(self.ordner_aufnehmen(ctx, "mod_hvp", "content", o, inst))
+            json_text = json.dumps(i["inhalt"], ensure_ascii=False, separators=(",", ":"))
+            punkte = int(i.get("punkte", 10))
+            n = NULL
+            kern = (f"    <name>{x(name)}</name>\n    <machine_name>{lib}</machine_name>\n    <major_version>{major}</major_version>\n"
+                    f"    <minor_version>{minor}</minor_version>\n    <intro>{x(i.get('beschreibung', ''))}</intro>\n    <introformat>1</introformat>\n"
+                    f"    <json_content>{x(json_text)}</json_content>\n    <embed_type>div</embed_type>\n    <disable>14</disable>\n"
+                    f"    <content_type>{n}</content_type>\n    <source>{n}</source>\n    <year_from>{n}</year_from>\n    <year_to>{n}</year_to>\n"
+                    f"    <license_version>{n}</license_version>\n    <changes>[]</changes>\n    <license_extras>{n}</license_extras>\n"
+                    f"    <author_comments>{n}</author_comments>\n    <slug></slug>\n    <timecreated>{self.jetzt}</timecreated>\n"
+                    f"    <timemodified>{self.jetzt}</timemodified>\n    <authors>[]</authors>\n    <license>U</license>\n"
+                    "    <completionpass>0</completionpass>\n    <content_user_data>\n    </content_user_data>\n")
+            grades, inforef = self.bewertung("hvp", name, inst, punkte, "")
         elif mod == "journal":
             name = i["name"]
             punkte = int(i.get("punkte", 100))
@@ -496,6 +552,43 @@ class Kurs:
             f"    <lockteachermarks>0</lockteachermarks>\n    <items>\n{eintraege}    </items>\n")
         grades, inforef = self.bewertung("checklist", i["name"], inst, 100, NULL)
         return kern, grades, inforef
+
+    def feedback(self, i):
+        items = ""
+        for pos, f in enumerate(i["fragen"], 1):
+            art = f["art"]
+            label = ""
+            hasvalue = 1
+            if art == "ueberschrift":
+                typ, hasvalue, name, praes = "label", 0, "label", x(f["text"])
+            else:
+                name = x(f["text"])
+                if art in ("einfachauswahl", "mehrfachauswahl", "auswahlliste"):
+                    sub = {"einfachauswahl": "r", "mehrfachauswahl": "c", "auswahlliste": "d"}[art]
+                    typ = "multichoice"
+                    praes = sub + "&gt;&gt;&gt;&gt;&gt;" + "\n|".join(x(o) for o in f["optionen"])
+                elif art == "skala":
+                    typ = "multichoicerated"
+                    praes = "r&gt;&gt;&gt;&gt;&gt;" + "|".join(f"{nr}####{x(o)}" for nr, o in enumerate(f["optionen"], 1))
+                elif art == "zahl":
+                    typ, praes = "numeric", f"{f['von']}|{f['bis']}"
+                elif art == "kurztext":
+                    typ, praes = "textfield", "30|255"
+                else:
+                    typ, praes = "textarea", "30|5"
+            items += (f'      <item id="{self.id.neu()}">\n        <template>0</template>\n        <name>{name}</name>\n'
+                      f"        <label>{label}</label>\n        <presentation>{praes}</presentation>\n        <typ>{typ}</typ>\n"
+                      f"        <hasvalue>{hasvalue}</hasvalue>\n        <position>{pos}</position>\n"
+                      f"        <required>{1 if f.get('pflicht') else 0}</required>\n        <dependitem>0</dependitem>\n"
+                      "        <dependvalue></dependvalue>\n        <options></options>\n      </item>\n")
+        return (f"    <name>{x(i['name'])}</name>\n    <intro>{x(i.get('beschreibung', ''))}</intro>\n    <introformat>1</introformat>\n"
+                f"    <anonymous>{1 if i.get('anonym', True) else 2}</anonymous>\n    <email_notification>0</email_notification>\n"
+                f"    <multiple_submit>{1 if i.get('mehrfach') else 0}</multiple_submit>\n    <autonumbering>0</autonumbering>\n"
+                "    <site_after_submit></site_after_submit>\n"
+                f"    <page_after_submit>{x(i.get('danke', ''))}</page_after_submit>\n    <page_after_submitformat>1</page_after_submitformat>\n"
+                f"    <publish_stats>{1 if i.get('ergebnisse_zeigen') else 0}</publish_stats>\n    <timeopen>0</timeopen>\n    <timeclose>0</timeclose>\n"
+                f"    <timemodified>{self.jetzt}</timemodified>\n    <completionsubmit>0</completionsubmit>\n"
+                f"    <items>\n{items}    </items>\n    <completeds>\n    </completeds>\n")
 
     def section_schreiben(self, sec):
         ordner = f"sections/section_{sec['id']}"
