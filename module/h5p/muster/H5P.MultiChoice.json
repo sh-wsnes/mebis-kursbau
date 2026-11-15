@@ -1,0 +1,88 @@
+{
+ "name": "Multiple Choice: Hauptstadt",
+ "bibliothek": "H5P.MultiChoice 1.16",
+ "inhalt": {
+  "answers": [
+   {
+    "correct": true,
+    "text": "<div>Berlin</div>",
+    "tipsAndFeedback": {
+     "tip": "",
+     "chosenFeedback": "Richtig!",
+     "notChosenFeedback": ""
+    }
+   },
+   {
+    "correct": false,
+    "text": "<div>München</div>",
+    "tipsAndFeedback": {
+     "tip": "",
+     "chosenFeedback": "",
+     "notChosenFeedback": ""
+    }
+   },
+   {
+    "correct": false,
+    "text": "<div>Hamburg</div>",
+    "tipsAndFeedback": {
+     "tip": "",
+     "chosenFeedback": "",
+     "notChosenFeedback": ""
+    }
+   }
+  ],
+  "UI": {
+   "showSolutionButton": "Lösung anzeigen",
+   "tryAgainButton": "Nochmal",
+   "checkAnswerButton": "Prüfen",
+   "tipsLabel": "Tipp anzeigen",
+   "scoreBarLabel": "Du hast :num von :total Punkten",
+   "tipAvailable": "Tipp vorhanden",
+   "feedbackAvailable": "Rückmeldung vorhanden",
+   "readFeedback": "Rückmeldung lesen",
+   "wrongAnswer": "Falsche Antwort",
+   "correctAnswer": "Richtige Antwort",
+   "shouldCheck": "Hätte angekreuzt werden müssen",
+   "shouldNotCheck": "Hätte nicht angekreuzt werden dürfen",
+   "noInput": "Bitte erst antworten, dann die Lösung ansehen",
+   "submitAnswerButton": "Abgeben",
+   "a11yCheck": "Antworten prüfen. Die Antworten werden als richtig, falsch oder unbeantwortet markiert.",
+   "a11yShowSolution": "Lösung anzeigen. Die Aufgabe wird mit der richtigen Lösung markiert.",
+   "a11yRetry": "Aufgabe wiederholen. Alle Antworten werden zurückgesetzt."
+  },
+  "question": "<p>Welche Stadt ist die Hauptstadt von Deutschland?</p>",
+  "behaviour": {
+   "enableRetry": true,
+   "enableSolutionsButton": true,
+   "singlePoint": true,
+   "randomAnswers": true,
+   "showSolutionsRequiresInput": true,
+   "type": "auto",
+   "confirmCheckDialog": false,
+   "confirmRetryDialog": false,
+   "autoCheck": false,
+   "passPercentage": 100,
+   "showScorePoints": true,
+   "enableCheckButton": true
+  },
+  "confirmCheck": {
+   "header": "Finish ?",
+   "body": "Are you sure you wish to finish ?",
+   "cancelLabel": "Cancel",
+   "confirmLabel": "Finish"
+  },
+  "confirmRetry": {
+   "header": "Retry ?",
+   "body": "Are you sure you wish to retry ?",
+   "cancelLabel": "Cancel",
+   "confirmLabel": "Confirm"
+  },
+  "overallFeedback": [
+   {
+    "from": 0,
+    "to": 100,
+    "feedback": "Du hast @score von @total Punkten."
+   }
+  ]
+ }
+}
