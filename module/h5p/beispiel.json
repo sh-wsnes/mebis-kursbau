@@ -1,0 +1,73 @@
+{
+  "titel": "Beispiel H5P",
+  "kurzname": "beispiel-h5p",
+  "abschnitte": [
+    {
+      "name": "Beispiel",
+      "inhalte": [
+        {
+          "typ": "h5p",
+          "name": "Lückentext: Weimarer Republik",
+          "bibliothek": "H5P.Blanks 1.14",
+          "inhalt": {
+            "text": "<p>Fülle die Lücken aus.</p>",
+            "questions": [
+              "<p>Die Weimarer Republik wurde im Jahr *1918/1919* ausgerufen.</p>",
+              "<p>Erster Reichspräsident war Friedrich *Ebert:Nachname*.</p>",
+              "<p>Die Verfassung wurde in der Stadt *Weimar* beschlossen.</p>"
+            ],
+            "overallFeedback": [
+              {
+                "from": 0,
+                "to": 100,
+                "feedback": "Du hast @score von @total Lücken richtig."
+              }
+            ],
+            "showSolutions": "Lösung anzeigen",
+            "tryAgain": "Nochmal",
+            "checkAnswer": "Prüfen",
+            "submitAnswer": "Abgeben",
+            "notFilledOut": "Bitte alle Lücken ausfüllen",
+            "answerIsCorrect": "':ans' ist richtig",
+            "answerIsWrong": "':ans' ist falsch",
+            "answeredCorrectly": "Richtig beantwortet",
+            "answeredIncorrectly": "Falsch beantwortet",
+            "solutionLabel": "Richtige Antwort:",
+            "inputLabel": "Lücke @num von @total",
+            "inputHasTipLabel": "Tipp vorhanden",
+            "tipLabel": "Tipp",
+            "scoreBarLabel": "Du hast :num von :total Punkten",
+            "behaviour": {
+              "enableRetry": true,
+              "enableSolutionsButton": true,
+              "enableCheckButton": true,
+              "autoCheck": false,
+              "caseSensitive": false,
+              "showSolutionsRequiresInput": true,
+              "separateLines": false,
+              "confirmCheckDialog": false,
+              "confirmRetryDialog": false,
+              "acceptSpellingErrors": false
+            },
+            "confirmCheck": {
+              "header": "Beenden?",
+              "body": "Willst du wirklich beenden?",
+              "cancelLabel": "Abbrechen",
+              "confirmLabel": "Beenden"
+            },
+            "confirmRetry": {
+              "header": "Nochmal?",
+              "body": "Willst du wirklich von vorn beginnen?",
+              "cancelLabel": "Abbrechen",
+              "confirmLabel": "Ja"
+            },
+            "a11yCheck": "Antworten prüfen.",
+            "a11yShowSolution": "Lösung anzeigen.",
+            "a11yRetry": "Aufgabe wiederholen.",
+            "a11yCheckingModeHeader": "Prüfmodus"
+          }
+        }
+      ]
+    }
+  ]
+}

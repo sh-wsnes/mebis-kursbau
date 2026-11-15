@@ -1,0 +1,77 @@
+{
+  "titel": "Beispiel Feedback",
+  "kurzname": "beispiel-feedback",
+  "abschnitte": [
+    {
+      "name": "Beispiel",
+      "inhalte": [
+        {
+          "typ": "feedback",
+          "name": "Rückmeldung zur Stunde",
+          "beschreibung": "<p>Anonym, dauert eine Minute.</p>",
+          "fragen": [
+            {
+              "art": "ueberschrift",
+              "text": "<p><strong>Zur heutigen Stunde</strong></p>"
+            },
+            {
+              "art": "skala",
+              "text": "Wie gut hast du das Thema verstanden?",
+              "optionen": [
+                "gar nicht",
+                "wenig",
+                "teilweise",
+                "gut",
+                "sehr gut"
+              ],
+              "pflicht": true
+            },
+            {
+              "art": "einfachauswahl",
+              "text": "Welche Phase war am hilfreichsten?",
+              "optionen": [
+                "Einstieg",
+                "Gruppenarbeit",
+                "Besprechung"
+              ]
+            },
+            {
+              "art": "mehrfachauswahl",
+              "text": "Was hat dir geholfen?",
+              "optionen": [
+                "Arbeitsblatt",
+                "Erklärung",
+                "Partnerarbeit",
+                "Video"
+              ]
+            },
+            {
+              "art": "auswahlliste",
+              "text": "Wie viel Zeit hattest du?",
+              "optionen": [
+                "zu wenig",
+                "genau richtig",
+                "zu viel"
+              ]
+            },
+            {
+              "art": "zahl",
+              "text": "Wie viele Minuten hast du für die Aufgabe gebraucht?",
+              "von": 0,
+              "bis": 45
+            },
+            {
+              "art": "kurztext",
+              "text": "Ein Wort, das die Stunde beschreibt"
+            },
+            {
+              "art": "langtext",
+              "text": "Was sollte beim nächsten Mal anders sein?"
+            }
+          ],
+          "danke": "<p>Danke für deine Rückmeldung!</p>"
+        }
+      ]
+    }
+  ]
+}

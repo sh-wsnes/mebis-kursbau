@@ -41,6 +41,8 @@ Jeder Inhalt hat ein Feld `typ`. Die Felder jedes Typs stehen in der Beschreibun
 | `board` | Board (Pinnwand) | [`module/board/README.md`](module/board/README.md) |
 | `kanban` | Kanban-Board | [`module/kanban/README.md`](module/kanban/README.md) |
 | `tagebuch` | Tagebuch (Journal) | [`module/tagebuch/README.md`](module/tagebuch/README.md) |
+| `feedback` | Feedback (Umfrage) | [`module/feedback/README.md`](module/feedback/README.md) |
+| `h5p` | H5P-Übung | [`module/h5p/README.md`](module/h5p/README.md) |
 | `datei` | Datei | [`module/datei/README.md`](module/datei/README.md) |
 | `verzeichnis` | Verzeichnis | [`module/verzeichnis/README.md`](module/verzeichnis/README.md) |
 | `unterabschnitt` | Unterabschnitt | [`module/unterabschnitt/README.md`](module/unterabschnitt/README.md) |
@@ -59,7 +61,7 @@ Dateipfade in der Kursbeschreibung sind relativ zum Ordner, in dem die JSON-Date
 
 ## Grenzen
 
-- Nicht unterstützt: Test, H5P, Forum und alle übrigen Aktivitäten. Sag das der Lehrkraft, statt etwas Ähnliches zu erfinden.
+- Nicht unterstützt: Test, Forum und alle übrigen Aktivitäten. Sag das der Lehrkraft, statt etwas Ähnliches zu erfinden.
 - Glossar: Einträge zählen in Moodle als Nutzerdaten und lassen sich über eine Sicherung ohne Nutzerdaten nicht übertragen. Ein Glossar kann deshalb nicht mit Inhalt erzeugt werden; die Lehrkraft legt es in der Lernplattform an.
 - Termine, Gruppen, Abschlussbedingungen und Voraussetzungen setzt das Skript nicht. Die Lehrkraft stellt sie nach dem Wiederherstellen ein.
 
