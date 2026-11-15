@@ -21,7 +21,7 @@ Eine Umfrage mit mehreren Fragen, auf Wunsch anonym. Geeignet für Rückmeldunge
 
 ## Getestet
 
-Noch nicht in der Lernplattform getestet.
+Am 15.11.2026 in der ByCS-Lernplattform (Moodle 5.2.4) wiederhergestellt und geprüft.
 
 ## Für die KI
 

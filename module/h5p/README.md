@@ -19,7 +19,7 @@ Interaktive Übungen wie Lückentext, Multiple Choice oder Zuordnung. Die Lernpl
 
 ## Getestet
 
-Noch nicht in der Lernplattform getestet.
+Am 15.11.2026 in der ByCS-Lernplattform (Moodle 5.2.4) wiederhergestellt und geprüft.
 
 ## Für die KI
 
