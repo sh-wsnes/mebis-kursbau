@@ -13,17 +13,17 @@ Diese Inhaltstypen kennt die Lernplattform mit genau diesen Versionsnummern (aus
 | Inhaltstyp | `bibliothek` | Muster | Bilder nötig | Stand |
 |---|---|---|---|---|
 | Lückentext | `H5P.Blanks 1.14` | [`beispiel.json`](beispiel.json) | nein | getestet |
-| Multiple Choice | `H5P.MultiChoice 1.16` | [`muster/H5P.MultiChoice.json`](muster/H5P.MultiChoice.json) | nein | noch nicht getestet |
-| Drag the Words | `H5P.DragText 1.10` | [`muster/H5P.DragText.json`](muster/H5P.DragText.json) | nein | noch nicht getestet |
-| Mark the Words | `H5P.MarkTheWords 1.11` | [`muster/H5P.MarkTheWords.json`](muster/H5P.MarkTheWords.json) | nein | noch nicht getestet |
-| Find the Words | `H5P.FindTheWords 1.4` | [`muster/H5P.FindTheWords.json`](muster/H5P.FindTheWords.json) | nein | noch nicht getestet |
-| Single Choice Set | `H5P.SingleChoiceSet 1.11` | [`muster/H5P.SingleChoiceSet.json`](muster/H5P.SingleChoiceSet.json) | nein | noch nicht getestet |
-| Sort the Paragraphs | `H5P.SortParagraphs 0.11` | [`muster/H5P.SortParagraphs.json`](muster/H5P.SortParagraphs.json) | nein | noch nicht getestet |
-| Quiz (Question Set) | `H5P.QuestionSet 1.21` | [`muster/H5P.QuestionSet.json`](muster/H5P.QuestionSet.json) | nein | noch nicht getestet |
-| Drag and Drop | `H5P.DragQuestion 1.15` | [`muster/H5P.DragQuestion.json`](muster/H5P.DragQuestion.json) | nein (hier mit Text) | noch nicht getestet |
-| Memory | `H5P.MemoryGame 1.3` | [`muster/H5P.MemoryGame.json`](muster/H5P.MemoryGame.json) | ja | noch nicht getestet |
-| Image Pairing | `H5P.ImagePair 1.4` | [`muster/H5P.ImagePair.json`](muster/H5P.ImagePair.json) | ja | noch nicht getestet |
-| Image Sequencing | `H5P.ImageSequencing 1.1` | [`muster/H5P.ImageSequencing.json`](muster/H5P.ImageSequencing.json) | ja | noch nicht getestet |
+| Multiple Choice | `H5P.MultiChoice 1.16` | [`muster/H5P.MultiChoice.json`](muster/H5P.MultiChoice.json) | nein | getestet |
+| Drag the Words | `H5P.DragText 1.10` | [`muster/H5P.DragText.json`](muster/H5P.DragText.json) | nein | getestet |
+| Mark the Words | `H5P.MarkTheWords 1.11` | [`muster/H5P.MarkTheWords.json`](muster/H5P.MarkTheWords.json) | nein | getestet |
+| Find the Words | `H5P.FindTheWords 1.4` | [`muster/H5P.FindTheWords.json`](muster/H5P.FindTheWords.json) | nein | getestet |
+| Single Choice Set | `H5P.SingleChoiceSet 1.11` | [`muster/H5P.SingleChoiceSet.json`](muster/H5P.SingleChoiceSet.json) | nein | getestet |
+| Sort the Paragraphs | `H5P.SortParagraphs 0.11` | [`muster/H5P.SortParagraphs.json`](muster/H5P.SortParagraphs.json) | nein | getestet |
+| Quiz (Question Set) | `H5P.QuestionSet 1.21` | [`muster/H5P.QuestionSet.json`](muster/H5P.QuestionSet.json) | nein | getestet |
+| Drag and Drop | `H5P.DragQuestion 1.15` | [`muster/H5P.DragQuestion.json`](muster/H5P.DragQuestion.json) | nein (hier mit Text) | getestet |
+| Memory | `H5P.MemoryGame 1.3` | [`muster/H5P.MemoryGame.json`](muster/H5P.MemoryGame.json) | ja | getestet |
+| Image Pairing | `H5P.ImagePair 1.4` | [`muster/H5P.ImagePair.json`](muster/H5P.ImagePair.json) | ja | getestet |
+| Image Sequencing | `H5P.ImageSequencing 1.1` | [`muster/H5P.ImageSequencing.json`](muster/H5P.ImageSequencing.json) | ja | getestet |
 
 - Lücken im Lückentext werden mit Sternchen markiert: `Die Hauptstadt ist *Berlin*.` Mehrere richtige Antworten mit `/`: `*Berlin/berlin*`, Tipp mit `:`: `*Berlin:Beginnt mit B*`. Dasselbe gilt für Drag the Words und Mark the Words.
 - Bilder im Inhalt: Datei im Feld `dateien` nennen, im Inhalt steht dann `images/NAME`. Die Muster zeigen, wie.
@@ -35,7 +35,7 @@ Diese Inhaltstypen kennt die Lernplattform mit genau diesen Versionsnummern (aus
 
 ## Getestet
 
-Lückentext: am 15.11.2026 in der ByCS-Lernplattform (Moodle 5.2.4) wiederhergestellt und geprüft. Die übrigen Typen sind eingebaut, aber noch nicht in der Lernplattform geprüft.
+Lückentext am 15.11.2026, alle übrigen Typen der Tabelle am 17.11.2026 in der ByCS-Lernplattform (Moodle 5.2.4) wiederhergestellt und geprüft.
 
 ## Für die KI
 
