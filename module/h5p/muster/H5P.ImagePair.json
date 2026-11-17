@@ -1,0 +1,81 @@
+{
+ "name": "Image Pairing: Farben",
+ "bibliothek": "H5P.ImagePair 1.4",
+ "dateien": [
+  "dateien/farbe-rot.png",
+  "dateien/farbe-blau.png",
+  "dateien/farbe-gruen.png"
+ ],
+ "inhalt": {
+  "taskDescription": "Ziehe die Bilder von links zu den passenden Bildern rechts.",
+  "cards": [
+   {
+    "image": {
+     "path": "images/farbe-rot.png",
+     "mime": "image/png",
+     "width": 200,
+     "height": 200,
+     "copyright": {
+      "license": "U"
+     }
+    },
+    "match": {
+     "path": "images/farbe-rot.png",
+     "mime": "image/png",
+     "width": 200,
+     "height": 200,
+     "copyright": {
+      "license": "U"
+     }
+    }
+   },
+   {
+    "image": {
+     "path": "images/farbe-blau.png",
+     "mime": "image/png",
+     "width": 200,
+     "height": 200,
+     "copyright": {
+      "license": "U"
+     }
+    },
+    "match": {
+     "path": "images/farbe-blau.png",
+     "mime": "image/png",
+     "width": 200,
+     "height": 200,
+     "copyright": {
+      "license": "U"
+     }
+    }
+   },
+   {
+    "image": {
+     "path": "images/farbe-gruen.png",
+     "mime": "image/png",
+     "width": 200,
+     "height": 200,
+     "copyright": {
+      "license": "U"
+     }
+    },
+    "match": {
+     "path": "images/farbe-gruen.png",
+     "mime": "image/png",
+     "width": 200,
+     "height": 200,
+     "copyright": {
+      "license": "U"
+     }
+    }
+   }
+  ],
+  "behaviour": false,
+  "l10n": {
+   "checkAnswer": "Prüfen",
+   "tryAgain": "Nochmal",
+   "showSolution": "Lösung anzeigen",
+   "score": "Du hast @score von @total Punkten"
+  }
+ }
+}

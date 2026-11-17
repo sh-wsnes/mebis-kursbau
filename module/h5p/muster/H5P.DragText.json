@@ -1,0 +1,49 @@
+{
+ "name": "Drag the Words: Weimarer Republik",
+ "bibliothek": "H5P.DragText 1.10",
+ "inhalt": {
+  "taskDescription": "<p>Ziehe die Wörter in die passenden Lücken.</p>",
+  "checkAnswer": "Prüfen",
+  "tryAgain": "Nochmal",
+  "showSolution": "Lösung anzeigen",
+  "behaviour": {
+   "enableRetry": true,
+   "enableSolutionsButton": true,
+   "instantFeedback": false,
+   "enableCheckButton": true
+  },
+  "textField": "Die Weimarer Republik begann *1918:Jahr des Kriegsendes*.\nIhr erster Reichspräsident hieß Friedrich *Ebert*.\nSie endete mit der Machtübernahme der *Nationalsozialisten*.",
+  "overallFeedback": [
+   {
+    "from": 0,
+    "to": 100,
+    "feedback": "Du hast @score von @total Punkten."
+   }
+  ],
+  "dropZoneIndex": "Lücke @index.",
+  "empty": "Lücke @index ist leer.",
+  "contains": "Lücke @index enthält @draggable.",
+  "tipLabel": "Tipp anzeigen",
+  "correctText": "Richtig!",
+  "incorrectText": "Falsch!",
+  "resetDropTitle": "Lücke leeren",
+  "resetDropDescription": "Willst du diese Lücke wirklich leeren?",
+  "grabbed": "Wort aufgenommen.",
+  "cancelledDragging": "Ziehen abgebrochen.",
+  "correctAnswer": "Richtige Antwort:",
+  "feedbackHeader": "Rückmeldung",
+  "scoreBarLabel": "Du hast :num von :total Punkten",
+  "media": {
+   "disableImageZooming": false,
+   "type": {
+    "params": {}
+   }
+  },
+  "submitAnswer": "Abgeben",
+  "ariaDraggableIndex": "@index von @count Wörtern.",
+  "a11yCheck": "Antworten prüfen. Die Antworten werden als richtig, falsch oder unbeantwortet markiert.",
+  "a11yShowSolution": "Lösung anzeigen. Die Aufgabe wird mit der richtigen Lösung markiert.",
+  "a11yRetry": "Aufgabe wiederholen. Alle Antworten werden zurückgesetzt.",
+  "distractors": "*Bismarck*"
+ }
+}

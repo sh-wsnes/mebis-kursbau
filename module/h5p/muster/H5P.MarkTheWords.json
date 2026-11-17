@@ -1,0 +1,43 @@
+{
+ "name": "Mark the Words: Städte",
+ "bibliothek": "H5P.MarkTheWords 1.11",
+ "inhalt": {
+  "checkAnswerButton": "Prüfen",
+  "tryAgainButton": "Nochmal",
+  "showSolutionButton": "Lösung anzeigen",
+  "behaviour": {
+   "enableRetry": true,
+   "enableSolutionsButton": true,
+   "enableCheckButton": true,
+   "showScorePoints": true
+  },
+  "taskDescription": "<p>Markiere alle Städte im Text.</p>",
+  "textField": "*Berlin* ist die Hauptstadt, *München* liegt in Bayern. Die Zugspitze ist ein Berg, *Hamburg* ein Hafen.",
+  "overallFeedback": [
+   {
+    "from": 0,
+    "to": 100,
+    "feedback": "Du hast @score von @total Punkten."
+   }
+  ],
+  "correctAnswer": "Richtig!",
+  "incorrectAnswer": "Falsch!",
+  "missedAnswer": "Übersehen!",
+  "displaySolutionDescription": "Die Aufgabe zeigt jetzt die Lösung.",
+  "scoreBarLabel": "Du hast :num von :total Punkten",
+  "a11yFullTextLabel": "Vollständiger Text",
+  "a11yClickableTextLabel": "Text, in dem Wörter markiert werden können",
+  "media": {
+   "disableImageZooming": false,
+   "type": {
+    "params": {}
+   }
+  },
+  "submitAnswerButton": "Abgeben",
+  "a11ySolutionModeHeader": "Lösungsmodus",
+  "a11yCheckingHeader": "Prüfmodus",
+  "a11yCheck": "Antworten prüfen. Die Antworten werden als richtig, falsch oder unbeantwortet markiert.",
+  "a11yShowSolution": "Lösung anzeigen. Die Aufgabe wird mit der richtigen Lösung markiert.",
+  "a11yRetry": "Aufgabe wiederholen. Alle Antworten werden zurückgesetzt."
+ }
+}

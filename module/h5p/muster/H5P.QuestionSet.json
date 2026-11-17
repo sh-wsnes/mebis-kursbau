@@ -1,0 +1,249 @@
+{
+ "name": "Quiz (Question Set): Deutschland",
+ "bibliothek": "H5P.QuestionSet 1.21",
+ "inhalt": {
+  "progressType": "dots",
+  "passPercentage": 50,
+  "questions": [
+   {
+    "params": {
+     "answers": [
+      {
+       "correct": true,
+       "text": "<div>München</div>",
+       "tipsAndFeedback": {
+        "tip": "",
+        "chosenFeedback": "",
+        "notChosenFeedback": ""
+       }
+      },
+      {
+       "correct": true,
+       "text": "<div>Nürnberg</div>",
+       "tipsAndFeedback": {
+        "tip": "",
+        "chosenFeedback": "",
+        "notChosenFeedback": ""
+       }
+      },
+      {
+       "correct": false,
+       "text": "<div>Köln</div>",
+       "tipsAndFeedback": {
+        "tip": "",
+        "chosenFeedback": "",
+        "notChosenFeedback": ""
+       }
+      }
+     ],
+     "UI": {
+      "showSolutionButton": "Lösung anzeigen",
+      "tryAgainButton": "Nochmal",
+      "checkAnswerButton": "Prüfen",
+      "tipsLabel": "Tipp anzeigen",
+      "scoreBarLabel": "Du hast :num von :total Punkten",
+      "tipAvailable": "Tipp vorhanden",
+      "feedbackAvailable": "Rückmeldung vorhanden",
+      "readFeedback": "Rückmeldung lesen",
+      "wrongAnswer": "Falsche Antwort",
+      "correctAnswer": "Richtige Antwort",
+      "shouldCheck": "Hätte angekreuzt werden müssen",
+      "shouldNotCheck": "Hätte nicht angekreuzt werden dürfen",
+      "noInput": "Bitte erst antworten, dann die Lösung ansehen",
+      "submitAnswerButton": "Abgeben",
+      "a11yCheck": "Antworten prüfen. Die Antworten werden als richtig, falsch oder unbeantwortet markiert.",
+      "a11yShowSolution": "Lösung anzeigen. Die Aufgabe wird mit der richtigen Lösung markiert.",
+      "a11yRetry": "Aufgabe wiederholen. Alle Antworten werden zurückgesetzt."
+     },
+     "question": "<p>Welche Städte liegen in Bayern?</p>",
+     "behaviour": {
+      "enableRetry": true,
+      "enableSolutionsButton": true,
+      "singlePoint": true,
+      "randomAnswers": true,
+      "showSolutionsRequiresInput": true,
+      "type": "auto",
+      "confirmCheckDialog": false,
+      "confirmRetryDialog": false,
+      "autoCheck": false,
+      "passPercentage": 100,
+      "showScorePoints": true,
+      "enableCheckButton": true
+     },
+     "confirmCheck": {
+      "header": "Beenden?",
+      "body": "Willst du wirklich beenden?",
+      "cancelLabel": "Abbrechen",
+      "confirmLabel": "Beenden"
+     },
+     "confirmRetry": {
+      "header": "Nochmal?",
+      "body": "Willst du wirklich von vorn beginnen?",
+      "cancelLabel": "Abbrechen",
+      "confirmLabel": "Ja"
+     },
+     "overallFeedback": [
+      {
+       "from": 0,
+       "to": 0,
+       "feedback": "Falsch!"
+      },
+      {
+       "from": 1,
+       "to": 99,
+       "feedback": "Fast!"
+      },
+      {
+       "from": 100,
+       "to": 100,
+       "feedback": "Richtig!"
+      }
+     ]
+    },
+    "library": "H5P.MultiChoice 1.16",
+    "subContentId": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+    "metadata": {
+     "title": "Welche Städte liegen in Bayern?",
+     "license": "U",
+     "contentType": "Multiple Choice"
+    }
+   },
+   {
+    "params": {
+     "answers": [
+      {
+       "correct": true,
+       "text": "<div>Berlin</div>",
+       "tipsAndFeedback": {
+        "tip": "",
+        "chosenFeedback": "",
+        "notChosenFeedback": ""
+       }
+      },
+      {
+       "correct": false,
+       "text": "<div>Bonn</div>",
+       "tipsAndFeedback": {
+        "tip": "",
+        "chosenFeedback": "",
+        "notChosenFeedback": ""
+       }
+      }
+     ],
+     "UI": {
+      "showSolutionButton": "Lösung anzeigen",
+      "tryAgainButton": "Nochmal",
+      "checkAnswerButton": "Prüfen",
+      "tipsLabel": "Tipp anzeigen",
+      "scoreBarLabel": "Du hast :num von :total Punkten",
+      "tipAvailable": "Tipp vorhanden",
+      "feedbackAvailable": "Rückmeldung vorhanden",
+      "readFeedback": "Rückmeldung lesen",
+      "wrongAnswer": "Falsche Antwort",
+      "correctAnswer": "Richtige Antwort",
+      "shouldCheck": "Hätte angekreuzt werden müssen",
+      "shouldNotCheck": "Hätte nicht angekreuzt werden dürfen",
+      "noInput": "Bitte erst antworten, dann die Lösung ansehen",
+      "submitAnswerButton": "Abgeben",
+      "a11yCheck": "Antworten prüfen. Die Antworten werden als richtig, falsch oder unbeantwortet markiert.",
+      "a11yShowSolution": "Lösung anzeigen. Die Aufgabe wird mit der richtigen Lösung markiert.",
+      "a11yRetry": "Aufgabe wiederholen. Alle Antworten werden zurückgesetzt."
+     },
+     "question": "<p>Wie heißt die Hauptstadt von Deutschland?</p>",
+     "behaviour": {
+      "enableRetry": true,
+      "enableSolutionsButton": true,
+      "singlePoint": true,
+      "randomAnswers": true,
+      "showSolutionsRequiresInput": true,
+      "type": "auto",
+      "confirmCheckDialog": false,
+      "confirmRetryDialog": false,
+      "autoCheck": false,
+      "passPercentage": 100,
+      "showScorePoints": true,
+      "enableCheckButton": true
+     },
+     "confirmCheck": {
+      "header": "Beenden?",
+      "body": "Willst du wirklich beenden?",
+      "cancelLabel": "Abbrechen",
+      "confirmLabel": "Beenden"
+     },
+     "confirmRetry": {
+      "header": "Nochmal?",
+      "body": "Willst du wirklich von vorn beginnen?",
+      "cancelLabel": "Abbrechen",
+      "confirmLabel": "Ja"
+     },
+     "overallFeedback": [
+      {
+       "from": 0,
+       "to": 0,
+       "feedback": "Falsch!"
+      },
+      {
+       "from": 1,
+       "to": 99,
+       "feedback": "Fast!"
+      },
+      {
+       "from": 100,
+       "to": 100,
+       "feedback": "Richtig!"
+      }
+     ]
+    },
+    "library": "H5P.MultiChoice 1.16",
+    "subContentId": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
+    "metadata": {
+     "title": "Wie heißt die Hauptstadt von Deutschland?",
+     "license": "U",
+     "contentType": "Multiple Choice"
+    }
+   }
+  ],
+  "introPage": {
+   "showIntroPage": false,
+   "startButtonText": "Start Quiz",
+   "introduction": ""
+  },
+  "texts": {
+   "prevButton": "Zurück",
+   "nextButton": "Weiter",
+   "finishButton": "Beenden",
+   "textualProgress": "Frage: @current von @total Fragen",
+   "jumpToQuestion": "Frage %d von %total",
+   "questionLabel": "Frage",
+   "readSpeakerProgress": "Frage @current von @total",
+   "unansweredText": "Unbeantwortet",
+   "answeredText": "Beantwortet",
+   "currentQuestionText": "Aktuelle Frage"
+  },
+  "endGame": {
+   "showResultPage": true,
+   "noResultMessage": "Beendet",
+   "message": "Dein Ergebnis:",
+   "overallFeedback": [
+    {
+     "from": 0,
+     "to": 100,
+     "feedback": "Du hast @score von @total Punkten."
+    }
+   ],
+   "finishButtonText": "Beenden",
+   "solutionButtonText": "Lösung anzeigen",
+   "retryButtonText": "Nochmal",
+   "showAnimations": false,
+   "skippable": false,
+   "skipButtonText": "Video überspringen"
+  },
+  "override": {
+   "showSolutionButton": "off",
+   "retryButton": "off",
+   "checkButton": true
+  },
+  "disableBackwardsNavigation": false,
+  "randomQuestions": false
+ }
+}

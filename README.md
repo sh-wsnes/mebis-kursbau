@@ -43,7 +43,7 @@ Jede Seite beschreibt, was geht, was noch nicht geht und wann das Element zuletz
 ## Was noch fehlt
 
 - Test und die übrigen Aktivitäten der Lernplattform
-- weitere H5P-Inhaltstypen (je ein Muster aus der Lernplattform nötig)
+- weitere H5P-Inhaltstypen, die nicht in der Tabelle der H5P-Seite stehen (je ein Muster aus der Lernplattform nötig)
 - Glossar mit Einträgen: Moodle behandelt Einträge als Nutzerdaten, die auf diesem Weg nicht mitkommen
 
 ## Stand
