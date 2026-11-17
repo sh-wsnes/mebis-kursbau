@@ -1,0 +1,68 @@
+{
+ "name": "Sort the Paragraphs: Weimarer Republik",
+ "bibliothek": "H5P.SortParagraphs 0.11",
+ "inhalt": {
+  "overallFeedback": [
+   {
+    "from": 0,
+    "to": 100,
+    "feedback": "Du hast @score von @total Punkten."
+   }
+  ],
+  "behaviour": {
+   "scoringMode": "transitions",
+   "applyPenalties": true,
+   "duplicatesInterchangeable": true,
+   "enableRetry": true,
+   "enableSolutionsButton": true,
+   "addButtonsForMovement": true
+  },
+  "l10n": {
+   "checkAnswer": "Prüfen",
+   "tryAgain": "Nochmal",
+   "showSolution": "Lösung anzeigen",
+   "up": "Nach oben",
+   "down": "Nach unten",
+   "disabled": "Gesperrt",
+   "submitAnswer": "Abgeben"
+  },
+  "a11y": {
+   "check": "Antworten prüfen.",
+   "showSolution": "Lösung anzeigen.",
+   "retry": "Aufgabe wiederholen.",
+   "yourResult": "Du hast @score von @total Punkten",
+   "paragraph": "Absatz",
+   "correct": "richtig",
+   "wrong": "falsch",
+   "point": "@score Punkt",
+   "sevenOfNine": "@current of @total",
+   "currentPosition": "Current position in list",
+   "instructionsSelected": "Press spacebar to reorder",
+   "instructionsGrabbed": "Press up and down arrow keys to change position, spacebar to drop, escape to cancel",
+   "grabbed": "Grabbed",
+   "moved": "Moved",
+   "dropped": "Dropped",
+   "reorderCancelled": "Reorder cancelled",
+   "finalPosition": "Final position",
+   "nextParagraph": "Next paragraph",
+   "correctParagraph": "Correct paragraph at position",
+   "listDescription": "Sortable list of paragraphs.",
+   "listDescriptionCheckAnswer": "List of paragraphs with results.",
+   "listDescriptionShowSolution": "List of paragraphs with solutions."
+  },
+  "taskDescription": "<p>Bringe die Ereignisse in die richtige Reihenfolge.</p>",
+  "paragraphs": [
+   "<p>1918: Ausrufung der Republik</p>",
+   "<p>1919: Verfassung von Weimar</p>",
+   "<p>1923: Hyperinflation</p>",
+   "<p>1929: Weltwirtschaftskrise</p>",
+   "<p>1933: Machtübernahme der Nationalsozialisten</p>"
+  ],
+  "media": {
+   "type": {
+    "params": {}
+   },
+   "disableImageZooming": false
+  }
+ }
+}

@@ -305,6 +305,1030 @@
           }
         }
       ]
+    },
+    {
+      "name": "Weitere H5P-Typen",
+      "inhalte": [
+        {
+          "typ": "h5p",
+          "name": "Drag and Drop: Hauptstädte",
+          "bibliothek": "H5P.DragQuestion 1.15",
+          "inhalt": {
+            "scoreShow": "Ergebnis anzeigen",
+            "tryAgain": "Nochmal",
+            "question": {
+              "settings": {
+                "size": {
+                  "width": 800,
+                  "height": 400
+                }
+              },
+              "task": {
+                "elements": [
+                  {
+                    "type": {
+                      "library": "H5P.AdvancedText 1.1",
+                      "params": {
+                        "text": "<p>Berlin</p>"
+                      },
+                      "subContentId": "d1111111-1111-4111-8111-111111111111",
+                      "metadata": {
+                        "contentType": "Text",
+                        "license": "U",
+                        "title": "Berlin",
+                        "authors": [],
+                        "changes": []
+                      }
+                    },
+                    "x": 70,
+                    "y": 10,
+                    "width": 18,
+                    "height": 8,
+                    "dropZones": [
+                      "0",
+                      "1"
+                    ],
+                    "backgroundOpacity": 100,
+                    "multiple": false
+                  },
+                  {
+                    "type": {
+                      "library": "H5P.AdvancedText 1.1",
+                      "params": {
+                        "text": "<p>München</p>"
+                      },
+                      "subContentId": "d2222222-2222-4222-8222-222222222222",
+                      "metadata": {
+                        "contentType": "Text",
+                        "license": "U",
+                        "title": "München",
+                        "authors": [],
+                        "changes": []
+                      }
+                    },
+                    "x": 70,
+                    "y": 40,
+                    "width": 18,
+                    "height": 8,
+                    "dropZones": [
+                      "0",
+                      "1"
+                    ],
+                    "backgroundOpacity": 100,
+                    "multiple": false
+                  }
+                ],
+                "dropZones": [
+                  {
+                    "x": 10,
+                    "y": 10,
+                    "width": 30,
+                    "height": 20,
+                    "correctElements": [
+                      "0"
+                    ],
+                    "showLabel": true,
+                    "backgroundOpacity": 50,
+                    "label": "Hauptstadt von Deutschland",
+                    "single": true,
+                    "autoAlign": false,
+                    "tipsAndFeedback": {
+                      "tip": "",
+                      "feedbackOnCorrect": "",
+                      "feedbackOnIncorrect": ""
+                    },
+                    "type": {
+                      "library": "H5P.DragQuestionDropzone 0.1"
+                    }
+                  },
+                  {
+                    "x": 10,
+                    "y": 50,
+                    "width": 30,
+                    "height": 20,
+                    "correctElements": [
+                      "1"
+                    ],
+                    "showLabel": true,
+                    "backgroundOpacity": 50,
+                    "label": "Hauptstadt von Bayern",
+                    "single": true,
+                    "autoAlign": false,
+                    "tipsAndFeedback": {
+                      "tip": "",
+                      "feedbackOnCorrect": "",
+                      "feedbackOnIncorrect": ""
+                    },
+                    "type": {
+                      "library": "H5P.DragQuestionDropzone 0.1"
+                    }
+                  }
+                ]
+              }
+            },
+            "behaviour": {
+              "enableRetry": true,
+              "singlePoint": false,
+              "enableScoreExplanation": true,
+              "applyPenalties": true,
+              "dropZoneHighlighting": "dragging",
+              "autoAlignSpacing": 2,
+              "enableFullScreen": true,
+              "showScorePoints": true,
+              "enableCheckButton": true,
+              "showTitle": true,
+              "dragHandleVisibility": false
+            },
+            "scoreExplanation": "Richtige Antworten geben +1 Punkt, falsche -1 Punkt. Das Minimum ist 0.",
+            "localize": {
+              "fullscreen": "Vollbild",
+              "exitFullscreen": "Vollbild beenden"
+            },
+            "overallFeedback": [
+              {
+                "from": 0,
+                "to": 100,
+                "feedback": "Du hast @score von @total Punkten."
+              }
+            ],
+            "grabbablePrefix": "Ziehbares Element {num} von {total}.",
+            "grabbableSuffix": "In Ablagefeld {num} abgelegt.",
+            "dropzonePrefix": "Ablagefeld {num} von {total}.",
+            "noDropzone": "Kein Ablagefeld.",
+            "tipLabel": "Tipp anzeigen.",
+            "tipAvailable": "Tipp vorhanden",
+            "correctAnswer": "Richtige Antwort",
+            "wrongAnswer": "Falsche Antwort",
+            "feedbackHeader": "Rückmeldung",
+            "scoreBarLabel": "Du hast :num von :total Punkten",
+            "scoreExplanationButtonLabel": "Punkteerklärung anzeigen",
+            "submit": "Abgeben",
+            "a11yCheck": "Antworten prüfen. Die Antworten werden als richtig, falsch oder unbeantwortet markiert.",
+            "a11yRetry": "Aufgabe wiederholen. Alle Antworten werden zurückgesetzt."
+          }
+        },
+        {
+          "typ": "h5p",
+          "name": "Drag the Words: Weimarer Republik",
+          "bibliothek": "H5P.DragText 1.10",
+          "inhalt": {
+            "taskDescription": "<p>Ziehe die Wörter in die passenden Lücken.</p>",
+            "checkAnswer": "Prüfen",
+            "tryAgain": "Nochmal",
+            "showSolution": "Lösung anzeigen",
+            "behaviour": {
+              "enableRetry": true,
+              "enableSolutionsButton": true,
+              "instantFeedback": false,
+              "enableCheckButton": true
+            },
+            "textField": "Die Weimarer Republik begann *1918:Jahr des Kriegsendes*.\nIhr erster Reichspräsident hieß Friedrich *Ebert*.\nSie endete mit der Machtübernahme der *Nationalsozialisten*.",
+            "overallFeedback": [
+              {
+                "from": 0,
+                "to": 100,
+                "feedback": "Du hast @score von @total Punkten."
+              }
+            ],
+            "dropZoneIndex": "Lücke @index.",
+            "empty": "Lücke @index ist leer.",
+            "contains": "Lücke @index enthält @draggable.",
+            "tipLabel": "Tipp anzeigen",
+            "correctText": "Richtig!",
+            "incorrectText": "Falsch!",
+            "resetDropTitle": "Lücke leeren",
+            "resetDropDescription": "Willst du diese Lücke wirklich leeren?",
+            "grabbed": "Wort aufgenommen.",
+            "cancelledDragging": "Ziehen abgebrochen.",
+            "correctAnswer": "Richtige Antwort:",
+            "feedbackHeader": "Rückmeldung",
+            "scoreBarLabel": "Du hast :num von :total Punkten",
+            "media": {
+              "disableImageZooming": false,
+              "type": {
+                "params": {}
+              }
+            },
+            "submitAnswer": "Abgeben",
+            "ariaDraggableIndex": "@index von @count Wörtern.",
+            "a11yCheck": "Antworten prüfen. Die Antworten werden als richtig, falsch oder unbeantwortet markiert.",
+            "a11yShowSolution": "Lösung anzeigen. Die Aufgabe wird mit der richtigen Lösung markiert.",
+            "a11yRetry": "Aufgabe wiederholen. Alle Antworten werden zurückgesetzt.",
+            "distractors": "*Bismarck*"
+          }
+        },
+        {
+          "typ": "h5p",
+          "name": "Find the Words: Städte",
+          "bibliothek": "H5P.FindTheWords 1.4",
+          "inhalt": {
+            "taskDescription": "Finde die Städte im Buchstabengitter.",
+            "wordList": "Berlin,Bonn,Köln,Essen,Ulm",
+            "behaviour": {
+              "orientations": {
+                "horizontal": true,
+                "horizontalBack": true,
+                "vertical": true,
+                "verticalUp": true,
+                "diagonal": true,
+                "diagonalBack": true,
+                "diagonalUp": true,
+                "diagonalUpBack": true
+              },
+              "fillPool": "abcdefghijklmnopqrstuvwxyz",
+              "preferOverlap": true,
+              "showVocabulary": true,
+              "enableShowSolution": true,
+              "enableRetry": true
+            },
+            "l10n": {
+              "check": "Prüfen",
+              "tryAgain": "Nochmal",
+              "showSolution": "Lösung anzeigen",
+              "found": "@found von @totalWords gefunden",
+              "timeSpent": "Benötigte Zeit",
+              "score": "Du hast @score von @total Punkten",
+              "wordListHeader": "Gesuchte Städte"
+            }
+          }
+        },
+        {
+          "typ": "h5p",
+          "name": "Image Pairing: Farben",
+          "bibliothek": "H5P.ImagePair 1.4",
+          "dateien": [
+            "dateien/farbe-rot.png",
+            "dateien/farbe-blau.png",
+            "dateien/farbe-gruen.png"
+          ],
+          "inhalt": {
+            "taskDescription": "Ziehe die Bilder von links zu den passenden Bildern rechts.",
+            "cards": [
+              {
+                "image": {
+                  "path": "images/farbe-rot.png",
+                  "mime": "image/png",
+                  "width": 200,
+                  "height": 200,
+                  "copyright": {
+                    "license": "U"
+                  }
+                },
+                "match": {
+                  "path": "images/farbe-rot.png",
+                  "mime": "image/png",
+                  "width": 200,
+                  "height": 200,
+                  "copyright": {
+                    "license": "U"
+                  }
+                }
+              },
+              {
+                "image": {
+                  "path": "images/farbe-blau.png",
+                  "mime": "image/png",
+                  "width": 200,
+                  "height": 200,
+                  "copyright": {
+                    "license": "U"
+                  }
+                },
+                "match": {
+                  "path": "images/farbe-blau.png",
+                  "mime": "image/png",
+                  "width": 200,
+                  "height": 200,
+                  "copyright": {
+                    "license": "U"
+                  }
+                }
+              },
+              {
+                "image": {
+                  "path": "images/farbe-gruen.png",
+                  "mime": "image/png",
+                  "width": 200,
+                  "height": 200,
+                  "copyright": {
+                    "license": "U"
+                  }
+                },
+                "match": {
+                  "path": "images/farbe-gruen.png",
+                  "mime": "image/png",
+                  "width": 200,
+                  "height": 200,
+                  "copyright": {
+                    "license": "U"
+                  }
+                }
+              }
+            ],
+            "behaviour": false,
+            "l10n": {
+              "checkAnswer": "Prüfen",
+              "tryAgain": "Nochmal",
+              "showSolution": "Lösung anzeigen",
+              "score": "Du hast @score von @total Punkten"
+            }
+          }
+        },
+        {
+          "typ": "h5p",
+          "name": "Image Sequencing: Farben",
+          "bibliothek": "H5P.ImageSequencing 1.1",
+          "dateien": [
+            "dateien/farbe-rot.png",
+            "dateien/farbe-blau.png",
+            "dateien/farbe-gruen.png",
+            "dateien/farbe-gelb.png"
+          ],
+          "inhalt": {
+            "taskDescription": "Bringe die Farben in die Reihenfolge Rot, Blau, Grün, Gelb.",
+            "sequenceImages": [
+              {
+                "image": {
+                  "path": "images/farbe-rot.png",
+                  "mime": "image/png",
+                  "width": 200,
+                  "height": 200,
+                  "copyright": {
+                    "license": "U"
+                  }
+                },
+                "imageDescription": "Rot"
+              },
+              {
+                "image": {
+                  "path": "images/farbe-blau.png",
+                  "mime": "image/png",
+                  "width": 200,
+                  "height": 200,
+                  "copyright": {
+                    "license": "U"
+                  }
+                },
+                "imageDescription": "Blau"
+              },
+              {
+                "image": {
+                  "path": "images/farbe-gruen.png",
+                  "mime": "image/png",
+                  "width": 200,
+                  "height": 200,
+                  "copyright": {
+                    "license": "U"
+                  }
+                },
+                "imageDescription": "Grün"
+              },
+              {
+                "image": {
+                  "path": "images/farbe-gelb.png",
+                  "mime": "image/png",
+                  "width": 200,
+                  "height": 200,
+                  "copyright": {
+                    "license": "U"
+                  }
+                },
+                "imageDescription": "Gelb"
+              }
+            ],
+            "l10n": {
+              "totalMoves": "Züge",
+              "timeSpent": "Benötigte Zeit",
+              "score": "Du hast @score von @total Punkten",
+              "checkAnswer": "Prüfen",
+              "tryAgain": "Nochmal",
+              "showSolution": "Lösung anzeigen",
+              "resume": "Weiter",
+              "audioNotSupported": "Audio nicht unterstützt",
+              "ariaPlay": "Ton abspielen",
+              "ariaMoveDescription": "@cardDesc von Position @posSrc nach @posDes verschoben",
+              "ariaCardDesc": "Element"
+            },
+            "behaviour": {
+              "enableSolution": true,
+              "enableRetry": true,
+              "enableResume": true
+            },
+            "altTaskDescription": "Bringe die Liste in die richtige Reihenfolge. Mit den Pfeiltasten navigieren, mit der Leertaste ein Element aufnehmen oder ablegen."
+          }
+        },
+        {
+          "typ": "h5p",
+          "name": "Mark the Words: Städte",
+          "bibliothek": "H5P.MarkTheWords 1.11",
+          "inhalt": {
+            "checkAnswerButton": "Prüfen",
+            "tryAgainButton": "Nochmal",
+            "showSolutionButton": "Lösung anzeigen",
+            "behaviour": {
+              "enableRetry": true,
+              "enableSolutionsButton": true,
+              "enableCheckButton": true,
+              "showScorePoints": true
+            },
+            "taskDescription": "<p>Markiere alle Städte im Text.</p>",
+            "textField": "*Berlin* ist die Hauptstadt, *München* liegt in Bayern. Die Zugspitze ist ein Berg, *Hamburg* ein Hafen.",
+            "overallFeedback": [
+              {
+                "from": 0,
+                "to": 100,
+                "feedback": "Du hast @score von @total Punkten."
+              }
+            ],
+            "correctAnswer": "Richtig!",
+            "incorrectAnswer": "Falsch!",
+            "missedAnswer": "Übersehen!",
+            "displaySolutionDescription": "Die Aufgabe zeigt jetzt die Lösung.",
+            "scoreBarLabel": "Du hast :num von :total Punkten",
+            "a11yFullTextLabel": "Vollständiger Text",
+            "a11yClickableTextLabel": "Text, in dem Wörter markiert werden können",
+            "media": {
+              "disableImageZooming": false,
+              "type": {
+                "params": {}
+              }
+            },
+            "submitAnswerButton": "Abgeben",
+            "a11ySolutionModeHeader": "Lösungsmodus",
+            "a11yCheckingHeader": "Prüfmodus",
+            "a11yCheck": "Antworten prüfen. Die Antworten werden als richtig, falsch oder unbeantwortet markiert.",
+            "a11yShowSolution": "Lösung anzeigen. Die Aufgabe wird mit der richtigen Lösung markiert.",
+            "a11yRetry": "Aufgabe wiederholen. Alle Antworten werden zurückgesetzt."
+          }
+        },
+        {
+          "typ": "h5p",
+          "name": "Memory: Farben",
+          "bibliothek": "H5P.MemoryGame 1.3",
+          "dateien": [
+            "dateien/farbe-rot.png",
+            "dateien/farbe-blau.png",
+            "dateien/farbe-gruen.png",
+            "dateien/farbe-gelb.png"
+          ],
+          "inhalt": {
+            "cards": [
+              {
+                "image": {
+                  "path": "images/farbe-rot.png",
+                  "mime": "image/png",
+                  "width": 200,
+                  "height": 200,
+                  "copyright": {
+                    "license": "U"
+                  }
+                },
+                "description": "Rot",
+                "imageAlt": "Farbfläche Rot",
+                "matchAlt": "Farbfläche Rot"
+              },
+              {
+                "image": {
+                  "path": "images/farbe-blau.png",
+                  "mime": "image/png",
+                  "width": 200,
+                  "height": 200,
+                  "copyright": {
+                    "license": "U"
+                  }
+                },
+                "description": "Blau",
+                "imageAlt": "Farbfläche Blau",
+                "matchAlt": "Farbfläche Blau"
+              },
+              {
+                "image": {
+                  "path": "images/farbe-gruen.png",
+                  "mime": "image/png",
+                  "width": 200,
+                  "height": 200,
+                  "copyright": {
+                    "license": "U"
+                  }
+                },
+                "description": "Grün",
+                "imageAlt": "Farbfläche Grün",
+                "matchAlt": "Farbfläche Grün"
+              },
+              {
+                "image": {
+                  "path": "images/farbe-gelb.png",
+                  "mime": "image/png",
+                  "width": 200,
+                  "height": 200,
+                  "copyright": {
+                    "license": "U"
+                  }
+                },
+                "description": "Gelb",
+                "imageAlt": "Farbfläche Gelb",
+                "matchAlt": "Farbfläche Gelb"
+              }
+            ],
+            "l10n": {
+              "cardTurns": "Umgedrehte Karten",
+              "timeSpent": "Benötigte Zeit",
+              "feedback": "Gut gemacht!",
+              "tryAgain": "Neu starten",
+              "closeLabel": "Schließen",
+              "label": "Memory Game. Find the matching cards.",
+              "done": "Alle Karten wurden gefunden.",
+              "cardPrefix": "Karte %num:",
+              "cardUnturned": "Verdeckt.",
+              "cardMatched": "Paar gefunden.",
+              "cardTurned": "Aufgedeckt.",
+              "cardMatchedA11y": "Die Karten passen zusammen!",
+              "cardNotMatchedA11y": "Die Karten passen nicht zusammen. Decke andere Karten auf."
+            },
+            "behaviour": {
+              "useGrid": true,
+              "allowRetry": true
+            },
+            "lookNFeel": {
+              "themeColor": "#909090"
+            }
+          }
+        },
+        {
+          "typ": "h5p",
+          "name": "Multiple Choice: Hauptstadt",
+          "bibliothek": "H5P.MultiChoice 1.16",
+          "inhalt": {
+            "answers": [
+              {
+                "correct": true,
+                "text": "<div>Berlin</div>",
+                "tipsAndFeedback": {
+                  "tip": "",
+                  "chosenFeedback": "Richtig!",
+                  "notChosenFeedback": ""
+                }
+              },
+              {
+                "correct": false,
+                "text": "<div>München</div>",
+                "tipsAndFeedback": {
+                  "tip": "",
+                  "chosenFeedback": "",
+                  "notChosenFeedback": ""
+                }
+              },
+              {
+                "correct": false,
+                "text": "<div>Hamburg</div>",
+                "tipsAndFeedback": {
+                  "tip": "",
+                  "chosenFeedback": "",
+                  "notChosenFeedback": ""
+                }
+              }
+            ],
+            "UI": {
+              "showSolutionButton": "Lösung anzeigen",
+              "tryAgainButton": "Nochmal",
+              "checkAnswerButton": "Prüfen",
+              "tipsLabel": "Tipp anzeigen",
+              "scoreBarLabel": "Du hast :num von :total Punkten",
+              "tipAvailable": "Tipp vorhanden",
+              "feedbackAvailable": "Rückmeldung vorhanden",
+              "readFeedback": "Rückmeldung lesen",
+              "wrongAnswer": "Falsche Antwort",
+              "correctAnswer": "Richtige Antwort",
+              "shouldCheck": "Hätte angekreuzt werden müssen",
+              "shouldNotCheck": "Hätte nicht angekreuzt werden dürfen",
+              "noInput": "Bitte erst antworten, dann die Lösung ansehen",
+              "submitAnswerButton": "Abgeben",
+              "a11yCheck": "Antworten prüfen. Die Antworten werden als richtig, falsch oder unbeantwortet markiert.",
+              "a11yShowSolution": "Lösung anzeigen. Die Aufgabe wird mit der richtigen Lösung markiert.",
+              "a11yRetry": "Aufgabe wiederholen. Alle Antworten werden zurückgesetzt."
+            },
+            "question": "<p>Welche Stadt ist die Hauptstadt von Deutschland?</p>",
+            "behaviour": {
+              "enableRetry": true,
+              "enableSolutionsButton": true,
+              "singlePoint": true,
+              "randomAnswers": true,
+              "showSolutionsRequiresInput": true,
+              "type": "auto",
+              "confirmCheckDialog": false,
+              "confirmRetryDialog": false,
+              "autoCheck": false,
+              "passPercentage": 100,
+              "showScorePoints": true,
+              "enableCheckButton": true
+            },
+            "confirmCheck": {
+              "header": "Finish ?",
+              "body": "Are you sure you wish to finish ?",
+              "cancelLabel": "Cancel",
+              "confirmLabel": "Finish"
+            },
+            "confirmRetry": {
+              "header": "Retry ?",
+              "body": "Are you sure you wish to retry ?",
+              "cancelLabel": "Cancel",
+              "confirmLabel": "Confirm"
+            },
+            "overallFeedback": [
+              {
+                "from": 0,
+                "to": 100,
+                "feedback": "Du hast @score von @total Punkten."
+              }
+            ]
+          }
+        },
+        {
+          "typ": "h5p",
+          "name": "Quiz (Question Set): Deutschland",
+          "bibliothek": "H5P.QuestionSet 1.21",
+          "inhalt": {
+            "progressType": "dots",
+            "passPercentage": 50,
+            "questions": [
+              {
+                "params": {
+                  "answers": [
+                    {
+                      "correct": true,
+                      "text": "<div>München</div>",
+                      "tipsAndFeedback": {
+                        "tip": "",
+                        "chosenFeedback": "",
+                        "notChosenFeedback": ""
+                      }
+                    },
+                    {
+                      "correct": true,
+                      "text": "<div>Nürnberg</div>",
+                      "tipsAndFeedback": {
+                        "tip": "",
+                        "chosenFeedback": "",
+                        "notChosenFeedback": ""
+                      }
+                    },
+                    {
+                      "correct": false,
+                      "text": "<div>Köln</div>",
+                      "tipsAndFeedback": {
+                        "tip": "",
+                        "chosenFeedback": "",
+                        "notChosenFeedback": ""
+                      }
+                    }
+                  ],
+                  "UI": {
+                    "showSolutionButton": "Lösung anzeigen",
+                    "tryAgainButton": "Nochmal",
+                    "checkAnswerButton": "Prüfen",
+                    "tipsLabel": "Tipp anzeigen",
+                    "scoreBarLabel": "Du hast :num von :total Punkten",
+                    "tipAvailable": "Tipp vorhanden",
+                    "feedbackAvailable": "Rückmeldung vorhanden",
+                    "readFeedback": "Rückmeldung lesen",
+                    "wrongAnswer": "Falsche Antwort",
+                    "correctAnswer": "Richtige Antwort",
+                    "shouldCheck": "Hätte angekreuzt werden müssen",
+                    "shouldNotCheck": "Hätte nicht angekreuzt werden dürfen",
+                    "noInput": "Bitte erst antworten, dann die Lösung ansehen",
+                    "submitAnswerButton": "Abgeben",
+                    "a11yCheck": "Antworten prüfen. Die Antworten werden als richtig, falsch oder unbeantwortet markiert.",
+                    "a11yShowSolution": "Lösung anzeigen. Die Aufgabe wird mit der richtigen Lösung markiert.",
+                    "a11yRetry": "Aufgabe wiederholen. Alle Antworten werden zurückgesetzt."
+                  },
+                  "question": "<p>Welche Städte liegen in Bayern?</p>",
+                  "behaviour": {
+                    "enableRetry": true,
+                    "enableSolutionsButton": true,
+                    "singlePoint": true,
+                    "randomAnswers": true,
+                    "showSolutionsRequiresInput": true,
+                    "type": "auto",
+                    "confirmCheckDialog": false,
+                    "confirmRetryDialog": false,
+                    "autoCheck": false,
+                    "passPercentage": 100,
+                    "showScorePoints": true,
+                    "enableCheckButton": true
+                  },
+                  "confirmCheck": {
+                    "header": "Beenden?",
+                    "body": "Willst du wirklich beenden?",
+                    "cancelLabel": "Abbrechen",
+                    "confirmLabel": "Beenden"
+                  },
+                  "confirmRetry": {
+                    "header": "Nochmal?",
+                    "body": "Willst du wirklich von vorn beginnen?",
+                    "cancelLabel": "Abbrechen",
+                    "confirmLabel": "Ja"
+                  },
+                  "overallFeedback": [
+                    {
+                      "from": 0,
+                      "to": 0,
+                      "feedback": "Falsch!"
+                    },
+                    {
+                      "from": 1,
+                      "to": 99,
+                      "feedback": "Fast!"
+                    },
+                    {
+                      "from": 100,
+                      "to": 100,
+                      "feedback": "Richtig!"
+                    }
+                  ]
+                },
+                "library": "H5P.MultiChoice 1.16",
+                "subContentId": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+                "metadata": {
+                  "title": "Welche Städte liegen in Bayern?",
+                  "license": "U",
+                  "contentType": "Multiple Choice"
+                }
+              },
+              {
+                "params": {
+                  "answers": [
+                    {
+                      "correct": true,
+                      "text": "<div>Berlin</div>",
+                      "tipsAndFeedback": {
+                        "tip": "",
+                        "chosenFeedback": "",
+                        "notChosenFeedback": ""
+                      }
+                    },
+                    {
+                      "correct": false,
+                      "text": "<div>Bonn</div>",
+                      "tipsAndFeedback": {
+                        "tip": "",
+                        "chosenFeedback": "",
+                        "notChosenFeedback": ""
+                      }
+                    }
+                  ],
+                  "UI": {
+                    "showSolutionButton": "Lösung anzeigen",
+                    "tryAgainButton": "Nochmal",
+                    "checkAnswerButton": "Prüfen",
+                    "tipsLabel": "Tipp anzeigen",
+                    "scoreBarLabel": "Du hast :num von :total Punkten",
+                    "tipAvailable": "Tipp vorhanden",
+                    "feedbackAvailable": "Rückmeldung vorhanden",
+                    "readFeedback": "Rückmeldung lesen",
+                    "wrongAnswer": "Falsche Antwort",
+                    "correctAnswer": "Richtige Antwort",
+                    "shouldCheck": "Hätte angekreuzt werden müssen",
+                    "shouldNotCheck": "Hätte nicht angekreuzt werden dürfen",
+                    "noInput": "Bitte erst antworten, dann die Lösung ansehen",
+                    "submitAnswerButton": "Abgeben",
+                    "a11yCheck": "Antworten prüfen. Die Antworten werden als richtig, falsch oder unbeantwortet markiert.",
+                    "a11yShowSolution": "Lösung anzeigen. Die Aufgabe wird mit der richtigen Lösung markiert.",
+                    "a11yRetry": "Aufgabe wiederholen. Alle Antworten werden zurückgesetzt."
+                  },
+                  "question": "<p>Wie heißt die Hauptstadt von Deutschland?</p>",
+                  "behaviour": {
+                    "enableRetry": true,
+                    "enableSolutionsButton": true,
+                    "singlePoint": true,
+                    "randomAnswers": true,
+                    "showSolutionsRequiresInput": true,
+                    "type": "auto",
+                    "confirmCheckDialog": false,
+                    "confirmRetryDialog": false,
+                    "autoCheck": false,
+                    "passPercentage": 100,
+                    "showScorePoints": true,
+                    "enableCheckButton": true
+                  },
+                  "confirmCheck": {
+                    "header": "Beenden?",
+                    "body": "Willst du wirklich beenden?",
+                    "cancelLabel": "Abbrechen",
+                    "confirmLabel": "Beenden"
+                  },
+                  "confirmRetry": {
+                    "header": "Nochmal?",
+                    "body": "Willst du wirklich von vorn beginnen?",
+                    "cancelLabel": "Abbrechen",
+                    "confirmLabel": "Ja"
+                  },
+                  "overallFeedback": [
+                    {
+                      "from": 0,
+                      "to": 0,
+                      "feedback": "Falsch!"
+                    },
+                    {
+                      "from": 1,
+                      "to": 99,
+                      "feedback": "Fast!"
+                    },
+                    {
+                      "from": 100,
+                      "to": 100,
+                      "feedback": "Richtig!"
+                    }
+                  ]
+                },
+                "library": "H5P.MultiChoice 1.16",
+                "subContentId": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
+                "metadata": {
+                  "title": "Wie heißt die Hauptstadt von Deutschland?",
+                  "license": "U",
+                  "contentType": "Multiple Choice"
+                }
+              }
+            ],
+            "introPage": {
+              "showIntroPage": false,
+              "startButtonText": "Start Quiz",
+              "introduction": ""
+            },
+            "texts": {
+              "prevButton": "Zurück",
+              "nextButton": "Weiter",
+              "finishButton": "Beenden",
+              "textualProgress": "Frage: @current von @total Fragen",
+              "jumpToQuestion": "Frage %d von %total",
+              "questionLabel": "Frage",
+              "readSpeakerProgress": "Frage @current von @total",
+              "unansweredText": "Unbeantwortet",
+              "answeredText": "Beantwortet",
+              "currentQuestionText": "Aktuelle Frage"
+            },
+            "endGame": {
+              "showResultPage": true,
+              "noResultMessage": "Beendet",
+              "message": "Dein Ergebnis:",
+              "overallFeedback": [
+                {
+                  "from": 0,
+                  "to": 100,
+                  "feedback": "Du hast @score von @total Punkten."
+                }
+              ],
+              "finishButtonText": "Beenden",
+              "solutionButtonText": "Lösung anzeigen",
+              "retryButtonText": "Nochmal",
+              "showAnimations": false,
+              "skippable": false,
+              "skipButtonText": "Video überspringen"
+            },
+            "override": {
+              "showSolutionButton": "off",
+              "retryButton": "off",
+              "checkButton": true
+            },
+            "disableBackwardsNavigation": false,
+            "randomQuestions": false
+          }
+        },
+        {
+          "typ": "h5p",
+          "name": "Single Choice Set: Deutschland",
+          "bibliothek": "H5P.SingleChoiceSet 1.11",
+          "inhalt": {
+            "choices": [
+              {
+                "question": "Die Hauptstadt von Bayern ist ...",
+                "answers": [
+                  "München",
+                  "Nürnberg",
+                  "Augsburg"
+                ],
+                "subContentId": "11111111-1111-4111-8111-111111111111"
+              },
+              {
+                "question": "Der längste Fluss Deutschlands ist ...",
+                "answers": [
+                  "der Rhein",
+                  "die Elbe",
+                  "die Donau"
+                ],
+                "subContentId": "22222222-2222-4222-8222-222222222222"
+              }
+            ],
+            "behaviour": {
+              "timeoutCorrect": 1000,
+              "timeoutWrong": 1000,
+              "soundEffectsEnabled": true,
+              "enableRetry": true,
+              "enableSolutionsButton": true,
+              "passPercentage": 100,
+              "autoContinue": true
+            },
+            "l10n": {
+              "retryButtonLabel": "Nochmal",
+              "solutionViewTitle": "Lösung",
+              "correctText": "Richtig!",
+              "incorrectText": "Falsch!",
+              "muteButtonLabel": "Ton ausschalten",
+              "closeButtonLabel": "Schließen",
+              "slideOfTotal": "Frage :num von :total",
+              "nextButtonLabel": "Nächste Frage",
+              "scoreBarLabel": "Du hast :num von :total Punkten",
+              "solutionListQuestionNumber": "Frage :num",
+              "a11yShowSolution": "Lösung anzeigen. Die Aufgabe wird mit der richtigen Lösung markiert.",
+              "a11yRetry": "Aufgabe wiederholen. Alle Antworten werden zurückgesetzt.",
+              "shouldSelect": "Hätte gewählt werden müssen",
+              "shouldNotSelect": "Hätte nicht gewählt werden dürfen",
+              "nextButton": "Weiter",
+              "showResultsButtonLabel": "Ergebnis anzeigen",
+              "resultHeader": "Dein Ergebnis:",
+              "totalScore": ":score von :maxScore richtig",
+              "resultTableHeader": "Frage",
+              "resultScoreTableHeader": "Punkte",
+              "correctAnswerIntroduction": "Richtige Antwort"
+            },
+            "overallFeedback": [
+              {
+                "from": 0,
+                "to": 100,
+                "feedback": "Du hast :numcorrect von :maxscore richtig."
+              }
+            ]
+          }
+        },
+        {
+          "typ": "h5p",
+          "name": "Sort the Paragraphs: Weimarer Republik",
+          "bibliothek": "H5P.SortParagraphs 0.11",
+          "inhalt": {
+            "overallFeedback": [
+              {
+                "from": 0,
+                "to": 100,
+                "feedback": "Du hast @score von @total Punkten."
+              }
+            ],
+            "behaviour": {
+              "scoringMode": "transitions",
+              "applyPenalties": true,
+              "duplicatesInterchangeable": true,
+              "enableRetry": true,
+              "enableSolutionsButton": true,
+              "addButtonsForMovement": true
+            },
+            "l10n": {
+              "checkAnswer": "Prüfen",
+              "tryAgain": "Nochmal",
+              "showSolution": "Lösung anzeigen",
+              "up": "Nach oben",
+              "down": "Nach unten",
+              "disabled": "Gesperrt",
+              "submitAnswer": "Abgeben"
+            },
+            "a11y": {
+              "check": "Antworten prüfen.",
+              "showSolution": "Lösung anzeigen.",
+              "retry": "Aufgabe wiederholen.",
+              "yourResult": "Du hast @score von @total Punkten",
+              "paragraph": "Absatz",
+              "correct": "richtig",
+              "wrong": "falsch",
+              "point": "@score Punkt",
+              "sevenOfNine": "@current of @total",
+              "currentPosition": "Current position in list",
+              "instructionsSelected": "Press spacebar to reorder",
+              "instructionsGrabbed": "Press up and down arrow keys to change position, spacebar to drop, escape to cancel",
+              "grabbed": "Grabbed",
+              "moved": "Moved",
+              "dropped": "Dropped",
+              "reorderCancelled": "Reorder cancelled",
+              "finalPosition": "Final position",
+              "nextParagraph": "Next paragraph",
+              "correctParagraph": "Correct paragraph at position",
+              "listDescription": "Sortable list of paragraphs.",
+              "listDescriptionCheckAnswer": "List of paragraphs with results.",
+              "listDescriptionShowSolution": "List of paragraphs with solutions."
+            },
+            "taskDescription": "<p>Bringe die Ereignisse in die richtige Reihenfolge.</p>",
+            "paragraphs": [
+              "<p>1918: Ausrufung der Republik</p>",
+              "<p>1919: Verfassung von Weimar</p>",
+              "<p>1923: Hyperinflation</p>",
+              "<p>1929: Weltwirtschaftskrise</p>",
+              "<p>1933: Machtübernahme der Nationalsozialisten</p>"
+            ],
+            "media": {
+              "type": {
+                "params": {}
+              },
+              "disableImageZooming": false
+            }
+          }
+        }
+      ]
     }
   ]
 }

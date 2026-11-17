@@ -1,0 +1,65 @@
+{
+ "name": "Single Choice Set: Deutschland",
+ "bibliothek": "H5P.SingleChoiceSet 1.11",
+ "inhalt": {
+  "choices": [
+   {
+    "question": "Die Hauptstadt von Bayern ist ...",
+    "answers": [
+     "München",
+     "Nürnberg",
+     "Augsburg"
+    ],
+    "subContentId": "11111111-1111-4111-8111-111111111111"
+   },
+   {
+    "question": "Der längste Fluss Deutschlands ist ...",
+    "answers": [
+     "der Rhein",
+     "die Elbe",
+     "die Donau"
+    ],
+    "subContentId": "22222222-2222-4222-8222-222222222222"
+   }
+  ],
+  "behaviour": {
+   "timeoutCorrect": 1000,
+   "timeoutWrong": 1000,
+   "soundEffectsEnabled": true,
+   "enableRetry": true,
+   "enableSolutionsButton": true,
+   "passPercentage": 100,
+   "autoContinue": true
+  },
+  "l10n": {
+   "retryButtonLabel": "Nochmal",
+   "solutionViewTitle": "Lösung",
+   "correctText": "Richtig!",
+   "incorrectText": "Falsch!",
+   "muteButtonLabel": "Ton ausschalten",
+   "closeButtonLabel": "Schließen",
+   "slideOfTotal": "Frage :num von :total",
+   "nextButtonLabel": "Nächste Frage",
+   "scoreBarLabel": "Du hast :num von :total Punkten",
+   "solutionListQuestionNumber": "Frage :num",
+   "a11yShowSolution": "Lösung anzeigen. Die Aufgabe wird mit der richtigen Lösung markiert.",
+   "a11yRetry": "Aufgabe wiederholen. Alle Antworten werden zurückgesetzt.",
+   "shouldSelect": "Hätte gewählt werden müssen",
+   "shouldNotSelect": "Hätte nicht gewählt werden dürfen",
+   "nextButton": "Weiter",
+   "showResultsButtonLabel": "Ergebnis anzeigen",
+   "resultHeader": "Dein Ergebnis:",
+   "totalScore": ":score von :maxScore richtig",
+   "resultTableHeader": "Frage",
+   "resultScoreTableHeader": "Punkte",
+   "correctAnswerIntroduction": "Richtige Antwort"
+  },
+  "overallFeedback": [
+   {
+    "from": 0,
+    "to": 100,
+    "feedback": "Du hast :numcorrect von :maxscore richtig."
+   }
+  ]
+ }
+}
