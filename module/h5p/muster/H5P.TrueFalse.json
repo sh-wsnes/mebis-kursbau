@@ -1,0 +1,43 @@
+{
+ "name": "Wahr/Falsch: Hauptstadt",
+ "bibliothek": "H5P.TrueFalse 1.8",
+ "inhalt": {
+  "correct": "true",
+  "l10n": {
+   "trueText": "Wahr",
+   "falseText": "Falsch",
+   "score": "Du hast @score von @total Punkten",
+   "checkAnswer": "Prüfen",
+   "showSolutionButton": "Lösung anzeigen",
+   "tryAgain": "Nochmal",
+   "wrongAnswerMessage": "Falsche Antwort",
+   "correctAnswerMessage": "Richtige Antwort",
+   "scoreBarLabel": "Du hast :num von :total Punkten",
+   "submitAnswer": "Abgeben",
+   "a11yCheck": "Antworten prüfen. Die Antworten werden als richtig, falsch oder unbeantwortet markiert.",
+   "a11yShowSolution": "Lösung anzeigen. Die Aufgabe wird mit der richtigen Lösung markiert.",
+   "a11yRetry": "Aufgabe wiederholen. Alle Antworten werden zurückgesetzt."
+  },
+  "behaviour": {
+   "enableRetry": true,
+   "enableSolutionsButton": true,
+   "confirmCheckDialog": false,
+   "confirmRetryDialog": false,
+   "autoCheck": false,
+   "enableCheckButton": true
+  },
+  "confirmCheck": {
+   "header": "Beenden?",
+   "body": "Willst du wirklich beenden?",
+   "cancelLabel": "Abbrechen",
+   "confirmLabel": "Beenden"
+  },
+  "confirmRetry": {
+   "header": "Nochmal?",
+   "body": "Willst du wirklich von vorn beginnen?",
+   "cancelLabel": "Abbrechen",
+   "confirmLabel": "Ja"
+  },
+  "question": "<p>Berlin ist die Hauptstadt von Deutschland.</p>"
+ }
+}
