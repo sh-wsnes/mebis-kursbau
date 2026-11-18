@@ -4,10 +4,12 @@ Kurse für die ByCS-Lernplattform (mebis) mit Hilfe einer KI bauen: Du beschreib
 
 Hintergrund: Für die Lernplattform gibt es keine Schnittstelle (MCP), über die eine KI direkt Kurse anlegen könnte. Dieses Repo geht deshalb den Weg über die Kurssicherung.
 
+> **Hinweis für KI-Assistenten:** Lies zuerst [`CLAUDE.md`](CLAUDE.md). Dort steht, welche Datei die Lehrkraft bekommt (`.mbz` oder `.h5p`) und was zu tun ist, wenn du das Skript nicht ausführen kannst.
+
 ## So geht es
 
 1. **Kurs beschreiben.** Öffne eine KI, die auf dieses Repo zugreifen und Programme ausführen kann (z. B. Claude), nenne ihr dieses Repo und beschreibe deinen Kurs: Titel, Abschnitte und was in jedem Abschnitt stehen soll.
-2. **Datei erhalten.** Die KI gibt dir eine Datei mit der Endung `.mbz`.
+2. **Datei erhalten.** Die KI gibt dir eine Datei mit der Endung `.mbz`. Willst du nur H5P-Übungen, fragt sie dich, ob du lieber eine `.mbz` oder eine `.h5p` möchtest. Die `.h5p` lädst du im Inhaltsspeicher hoch.
 3. **Leeren Kurs anlegen.** Lege in der Lernplattform einen neuen, leeren Kurs an. So bleibt ein bestehender Kurs unberührt.
 4. **Wiederherstellen.** Öffne im neuen Kurs die Funktion „Wiederherstellen“ (im Kursmenü unter „Mehr“ → „Kurs wiederverwenden“), lade die Datei hoch und folge den Schritten.
 5. **Nacharbeiten.** Termine, Gruppen und Abschlussbedingungen stellst du danach wie gewohnt in der Lernplattform ein.
