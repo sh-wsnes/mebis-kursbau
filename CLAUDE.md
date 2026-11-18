@@ -10,6 +10,13 @@ Dieses Repo erzeugt Kurssicherungen (`.mbz`) für die ByCS-Lernplattform (mebis,
 4. Gib der Lehrkraft die erzeugte `.mbz`-Datei und nenne den Einspielweg: in der Lernplattform einen leeren Kurs öffnen → **Mehr > Kurs wiederverwenden > Wiederherstellen** → Datei hochladen → den Schritten folgen.
 5. Die Lehrkraft programmiert nicht. Erkläre nichts über JSON oder XML, wenn sie nicht danach fragt.
 
+## Welche Datei bekommt die Lehrkraft? (verbindlich)
+
+- **Gesamtkurs oder mehrere Elemente:** immer eine `.mbz`.
+- **Nur H5P-Übungen** (ein oder mehrere Inhaltstypen, sonst nichts): **frage zuerst**, ob die Lehrkraft eine `.mbz` (Wiederherstellen in einem Kurs) oder eine `.h5p` (Hochladen in den Inhaltsspeicher) möchte. Frage nicht, wenn sie es schon gesagt hat.
+- `.h5p`: `python3 kursbau.py kurs.json --h5p ordner/` erzeugt je Übung eine eigene Datei. Die Kursbeschreibung ist dieselbe wie für die `.mbz` (ein Kurs mit den H5P-Elementen).
+- **Du kannst das Skript nicht ausführen?** Gib nie die Kursbeschreibung (JSON) als „Ergebnis“ aus, ohne es zu sagen. Sage klar: „Ich kann hier keine Datei erzeugen. Nutze eine KI, die Programme ausführen kann (z. B. Claude).“
+
 ## Aufbau der Kursbeschreibung
 
 ```json
