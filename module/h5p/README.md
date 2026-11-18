@@ -17,6 +17,7 @@ Diese Inhaltstypen kennt die Lernplattform mit genau diesen Versionsnummern (aus
 
 | Inhaltstyp | `bibliothek` | Muster | Bilder nötig | Stand |
 |---|---|---|---|---|
+| Wahr/Falsch | `H5P.TrueFalse 1.8` | [`muster/H5P.TrueFalse.json`](muster/H5P.TrueFalse.json) | nein | noch nicht getestet |
 | Lückentext | `H5P.Blanks 1.14` | [`beispiel.json`](beispiel.json) | nein | getestet |
 | Multiple Choice | `H5P.MultiChoice 1.16` | [`muster/H5P.MultiChoice.json`](muster/H5P.MultiChoice.json) | nein | getestet |
 | Drag the Words | `H5P.DragText 1.10` | [`muster/H5P.DragText.json`](muster/H5P.DragText.json) | nein | getestet |
@@ -35,7 +36,7 @@ Diese Inhaltstypen kennt die Lernplattform mit genau diesen Versionsnummern (aus
 
 ## Das geht noch nicht
 
-- Inhaltstypen, deren Versionsnummer auf der Lernplattform nicht bekannt ist. Die Nummer steht in einer Kurssicherung, die eine solche Übung enthält. Bekannt sind die Typen aus der Tabelle oben. Noch ohne Muster aus der Lernplattform: Wahr/Falsch (True/False), Dialog Cards, Flashcards, Image Hotspots, Fill in the Blanks mit Bild u. a.
+- Inhaltstypen, deren Versionsnummer auf der Lernplattform nicht bekannt ist. Die Nummer steht in einer Kurssicherung, die eine solche Übung enthält. Bekannt sind die Typen aus der Tabelle oben. Noch ohne Muster aus der Lernplattform: Dialog Cards, Flashcards, Image Hotspots, Fill in the Blanks mit Bild u. a.
 - Zusammengesetzte Typen wie Course Presentation oder Interactive Video: möglich, aber aufwendig und ungetestet.
 
 ## Getestet
