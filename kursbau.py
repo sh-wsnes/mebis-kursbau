@@ -3,6 +3,7 @@
 für die ByCS-Lernplattform (Moodle 5.2).
 
 Aufruf:   python3 kursbau.py kurs.json [ausgabe.mbz]
+          python3 kursbau.py kurs.json --h5p [ordner]   (je H5P-Übung eine .h5p-Datei)
 
 Das Format der Kursbeschreibung steht in CLAUDE.md. Das Skript braucht nur
 Python 3, keine weiteren Pakete. Die XML-Vorlagen sind aus einer echten
@@ -770,7 +771,49 @@ def slug(text):
     return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-") or "kurs"
 
 
+def h5p_dateien(spec, basis, zielordner):
+    """Schreibt jede H5P-Übung der Kursbeschreibung als eigene .h5p-Datei (zum Hochladen in den Inhaltsspeicher)."""
+    import re, zipfile
+    zielordner.mkdir(parents=True, exist_ok=True)
+    gefunden = []
+    for abschnitt in [{"inhalte": spec.get("allgemein", [])}] + spec.get("abschnitte", []):
+        for i in abschnitt.get("inhalte", []):
+            if i.get("typ") == "h5p":
+                gefunden.append(i)
+    if not gefunden:
+        raise Fehler("Die Kursbeschreibung enthält keine H5P-Übung.")
+    erzeugt = []
+    for i in gefunden:
+        lib, version = i["bibliothek"].split(" ")
+        major, minor = version.split(".")
+        h5p_json = {"title": i["name"], "language": "de", "mainLibrary": lib, "embedTypes": ["iframe"], "license": "U",
+                    "preloadedDependencies": [{"machineName": lib, "majorVersion": major, "minorVersion": minor}]}
+        name = re.sub(r"[^\w\-]+", "-", i["name"]).strip("-") or "h5p"
+        pfad = zielordner / (name + ".h5p")
+        with zipfile.ZipFile(pfad, "w", zipfile.ZIP_DEFLATED) as z:
+            z.writestr("content/content.json", json.dumps(i["inhalt"], ensure_ascii=False, separators=(",", ":")))
+            z.writestr("h5p.json", json.dumps(h5p_json, ensure_ascii=False, separators=(",", ":")))
+            for d in i.get("dateien", []):
+                p = Path(d["pfad"] if isinstance(d, dict) else d)
+                p = p if p.is_absolute() else basis / p
+                if not p.is_file():
+                    raise Fehler(f"Datei fehlt: {p}")
+                z.write(p, "content/images/" + p.name)
+        erzeugt.append(pfad)
+    return erzeugt
+
+
 def main(argv):
+    if len(argv) >= 3 and argv[2] == "--h5p":
+        try:
+            spec = json.loads(Path(argv[1]).read_text(encoding="utf-8"))
+            ordner = Path(argv[3]) if len(argv) == 4 else Path(".")
+            for p in h5p_dateien(spec, Path(argv[1]).parent, ordner):
+                print(f"Erzeugt: {p}")
+        except (Fehler, json.JSONDecodeError, OSError, KeyError) as f:
+            print(f"Fehler: {f}")
+            return 1
+        return 0
     if len(argv) not in (2, 3):
         print(__doc__)
         return 2
