@@ -9,7 +9,7 @@ Interaktive Übungen wie Lückentext, Multiple Choice oder Zuordnung. Die Lernpl
 ## Zwei Wege zur Übung
 
 - **`.mbz`:** die Übung steckt in einem Kurs und wird mit „Wiederherstellen“ eingespielt (Standard, getestet).
-- **`.h5p`:** eine einzelne Übung zum Hochladen in den Inhaltsspeicher. Die KI fragt dich, welchen Weg du willst. Die `.h5p` ist noch nicht in der Lernplattform getestet.
+- **`.h5p`:** eine einzelne Übung zum Hochladen in den Inhaltsspeicher. Die KI fragt dich, welchen Weg du willst. Die `.h5p` ohne Bilder ist am 18.11.2026 getestet (Multiple Choice, Upload im Inhaltsspeicher). Mit Bildern ist sie noch nicht getestet.
 
 ## Das geht
 

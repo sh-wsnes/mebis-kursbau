@@ -786,13 +786,13 @@ def h5p_dateien(spec, basis, zielordner):
     for i in gefunden:
         lib, version = i["bibliothek"].split(" ")
         major, minor = version.split(".")
-        h5p_json = {"title": i["name"], "language": "de", "mainLibrary": lib, "embedTypes": ["div"], "license": "U",
-                    "preloadedDependencies": [{"machineName": lib, "majorVersion": int(major), "minorVersion": int(minor)}]}
+        h5p_json = {"title": i["name"], "language": "de", "mainLibrary": lib, "embedTypes": ["iframe"], "license": "U",
+                    "preloadedDependencies": [{"machineName": lib, "majorVersion": major, "minorVersion": minor}]}
         name = re.sub(r"[^\w\-]+", "-", i["name"]).strip("-") or "h5p"
         pfad = zielordner / (name + ".h5p")
         with zipfile.ZipFile(pfad, "w", zipfile.ZIP_DEFLATED) as z:
-            z.writestr("h5p.json", json.dumps(h5p_json, ensure_ascii=False, indent=1))
-            z.writestr("content/content.json", json.dumps(i["inhalt"], ensure_ascii=False))
+            z.writestr("content/content.json", json.dumps(i["inhalt"], ensure_ascii=False, separators=(",", ":")))
+            z.writestr("h5p.json", json.dumps(h5p_json, ensure_ascii=False, separators=(",", ":")))
             for d in i.get("dateien", []):
                 p = Path(d["pfad"] if isinstance(d, dict) else d)
                 p = p if p.is_absolute() else basis / p
