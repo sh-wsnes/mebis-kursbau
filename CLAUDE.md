@@ -74,4 +74,6 @@ Dateipfade in der Kursbeschreibung sind relativ zum Ordner, in dem die JSON-Date
 
 ## Neue Aktivitätstypen ergänzen
 
+*Nur lesen, wenn ein neuer Elementtyp ergänzt werden soll, nicht beim Bauen eines Kurses.*
+
 Grundlage ist immer eine echte Sicherung aus der Lernplattform, die die Aktivität mit Inhalt enthält. Die XML-Struktur daraus in `kursbau.py` als weiteren Typ nachbauen, dann einen Testkurs erzeugen und die Struktur der erzeugten Dateien mit dem Original vergleichen. Lege für den Typ ein Verzeichnis `module/NAME/` mit `README.md` (Aufbau wie bei den vorhandenen Modulen) und `beispiel.json` an. Erst nach einer erfolgreichen Wiederherstellung in der Lernplattform das Testdatum eintragen und den Typ in die Tabelle oben sowie in die `README.md` des Repos aufnehmen. Details zum Dateiformat stehen in `doku/sicherungsformat.md`.
