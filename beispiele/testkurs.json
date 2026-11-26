@@ -21,7 +21,7 @@
         {
           "typ": "link",
           "name": "Schulhomepage",
-          "url": "https://www.wsnes.de"
+          "url": "https://www.example.org"
         },
         {
           "typ": "textfeld",
@@ -98,7 +98,7 @@
             "Zusammenfassung abgegeben",
             {
               "text": "Schulhomepage angesehen",
-              "link": "https://www.wsnes.de"
+              "link": "https://www.example.org"
             },
             {
               "text": "Zusatzmaterial bearbeitet",
