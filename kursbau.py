@@ -10,6 +10,7 @@ Python 3, keine weiteren Pakete. Die XML-Vorlagen sind aus einer echten
 Sicherung der ByCS-Lernplattform (Stand 14.11.2026) abgeleitet.
 """
 import hashlib
+import html
 import io
 import mimetypes
 import json
@@ -115,6 +116,7 @@ class Kurs:
             for feld in pflicht[typ]:
                 if not i.get(feld):
                     raise Fehler(f'{wo} ({typ}): Pflichtangabe "{feld}" fehlt.')
+            video_warnung(i, wo)
             if typ == "link" and not str(i["url"]).startswith("https://"):
                 raise Fehler(f"{wo}: Die Adresse muss mit https:// beginnen.")
             if typ == "abstimmung" and (not isinstance(i["optionen"], list) or len(i["optionen"]) < 2):
@@ -769,6 +771,15 @@ class Kurs:
 
 def slug(text):
     return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-") or "kurs"
+
+
+def video_warnung(inhalt, wo):
+    """Warnt, wenn ein eingebettetes Video und zusätzlich ein YouTube-Link im selben Inhalt stehen (Video erscheint sonst doppelt)."""
+    import re
+    text = html.unescape(json.dumps(inhalt, ensure_ascii=False))
+    if re.search(r"<iframe[^>]+youtube", text) and re.search(r"youtube\.com/watch|youtu\.be/", text):
+        print(f"Warnung: {wo}: eingebettetes YouTube-Video und zusätzlich ein YouTube-Link. "
+              "Die Lernplattform zeigt das Video dann doppelt. Den Link entfernen (siehe module/video/README.md).", file=sys.stderr)
 
 
 def h5p_dateien(spec, basis, zielordner):

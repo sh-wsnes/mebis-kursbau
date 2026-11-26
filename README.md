@@ -25,6 +25,7 @@ Abschnitte mit Namen und Beschreibung, dazu diese Elemente:
 | Element | Wofür |
 |---|---|
 | [Text- und Medienfeld](module/textfeld/README.md) | Ein Text, der direkt auf der Kursseite steht, ohne dass man etwas anklicken muss. |
+| [Video](module/video/README.md) | Ein YouTube-Video, eingebettet in ein Textfeld oder eine Textseite. |
 | [Textseite](module/textseite/README.md) | Eine eigene Seite mit Text, die über einen Eintrag auf der Kursseite geöffnet wird. |
 | [Link](module/link/README.md) | Ein Eintrag auf der Kursseite, der eine Internetseite öffnet. |
 | [Aufgabe](module/aufgabe/README.md) | Schülerinnen und Schüler geben eine Arbeit ab, als Datei oder als Text direkt in der Lernplattform. |
