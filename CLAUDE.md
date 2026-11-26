@@ -54,6 +54,8 @@ Jeder Inhalt hat ein Feld `typ`. Die Felder jedes Typs stehen in der Beschreibun
 | `verzeichnis` | Verzeichnis | [`module/verzeichnis/README.md`](module/verzeichnis/README.md) |
 | `unterabschnitt` | Unterabschnitt | [`module/unterabschnitt/README.md`](module/unterabschnitt/README.md) |
 
+**Videos** gibt es nicht als eigenen Typ: Sie werden als `iframe` in ein `textfeld` oder eine `textseite` eingebettet. Lies vorher [`module/video/README.md`](module/video/README.md). Wichtig: keinen YouTube-Link neben das Video setzen, sonst erscheint es doppelt.
+
 Felder mit HTML enthalten den Code so, wie er im Editor der Lernplattform unter „Quellcode“ stünde.
 
 ## HTML in Textfeldern und Textseiten
