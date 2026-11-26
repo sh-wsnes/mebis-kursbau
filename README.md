@@ -55,7 +55,7 @@ Alle Elemente wurden am 14.11.2026 bzw. 15.11.2026 mit einem Testkurs erzeugt, i
 
 ## Für Technikinteressierte
 
-- `kursbau.py` – das Skript, braucht nur Python 3: `python3 kursbau.py beispiele/testkurs.json`
+- `kursbau.py` – das Skript, braucht nur Python 3 und läuft unter Windows, macOS und Linux: `python3 kursbau.py beispiele/testkurs.json` (unter Windows meist `python kursbau.py …`). Die Windows-Korrekturen stammen von Lukas, der das Skript unter Windows getestet hat.
 - `CLAUDE.md` – Anleitung für die KI
 - `module/` – Beschreibung und Einzelbeispiel je Element
 - `beispiele/testkurs.json` – ein Kurs mit allen Elementen

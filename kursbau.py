@@ -749,7 +749,7 @@ class Kurs:
             daten[pfad] = inhalt
             pfade.append(pfad)
         pfade.sort()
-        ordner = sorted({str(p) + "/" for pfad in pfade for p in Path(pfad).parents if str(p) != "."})
+        ordner = sorted({str(p).replace("\\", "/") + "/" for pfad in pfade for p in Path(pfad).parents if str(p) != "."})
         zeilen = [f"{o}\td\t0\t?" for o in ordner] + [f"{p}\tf\t{len(daten[p])}\t{self.jetzt}" for p in pfade]
         index = (f"Moodle archive file index. Count: {len(zeilen)}\n" + "\n".join(zeilen) + "\n").encode("utf-8")
         with tarfile.open(ziel, "w:gz", format=tarfile.USTAR_FORMAT) as tar:
@@ -815,6 +815,12 @@ def h5p_dateien(spec, basis, zielordner):
 
 
 def main(argv):
+    # Umlaute in den Meldungen auch auf Windows-Konsolen (cp1252) sauber ausgeben
+    for strom in (sys.stdout, sys.stderr):
+        try:
+            strom.reconfigure(encoding="utf-8")
+        except (AttributeError, ValueError):
+            pass
     if len(argv) >= 3 and argv[2] == "--h5p":
         try:
             spec = json.loads(Path(argv[1]).read_text(encoding="utf-8"))
